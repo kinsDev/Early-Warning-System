@@ -17,7 +17,6 @@ from datetime import datetime
 
 warnings.filterwarnings('ignore')
 
-# Download necessary NLTK data
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)
 
@@ -303,7 +302,6 @@ class HumanitarianCrisisAnalysis:
 
         print("Analysis completed. Check the 'output' directory for results.")
 
-# Usage
 if __name__ == "__main__":
     file_path = input("Enter the path to your CSV file: ")
     analysis = HumanitarianCrisisAnalysis(file_path)
