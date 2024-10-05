@@ -111,5 +111,5 @@ These fields are repeated for Actor 2 and for the action location (prefixed with
 
 ---
 
-This README provides a high-level overview of GDELT services and its main fields. For more detailed field descriptions, you can refer to the full [GDELT Event Codebook](http://gdeltproject.org/data/documentation/GDELT-Event_Codebook-V2.0.pdf).
+This README provides a high-level overview of GDELT services and its main fields. For more detailed field descriptions, you can refer to the full [GDELT Event Codebook](http://data.gdeltproject.org/documentation/GDELT-Event_Codebook-V2.0.pdf).
 
