@@ -66,7 +66,7 @@ The same fields apply to **Actor2** (e.g., `Actor2Code`, `Actor2Name`, etc.).
 
 - **IsRootEvent**: (integer) A flag indicating whether this is the primary event in the document.
 
-- **EventCode**: (string) The CAMEO code representing the action performed by Actor 1 on Actor 2.
+- **EventCode**: (string) The CAMEO code representing the action performed by Actor 1 on Actor 2.The complete CAMEO code descriptions can be found here [CAMEO code manual](http://data.gdeltproject.org/documentation/CAMEO.Manual.1.1b3.pdf).
 
 - **EventBaseCode**: (string) The level 2 event code, used for higher-level aggregation.
 
