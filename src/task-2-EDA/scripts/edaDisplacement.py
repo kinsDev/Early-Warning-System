@@ -160,7 +160,7 @@ class HumanitarianCrisisAnalysis:
             fig, ax = plt.subplots(figsize=(15, 10))
             world.plot(ax=ax, alpha=0.4, color='grey')
             gdf.plot(ax=ax, markersize=gdf[self.displacement_column]/gdf[self.displacement_column].max()*100,
-                     alpha=0.5, color='red')
+                    alpha=0.5, color='red')
             plt.title('Spatial Distribution of Displacement Events')
             plt.savefig(os.path.join(self.output_dir, 'spatial_distribution.png'))
             plt.close()
