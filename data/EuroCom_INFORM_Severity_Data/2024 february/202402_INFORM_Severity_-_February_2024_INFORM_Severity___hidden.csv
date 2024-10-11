@@ -1,0 +1,171 @@
+,,,,,,,,,,,,,,,,,,,,,
+CRISIS,Website name,CRISIS ID,COUNTRY,ISO3,DRIVERS,INFORM Severity Index,INFORM Severity category,INFORM Severity category,Trend (last 3 months),Reliability,Impact of the crisis,Geographical Impact,Human Impact,Conditions of people affected,People in need,Concentration of conditions,Complexity of the crisis,Society and safety,Operating environment,Regions,Last updated
+Weights,,,,,,,,,,,,,,,,,0.3,,,,
+(a-z),,,,(a-z),,(1-5),(1-5),(Very Low-Very High),(Decreasing-Stable-Increasing),(Very Low-Very High),(1-5),(1-5),(1-5),(1-5),(1-5),(1-5),(1-5),(1-5),(1-5),,
+Complex crisis in Afghanistan,Complex crisis,AFG001,Afghanistan,AFG,"Conflict,Violence,Displacement,Drought,Earthquake,Socio-political",4.4,5,Very High,Stable,Very High,4.8,4.9,4.7,4.5,5,4,4,3.9,4,Asia,2024-02-29 00:00:00
+Earthquake in Herat Province,Earthquake in Herat Province,AFG006,Afghanistan,AFG,Earthquake,2.8,3,Medium,Stable,High,2.5,1.4,2.9,2.7,2.4,3,3.3,3.9,2.5,Asia,2024-02-29 00:00:00
+Drought in South-West Angola,Drought in South-West,AGO002,Angola,AGO,Drought,3.1,4,High,Increasing,Medium,2.8,3.7,2.2,3.85,3.7,4,2.2,3.1,1,Africa,2024-02-29 00:00:00
+Nagorno-Karabakh Conflict in Armenia,Nagorno-Karabakh Conflict in Armenia,ARM002,Armenia,ARM,"Conflict,Displacement",2.3,3,Medium,Increasing,Very High,2.3,2.4,2.3,2.5,2,3,2,2,2,Middle east,2024-02-29 00:00:00
+Nagorno-Karabakh conflict in Azerbaijan,Nagorno-Karabakh conflict in Azerbaijan,AZE002,Azerbaijan,AZE,"Conflict,Displacement",2.1,3,Medium,Decreasing,Medium,2.5,0.9,3.1,1,0,2,3.3,3,3.5,Middle east,2024-02-29 00:00:00
+Complex in Burundi,Complex crisis ,BDI001,Burundi,BDI,"Violence,Displacement,Floods",3.3,4,High,Stable,Very High,3.4,4,3.1,3.25,3.5,3,3.3,3,3.5,Africa,2024-02-29 00:00:00
+Conflict in Burkina Faso,Conflict,BFA002,Burkina Faso,BFA,"Conflict,Displacement,Violence",4.1,5,Very High,Increasing,Very High,4,4.1,4,4.2,4.4,4,3.9,3.2,4.5,Africa,2024-02-29 00:00:00
+Rohingya refugee crisis,Rohingya Refugees,BGD002,Bangladesh,BGD,"Conflict,Violence,Displacement",3.3,4,High,Stable,Very High,2.9,0.2,3.8,3.8,3.6,4,2.6,2.6,2.5,Asia,2024-02-29 00:00:00
+Complex crisis in Bangladesh,Complex crisis,BGD010,Bangladesh,BGD,"Socio-political,Displacement,Floods,Cyclone,Food Security,Epidemic,Other seasonal event",4.1,5,Very High,Stable,Very High,4,4.7,3.6,4.5,5,4,3.4,2.6,4,Asia,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Bulgaria,Displacement from Russia-Ukraine conflict,BGR002,Bulgaria,BGR,"Conflict,Displacement",1.7,2,Low,Increasing,High,3,4,2.4,1.1,1.2,1,1.4,1.8,1,Europe,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Belarus,Displacement from Russia-Ukraine conflict,BLR002,Belarus,BLR,"Displacement,Conflict",1.8,2,Low,Stable,Very High,2.6,4.3,1.3,1,1,1,2.4,2.2,2.5,Europe,2024-02-29 00:00:00
+Country level Brazil,Country level,BRA001,Brazil,BRA,"Displacement,Floods",2.3,3,Medium,Decreasing,Very High,2.7,4.5,1.3,2.15,3.3,1,2.3,2.1,2.5,Americas,2024-02-29 00:00:00
+Venezuela displacement in Brazil,Venezuelan refugees,BRA002,Brazil,BRA,Displacement,2.1,3,Medium,Decreasing,Very High,2.1,3.8,0.9,1.8,2.6,1,2.6,2.1,3,Americas,2024-02-29 00:00:00
+Drought in the Amazonas,Drought in the Amazonas,BRA004,Brazil,BRA,Drought,2.2,3,Medium,Stable,High,1.6,2.1,1.3,3,3,3,1.2,2.1,0,Americas,2024-02-29 00:00:00
+Complex crisis in CAR,Complex crisis,CAF001,CAR,CAF,"Conflict,Displacement",4.1,5,Very High,Decreasing,Very High,4.3,4.4,4.3,4.1,4.2,4,4,4,4,Africa,2024-02-29 00:00:00
+Venezuela displacement in Chile,Venezuelan refugees,CHL002,Chile,CHL,Displacement,2.6,3,Medium,Stable,Very High,3.8,4.8,3,2.3,2.6,2,2,1.5,2.5,Americas,2024-02-29 00:00:00
+Multiple crises in Cameroon,Country level,CMR001,Cameroon,CMR,"Conflict,Displacement",4.1,5,Very High,Stable,Very High,4.1,4.7,3.7,4.15,4.3,4,3.9,3.7,4,Africa,2024-02-29 00:00:00
+Lake Chad basin crisis in Cameroon,Lake Chad basin crisis,CMR002,Cameroon,CMR,Conflict,3.6,4,High,Stable,Very High,3.1,1.6,3.6,3.85,3.7,4,3.6,3.7,3.5,Africa,2024-02-29 00:00:00
+Anglophone Crisis in Cameroon,Anglophone crisis,CMR003,Cameroon,CMR,Conflict,3.5,4,High,Stable,Very High,3.2,2.7,3.4,3.35,3.7,3,3.9,3.7,4,Africa,2024-02-29 00:00:00
+CAR refugees in Cameroon,CAR refugees,CMR004,Cameroon,CMR,"Conflict,Displacement",2.8,3,Medium,Stable,Very High,2.3,2.5,2.2,3,3,3,3,3.7,2,Africa,2024-02-29 00:00:00
+Complex crisis in DRC,Complex crisis,COD001,DRC,COD,"Conflict,Displacement,Socio-political",4.4,5,Very High,Stable,Very High,4.4,5,4,4.5,5,4,4.1,4.2,4,Africa,2024-02-29 00:00:00
+Complex crisis in Congo,Complex crisis,COG001,Congo,COG,Conflict,2.3,3,Medium,Stable,High,2.9,4.2,1.9,1.95,1.9,2,2.3,2.6,2,Africa,2024-02-29 00:00:00
+Complex crisis in Colombia,Complex crisis,COL001,Colombia,COL,"Socio-political,Conflict,Violence,Floods,Displacement",4,4,High,Increasing,Very High,4.4,5,4,4.4,4.8,4,3,2.9,3,Americas,2024-02-29 00:00:00
+Venezuela displacement in Colombia,Venezuelan refugees ,COL002,Colombia,COL,Displacement,3.7,4,High,Increasing,Very High,3.6,2.6,4,4.3,4.6,4,2.7,2.9,2.5,Americas,2024-02-29 00:00:00
+Nicaraguan refugees in Costa Rica,Nicaraguan refugees,CRI002,Costa Rica,CRI,Displacement,2.2,3,Medium,Increasing,High,2.3,0.9,2.9,2.65,2.3,3,1.5,1.4,1.5,Americas,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Czechia,Displacement from Russia-Ukraine conflict,CZE002,Czech Republic,CZE,"Conflict,Displacement",1.8,2,Low,Stable,Very High,2.9,4.2,2,1.8,2.6,1,0.8,0.6,1,Europe,2024-02-29 00:00:00
+Multiple crises in Djibouti,Country level,DJI001,Djibouti,DJI,"Displacement,Drought",2.9,3,Medium,Increasing,Very High,2.4,3.2,1.9,3.25,2.5,4,2.6,2.1,3,Africa,2024-02-29 00:00:00
+Mixed migration in Djibouti,Mixed Migration,DJI002,Djibouti,DJI,Displacement,1.2,2,Low,Increasing,Very High,1.3,1.4,1.3,0.9,0.8,1,1.6,2.1,1,Africa,2024-02-29 00:00:00
+Drought in Djibouti,Drought,DJI003,Djibouti,DJI,Drought,2.8,3,Medium,Increasing,Very High,2.2,3.2,1.6,3.2,2.4,4,2.6,2.1,3,Africa,2024-02-29 00:00:00
+Venezuela displacement in Dominican Republic,Venezuelan refugees ,DOM002,Dominican Republic,DOM,Displacement,1.8,2,Low,Stable,Medium,3.2,4.1,2.7,1.4,1.8,1,1.2,1.4,1,Americas,2024-02-29 00:00:00
+Mixed migration flows in Algeria,Mixed Migration,DZA002,Algeria,DZA,Displacement,2.6,3,Medium,Stable,High,3.9,5,3.1,1.7,2.4,1,2.7,2.9,2.5,Africa,2024-02-29 00:00:00
+Sahrawi refugees in Algeria,Sahrawi refugees,DZA003,Algeria,DZA,Displacement,2.2,3,Medium,Stable,Medium,1.4,1.1,1.5,2.3,1.6,3,2.5,2.9,2,Africa,2024-02-29 00:00:00
+Multiple crises in Algeria,Country level,DZA004,Algeria,DZA,Displacement,2.7,3,Medium,Stable,High,3.9,5,3.1,1.8,2.6,1,2.7,2.9,2.5,Africa,2024-02-29 00:00:00
+Venezuela displacement in Ecuador,Venezuelan refugees ,ECU002,Ecuador,ECU,Displacement,2.6,3,Medium,Stable,High,3.3,4.6,2.4,2.35,2.7,2,2.3,2.1,2.5,Americas,2024-02-29 00:00:00
+Refugees in Egypt,Refugees crisis,EGY004,Egypt,EGY,"Displacement,Conflict",2.3,3,Medium,Increasing,Very High,2.9,3.9,2.2,1.9,2.8,1,2.3,2.5,2,Africa,2024-02-29 00:00:00
+Complex crisis in Eritrea,Complex crisis,ERI001,Eritrea,ERI,"Socio-political,Displacement",3.6,4,High,Stable,High,3.6,3.9,3.5,3.2,3.4,3,4.1,4.1,4,Africa,2024-02-29 00:00:00
+Mixed migration flows in Spain,Mixed Migration,ESP002,Spain,ESP,Displacement,1.8,2,Low,Stable,High,3.1,4,2.6,1.2,1.4,1,1.6,1.7,1.5,Europe,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Estonia,Displacement from Russia-Ukraine conflict,EST002,Estonia,EST,"Conflict,Displacement",1.2,2,Low,Stable,Very High,2.1,3.4,1.3,1,1,1,0.8,0.6,1,Europe,2024-02-29 00:00:00
+Complex crisis in Ethiopia,Complex crisis,ETH001,Ethiopia,ETH,"Displacement,Floods,Conflict",4.1,5,Very High,Increasing,High,4.3,5,3.8,4,5,3,4.2,3.8,4.5,Africa,2024-02-29 00:00:00
+International Displacement,International Displacement,ETH003,Ethiopia,ETH,Displacement,3.3,4,High,Increasing,Medium,3.9,5,3,2.65,3.3,2,3.7,3.8,3.5,Africa,2024-02-29 00:00:00
+Northern Ethiopia Conflict,Northern Ethiopia Conflict,ETH004,Ethiopia,ETH,"Conflict,Displacement",3.9,4,High,Stable,High,4.2,2.9,4.7,3.95,4.9,3,3.7,3.8,3.5,Africa,2024-02-29 00:00:00
+Drought in Ethiopia,Drought,ETH005,Ethiopia,ETH,Drought,3.6,4,High,Stable,High,3.2,3.9,2.7,4,5,3,3.2,3.8,2.5,Africa,2024-02-29 00:00:00
+Mixed migration flows in Greece,Mixed Migration,GRC002,Greece,GRC,Displacement,2.1,3,Medium,Stable,High,2,0.6,2.5,2.3,1.6,3,1.9,1.7,2,Europe,2024-02-29 00:00:00
+Complex crisis in Guatemala,Complex crisis,GTM001,Guatemala,GTM,"Violence,Socio-political,Other seasonal event",3.5,4,High,Stable,High,3.4,4.4,2.7,3.75,4.5,3,3.1,3.1,3,Americas,2024-02-29 00:00:00
+Complex crisis in Honduras,Complex crisis,HND001,Honduras,HND,"Violence,Socio-political,Other seasonal event",3.6,4,High,Stable,High,3.7,4.2,3.4,4.05,4.1,4,2.7,2.9,2.5,Americas,2024-02-29 00:00:00
+Complex crisis in Haiti,Complex crisis,HTI001,Haiti,HTI,"Earthquake,Violence,Socio-political,Other seasonal event",4.3,5,Very High,Increasing,High,3.7,4,3.5,4.8,4.6,5,3.7,3.3,4,Americas,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Hungary,Displacement from Russia-Ukraine conflict,HUN002,Hungary,HUN,"Conflict,Displacement",1.6,2,Low,Increasing,Very High,2.6,4.2,1.4,1.2,1.4,1,1.4,1.2,1.5,Europe,2024-02-29 00:00:00
+Papua Conflict,Papua Conflict,IDN002,Indonesia,IDN,"Socio-political,Violence",2.5,3,Medium,Stable,High,3,2.1,3.4,1.85,1.7,2,3.1,2.6,3.5,Asia,2024-02-29 00:00:00
+Afghan Refugees in Iran,Afghan Refugees,IRN004,Iran,IRN,Displacement,3.8,4,High,Increasing,Low,3.6,2.7,4,4.2,4.4,4,3.2,3.7,2.5,Middle east,2024-02-29 00:00:00
+Multiple crises in Iraq,Country level,IRQ001,Iraq,IRQ,"Violence,Displacement,Socio-political,Conflict",3.8,4,High,Stable,High,4.1,4.7,3.8,3.55,4.1,3,3.8,3.5,4,Middle east,2024-02-29 00:00:00
+Conflict  in Iraq,Conflict,IRQ002,Iraq,IRQ,"Conflict,Socio-political,Violence",3.7,4,High,Decreasing,High,4.1,4.7,3.8,3.5,4,3,3.8,3.5,4,Middle east,2024-02-29 00:00:00
+Syrian and Palestinian refugees in iraq,Syrian Refugees,IRQ003,Iraq,IRQ,Displacement,2.5,3,Medium,Stable,High,1.9,1.6,2.1,2.2,2.4,2,3.5,3.5,3.5,Middle east,2024-02-29 00:00:00
+Mixed migration flows in Italy,Mixed Migration,ITA002,Italy,ITA,Displacement,2.1,3,Medium,Decreasing,High,3.3,3.9,2.9,1.5,2,1,2,1.4,2.5,Europe,2024-02-29 00:00:00
+Syrian refugees in Jordan,Syrian refugees,JOR002,Jordan,JOR,Displacement,2.8,3,Medium,Decreasing,High,2.8,3.1,2.7,3.3,3.6,3,2.1,2.7,1.5,Middle east,2024-02-29 00:00:00
+Multiple crisis in Kenya ,Country level ,KEN001,Kenya,KEN,"Drought,Displacement",3.5,4,High,Decreasing,High,4.1,4.3,4,3.45,3.9,3,3.2,3.4,3,Africa,2024-02-29 00:00:00
+Refugee situation in Kenya,Refugee situation,KEN002,Kenya,KEN,Displacement,3,3,Medium,Stable,High,3,0.8,3.7,3,3,3,3,3.4,2.5,Africa,2024-02-29 00:00:00
+Drought in Kenya,Drought,KEN003,Kenya,KEN,Drought,3.4,4,High,Decreasing,Very High,4,4.3,3.8,3.3,3.6,3,3,3.4,2.5,Africa,2024-02-29 00:00:00
+Syrian refugees in Lebanon,Syrian refugees,LBN002,Lebanon,LBN,Displacement,3.2,4,High,Decreasing,High,3.8,3.6,3.9,3.3,3.6,3,2.7,2.9,2.5,Middle east,2024-02-29 00:00:00
+Socioeconomic crisis in Lebanon,Socioeconomic crisis,LBN004,Lebanon,LBN,"Socio-political,Violence,Tecnological Disaster",3.6,4,High,Increasing,High,4.2,3.6,4.4,3.65,4.3,3,3,2.9,3,Middle east,2024-02-29 00:00:00
+Complex crisis in Libya,Complex crisis,LBY001,Libya,LBY,"Conflict,Displacement,Socio-political",3.8,4,High,Stable,Very High,4.6,4.5,4.7,3.2,3.4,3,4,3.4,4.5,Africa,2024-02-29 00:00:00
+Mixed migration flows in Libya,Mixed Migration,LBY002,Libya,LBY,Displacement,3.4,4,High,Increasing,Very High,3.8,4.5,3.4,3.05,3.1,3,3.7,3.4,4,Africa,2024-02-29 00:00:00
+Storm Daniel and floods in Libya,Storm Daniel and floods,LBY003,Libya,LBY,"Floods,Other seasonal event",3.2,4,High,Stable,Very High,2.8,1.4,3.3,3.1,3.2,3,3.5,3.4,3.5,Africa,2024-02-29 00:00:00
+Multiple crises in Sri Lanka,Multiple crises,LKA001,Sri Lanka,LKA,"Socio-political,Food Security,Floods",3.1,4,High,Decreasing,Very High,2.9,4.4,1.8,3.75,4.5,3,2.1,2.2,2,Asia,2024-02-29 00:00:00
+Socio-economic crisis in Sri Lanka,Socio-economic crisis,LKA002,Sri Lanka,LKA,"Socio-political,Food Security",2.9,3,Medium,Decreasing,High,2.8,4.4,1.6,3.75,4.5,3,1.6,2.2,1,Asia,2024-02-29 00:00:00
+2023 Floods and Monsoon Rain,2023 Floods and Monsoon Rain,LKA003,Sri Lanka,LKA,Floods,1.5,2,Low,Increasing,Very High,1.3,1.8,1,1.3,1.6,1,2.1,2.2,2,Asia,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Lithuania,Displacement from Russia-Ukraine conflict,LTU002,Lithuania,LTU,"Conflict,Displacement",1.3,2,Low,Stable,Very High,2.3,3.7,1.4,1.1,1.2,1,0.9,0.7,1,Europe,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Latvia,Displacement from Russia-Ukraine conflict,LVA002,Latvia,LVA,"Conflict,Displacement",1.3,2,Low,Increasing,Very High,2.2,3.5,1.3,1.05,1.1,1,1,1,1,Europe,2024-02-29 00:00:00
+Multiple crises in Morocco,Multiple crises,MAR001,Morocco,MAR,"Displacement,Earthquake",3,3,Medium,Increasing,High,4.2,4.9,3.7,2.45,2.9,2,2.8,3.4,2,Africa,2024-02-29 00:00:00
+Mixed migration flows in Morocco,Mixed Migration,MAR002,Morocco,MAR,Displacement,2.2,3,Medium,Increasing,High,3.5,4.9,2.3,0.75,0.5,1,3,3.4,2.5,Africa,2024-02-29 00:00:00
+Al Haouz Earthquake in Morocco,Al Haouz Earthquake,MAR003,Morocco,MAR,Earthquake,2.9,3,Medium,Increasing,High,3.4,1.7,4,2.9,2.8,3,2.6,3.4,1.5,Africa,2024-02-29 00:00:00
+DIsplacement from Russia-Ukraine conflict in Moldova,Displacement from Russia-Ukraine conflict,MDA002,Moldova,MDA,"Displacement,Conflict",1.6,2,Low,Decreasing,Very High,2.3,3.5,1.6,1.4,1.8,1,1.4,1.8,1,Europe,2024-02-29 00:00:00
+Multiple crisis in Madagascar,Country level,MDG001,Madagascar,MDG,"Drought,Cyclone",2.9,3,Medium,Stable,Very High,3.1,3.1,3.1,3.45,3.9,3,1.8,2,1.5,Africa,2024-02-29 00:00:00
+Drought in Madagascar,Drought,MDG002,Madagascar,MDG,Drought,2.6,3,Medium,Stable,Very High,2.2,2.3,2.2,3.35,3.7,3,1.5,2,1,Africa,2024-02-29 00:00:00
+Tropical cyclone Freddy in Madagascar,Tropical cyclone Freddy,MDG008,Madagascar,MDG,Cyclone,2.6,3,Medium,Decreasing,Very High,3.1,2.6,3.3,2.95,2.9,3,1.8,2,1.5,Africa,2024-02-29 00:00:00
+Multiple crisis in Mexico,Country Level,MEX001,Mexico,MEX,"Violence,Displacement",3,3,Medium,Increasing,High,4.1,5,3.5,1.4,1.8,1,3.9,3,4.5,Americas,2024-02-29 00:00:00
+Criminal Violence in Mexico,Criminal Violence,MEX002,Mexico,MEX,"Violence,Displacement",x,x,x,-,High,4,4.9,3.4,x,x,x,3.5,3,4,Americas,2024-02-29 00:00:00
+Mixed Migration in Mexico,Mixed Migration,MEX003,Mexico,MEX,Displacement,2.3,3,Medium,Stable,High,2.7,3.8,2,1.4,1.8,1,3.3,3,3.5,Americas,2024-02-29 00:00:00
+Complex crisis in Mali,Complex crisis,MLI001,Mali,MLI,Conflict,4.3,5,Very High,Stable,High,4.5,4.9,4.3,4.45,4.9,4,3.9,3.2,4.5,Africa,2024-02-29 00:00:00
+Multiple crises in Myanmar,Country level,MMR001,Myanmar,MMR,"Socio-political,Conflict,Violence",4.6,5,Very High,Stable,Very High,4.8,4.9,4.7,4.5,5,4,4.5,3.9,5,Asia,2024-02-29 00:00:00
+Rakhine Conflict,Rakhine conflict,MMR002,Myanmar,MMR,Conflict,3.9,4,High,Increasing,Very High,3.7,1.2,4.4,3.85,3.7,4,4,3.9,4,Asia,2024-02-29 00:00:00
+Kachin and Shan Conflict,Kachin and Shan conflict,MMR003,Myanmar,MMR,Conflict,3.7,4,High,Stable,Very High,3.4,1.9,4,3.8,3.6,4,3.7,3.9,3.5,Asia,2024-02-29 00:00:00
+Post-coup conflict in Myanmar,Post-coup conflict,MMR004,Myanmar,MMR,"Violence,Socio-political,Conflict",4.4,5,Very High,Stable,Very High,4.6,4.9,4.4,4.5,5,4,4.2,3.9,4.5,Asia,2024-02-29 00:00:00
+2024 Dzud,2024 Dzud in Mongolia,MNG004,Mongolia,MNG,Other seasonal event,1.9,2,Low,-,Very High,1.8,3.1,1,2.5,2,3,1.1,1.1,1,Asia,2024-02-29 00:00:00
+Multiple Crises in Mozambique,Multiple Crises,MOZ001,Mozambique,MOZ,"Conflict,Displacement,Cyclone",3.6,4,High,Increasing,High,3.9,5,3,3.45,3.9,3,3.5,3.5,3.5,Africa,2024-02-29 00:00:00
+Cabo Delgado Islamist Insurgency,Violent Insurgency in Cabo Delgado,MOZ004,Mozambique,MOZ,"Conflict,Displacement",3.5,4,High,Increasing,High,3.6,2.7,3.9,3.35,3.7,3,3.5,3.5,3.5,Africa,2024-02-29 00:00:00
+Tropical Cyclone Freddy in Mozambique,Tropical Cyclone Freddy,MOZ010,Mozambique,MOZ,Cyclone,2.8,3,Medium,Increasing,Very High,2.9,3.8,2.4,2.45,2.9,2,3.3,3.5,3,Africa,2024-02-29 00:00:00
+Refugees from Mali in Mauritania,Malian refugees,MRT002,Mauritania,MRT,Displacement,1.7,2,Low,Decreasing,Very High,2.2,3.1,1.6,1.35,1.7,1,1.9,2.2,1.5,Africa,2024-02-29 00:00:00
+Food Security in Mauritania,Food security,MRT003,Mauritania,MRT,"Drought,Floods",2.7,3,Medium,Stable,Very High,2.9,4.1,2,2.9,2.8,3,2.1,2.2,2,Africa,2024-02-29 00:00:00
+Complex crisis in Malawi,Complex,MWI002,Malawi,MWI,"Drought,Socio-political,Cyclone",3.4,4,High,Increasing,Very High,3.9,4.3,3.6,3.7,4.4,3,2.5,2.4,2.5,Africa,2024-02-29 00:00:00
+Tropical Cyclone Freddy in Malawi,Tropical Cyclone Freddy,MWI005,Malawi,MWI,Cyclone,3,3,Medium,Increasing,Very High,3.3,2.2,3.7,3.35,3.7,3,2.2,2.4,2,Africa,2024-02-29 00:00:00
+International Refugees in Malaysia,International Refugees,MYS001,Malaysia,MYS,Displacement,2.3,3,Medium,Stable,High,2.8,1.7,3.3,2.05,2.1,2,2.1,1.7,2.5,Asia,2024-02-29 00:00:00
+Food Security Crisis in Namibia,Food Security Crisis,NAM002,Namibia,NAM,Drought,2.5,3,Medium,Increasing,Medium,2.8,4.3,1.7,3.05,3.1,3,1.3,1.5,1,Africa,2024-02-29 00:00:00
+Multiple crises in Niger,Country level,NER001,Niger,NER,"Conflict,Displacement",3.7,4,High,Decreasing,Very High,3.7,3.7,3.7,4.1,4.2,4,3.1,2.7,3.5,Africa,2024-02-29 00:00:00
+Lake Chad basin crisis in Niger,Lake Chad basin crisis,NER002,Niger,NER,Conflict,3.2,4,High,Stable,Very High,2.6,1.2,3.2,3.45,2.9,4,3.1,2.7,3.5,Africa,2024-02-29 00:00:00
+Mali/Burkina Faso conflict,Cross-border violence ,NER003,Niger,NER,Conflict,3.5,4,High,Stable,Very High,3.2,2.6,3.5,3.85,3.7,4,3.1,2.7,3.5,Africa,2024-02-29 00:00:00
+Nigerian Refugees,Nigerian Refugees,NER004,Niger,NER,Displacement,2.6,3,Medium,Stable,Very High,1.8,1.6,1.9,3.1,3.2,3,2.4,2.7,2,Africa,2024-02-29 00:00:00
+Complex crisis in Nigeria,Complex crisis,NGA001,Nigeria,NGA,"Conflict,Displacement,Violence",3.9,4,High,Decreasing,High,4.1,4.8,3.6,4,5,3,3.7,3.4,4,Africa,2024-02-29 00:00:00
+Middle belt conflict,Middle Belt,NGA003,Nigeria,NGA,Violence,3.4,4,High,Stable,Medium,3,2.2,3.3,3.5,4,3,3.5,3.4,3.5,Africa,2024-02-29 00:00:00
+Lake Chad basin crisis in Nigeria,Lake Chad basin crisis,NGA004,Nigeria,NGA,"Conflict,Displacement",4.2,5,Very High,Stable,Medium,4.2,2.2,4.8,4.45,4.9,4,3.7,3.4,4,Africa,2024-02-29 00:00:00
+Northwest Banditry,Northwest Banditry,NGA007,Nigeria,NGA,"Violence,Displacement",3.7,4,High,Stable,Medium,3.3,2.8,3.5,3.9,4.8,3,3.7,3.4,4,Africa,2024-02-29 00:00:00
+Cameroonian Refugees in Nigeria,Cameroonian Refugees,NGA008,Nigeria,NGA,Displacement,2,2,Low,Decreasing,High,2.3,2,2.5,1.3,1.6,1,2.8,3.4,2,Africa,2024-02-29 00:00:00
+Socioeconomic crisis in Nicaragua,Socioeconomic crisis,NIC001,Nicaragua,NIC,Socio-political,x,x,x,Decreasing,High,2.9,4.1,2,x,x,x,2.3,2.6,2,Americas,2024-02-29 00:00:00
+Karnali Earthquake,Karnali Earthquake,NPL003,Nepal,NPL,Earthquake,2.4,3,Medium,Stable,High,2.7,3,2.5,2.15,2.3,2,2.6,2.7,2.5,Asia,2024-02-29 00:00:00
+Complex crisis in Pakistan,Complex crisis,PAK001,Pakistan,PAK,"Displacement,Conflict",4,4,High,Increasing,High,3.9,4.9,3.2,4,5,3,4,3.3,4.5,Asia,2024-02-29 00:00:00
+Kashmir conflict in Pakistan,Kashmir conflict,PAK004,Pakistan,PAK,Conflict,x,x,x,-,Low,0.6,1,0.4,x,x,x,3.4,3.3,3.5,Asia,2024-02-29 00:00:00
+Floods in Pakistan ,Monsoon floods 2022,PAK005,Pakistan,PAK,Other seasonal event,3.7,4,High,Increasing,High,4.1,3.8,4.2,4,5,3,2.9,3.3,2.5,Asia,2024-02-29 00:00:00
+Venezuela displacement in Panama,Venezuelan refugees,PAN002,Panama,PAN,Displacement,2.1,3,Medium,Stable,Very High,2.9,2.5,3.1,1.95,0.9,3,1.8,1.6,2,Americas,2024-02-29 00:00:00
+Venezuela displacement in Peru,Venezuelan refugees,PER002,Peru,PER,Displacement,2.9,3,Medium,Stable,Very High,3.4,4,3,2.65,3.3,2,2.7,2.3,3,Americas,2024-02-29 00:00:00
+Mindanao conflict,Mindanao Conflict,PHL003,Philippines,PHL,"Conflict,Violence",2.2,3,Medium,Increasing,High,2.8,2.7,2.8,1.45,1.9,1,2.7,2.8,2.5,Asia,2024-02-29 00:00:00
+Multiple crises in Papua New Guinea,Country level,PNG001,Papua New Guinea,PNG,0,2.1,3,Medium,-,High,2.6,2.8,2.5,1.15,1.3,1,2.9,2.7,3,Pacific,2024-02-29 00:00:00
+Highlands Violence,Highlands Violence,PNG003,Papua New Guinea,PNG,Earthquake,2,2,Low,Decreasing,Very High,2.3,1.9,2.5,1.4,0.8,2,2.6,2.7,2.5,Pacific,2024-02-29 00:00:00
+2023 Ulawun Volcano Eruption in Papua New Guinea,2023 Ulawun Volcano Eruption,PNG004,Papua New Guinea,PNG,Volcano Eruption,1.4,2,Low,-,Very High,1.3,1.4,1.2,0.85,0.7,1,2.4,2.7,2,Pacific,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Poland,Displacement from Russia-Ukraine conflict,POL002,Poland,POL,"Displacement,Conflict",2.1,3,Medium,Decreasing,Very High,3.4,4.8,2.3,2.15,3.3,1,1,0.9,1,Europe,2024-02-29 00:00:00
+Complex crisis in DPRK,Complex crisis,PRK001,DPRK,PRK,"Socio-political,Floods,Other seasonal event,Food Security",3.7,4,High,Decreasing,Medium,3.9,4.6,3.5,4.5,5,4,2.4,2.7,2,Asia,2024-02-29 00:00:00
+Conflict in Palestine,Conflict,PSE002,Palestine,PSE,"Conflict,Socio-political,Violence",4.4,5,Very High,Increasing,Very High,4.2,3.4,4.5,4.6,4.2,5,4.1,2.5,5,Middle east,2024-02-29 00:00:00
+Conflict in West Bank,Conflict in West Bank,PSE003,Palestine,PSE,"Conflict,Displacement,Socio-political,Violence",3.5,4,High,Stable,Very High,3.8,2.7,4.2,3.15,3.3,3,3.7,2.5,4.5,Middle east,2024-02-29 00:00:00
+Conflict in Gaza,Conflict in Gaza,PSE004,Palestine,PSE,"Conflict,Displacement,Socio-political,Violence",4.2,5,Very High,Increasing,Very High,3.8,0.9,4.6,4.45,3.9,5,4.1,2.5,5,Middle east,2024-02-29 00:00:00
+Lake Chad basin regional crisis,Lake Chad basin regional crisis,REG001,"Nigeria,Niger,Chad,Cameroon","NGA,NER,TCD,CMR",0,4.2,5,Very High,Decreasing,Very High,4.2,3.8,4.4,4.5,5,4,3.8,3.6,4,"Africa,Africa,Africa,Africa",2024-02-29 00:00:00
+Venezuela Regional Crisis,Venezuela Regional Crisis,REG002,"Venezuela,Brazil,Colombia,Ecuador,Peru,Trinidad and Tobago,Chile,Dominican Republic,Panama","VEN,BRA,COL,ECU,PER,TTO,CHL,DOM,PAN",0,3.9,4,High,Stable,Medium,3.6,3.4,3.7,4,5,3,3.8,2.7,4.5,"Americas,Americas,Americas,Americas,Americas,Americas,Americas,Americas,Americas",2024-02-29 00:00:00
+Syrian Regional Crisis,Syrian Regional Crisis,REG004,"Syria,Türkiye,Iraq,Egypt,Jordan,Lebanon","SYR,TUR,IRQ,EGY,JOR,LBN",0,4.2,5,Very High,Stable,Medium,3.8,3.1,4.1,4.5,5,4,4.1,3.6,4.5,"Middle east,Middle east,Middle east,Africa,Middle east,Middle east",2024-02-29 00:00:00
+Eastern Mediterranean Route ,Eastern Mediterranean Route ,REG006,"Türkiye,Greece","TUR,GRC",0,2.2,3,Medium,Stable,Medium,2.4,2.3,2.4,1.8,2.6,1,2.5,2.4,2.5,"Middle east,Europe",2024-02-29 00:00:00
+Central Mediterranean Route,Central Mediterranean Route,REG007,"Algeria,Tunisia,Libya,Italy","DZA,TUN,LBY,ITA",0,3,3,Medium,Increasing,High,4.1,5,3.4,2.25,3.5,1,3,2.5,3.5,"Africa,Africa,Africa,Europe",2024-02-29 00:00:00
+Western Mediterranean Route,Western Mediterranean Route,REG008,"Algeria,Morocco,Spain","DZA,MAR,ESP",0,2.6,3,Medium,Increasing,High,3.8,5,2.9,1.8,2.6,1,2.6,2.6,2.5,"Africa,Africa,Europe",2024-02-29 00:00:00
+Rohingya Regional Crisis,Rohingya Regional Crisis,REG011,"Bangladesh,Myanmar","BGD,MMR",0,4,4,High,Increasing,Very High,3.6,1.3,4.3,4.1,4.2,4,4.1,3.5,4.5,"Asia,Asia",2024-02-29 00:00:00
+Southern Africa Regional Food Security Crisis,Southern Africa Regional Food Security Crisis,REG012,"Lesotho,Madagascar,Malawi,Namibia,Eswatini,Zambia,Zimbabwe,Tanzania","LSO,MDG,MWI,NAM,SWZ,ZMB,ZWE,TZA",0,3.9,4,High,Increasing,Very High,3.8,3.8,3.8,4,5,3,3.8,2.7,4.5,"Africa,Africa,Africa,Africa,Africa,Africa,Africa,Africa",2024-02-29 00:00:00
+Nagorno-Karabakh Conflict,Regional Nagorno-Karabakh Conflict,REG013,"Armenia,Azerbaijan","ARM,AZE",0,2.7,3,Medium,Increasing,Very High,2.8,1.7,3.2,2.5,2,3,2.9,2.7,3,"Middle east,Middle east",2024-02-29 00:00:00
+Eastern Africa Regional Drought Crisis,Eastern Africa Regional Drought Crisis,REG014,"Ethiopia,Somalia,Kenya","ETH,SOM,KEN",Drought,4.1,5,Very High,Decreasing,High,3.7,4.3,3.3,4,5,3,4.5,3.8,5,"Africa,Africa,Africa",2024-02-29 00:00:00
+Turkiye / Syria earthquake,Turkiye / Syria earthquake (regional crisis),REG015,"Türkiye,Syria","TUR,SYR",Earthquake,3.6,4,High,Decreasing,High,3.4,2.6,3.7,3.6,4.2,3,3.9,3.1,4.5,"Middle east,Middle east",2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Romania,Displacement from Russia-Ukraine conflict,ROU002,Romania,ROU,"Conflict,Displacement",1.7,2,Low,Increasing,Very High,2.9,4.6,1.5,1.25,1.5,1,1.4,1.3,1.5,Europe,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Russia,Displacement from Russia-Ukraine conflict,RUS002,Russia,RUS,"Conflict,Displacement",2.7,3,Medium,Stable,High,3.6,5,2.3,2.25,3.5,1,2.7,2.9,2.5,Europe,2024-02-29 00:00:00
+Burundi and DRC refugees in Rwanda,Refugees,RWA002,Rwanda,RWA,Displacement,2.4,3,Medium,Decreasing,Medium,2.5,2.2,2.7,2.45,1.9,3,2.3,3,1.5,Africa,2024-02-29 00:00:00
+Complex crisis in Sudan,Complex crisis,SDN001,Sudan,SDN,"Displacement,Violence,Floods",4.9,5,Very High,Increasing,Very High,5,5,5,5,5,5,4.7,4.3,5,Africa,2024-02-29 00:00:00
+Refugees in Sudan,Refugees,SDN005,Sudan,SDN,Displacement,3.4,4,High,Increasing,Very High,3.3,2.2,3.7,3.2,3.4,3,3.7,4.3,3,Africa,2024-02-29 00:00:00
+Drought in Senegal,Drought,SEN002,Senegal,SEN,Drought,2.1,3,Medium,Decreasing,Very High,2.8,4.5,1.5,2.25,2.5,2,1.4,2.2,0.5,Africa,2024-02-29 00:00:00
+Complex crisis in El Salvador,Complex crisis,SLV001,El Salvador,SLV,"Displacement,Violence,Floods,Drought",3.1,4,High,Decreasing,Very High,2.6,3.7,1.9,3.7,3.4,4,2.6,2.1,3,Americas,2024-02-29 00:00:00
+Complex crisis in Somalia,Complex crisis,SOM001,Somalia,SOM,"Conflict,Displacement,Floods,Drought",4.6,5,Very High,Decreasing,Very High,4.8,4.7,4.9,4.85,4.7,5,4.2,3.9,4.5,Africa,2024-02-29 00:00:00
+Mixed Migration Flows in Somalia,Mixed Migration,SOM002,Somalia,SOM,Displacement,1.9,2,Low,Stable,High,1.9,1.6,2.1,1,1,1,3.3,3.9,2.5,Africa,2024-02-29 00:00:00
+Complex crisis in South Sudan,Complex crisis,SSD001,South Sudan,SSD,"Conflict,Floods,Displacement",4.1,5,Very High,Decreasing,High,4.5,4.6,4.4,3.95,4.9,3,4.1,3.7,4.5,Africa,2024-02-29 00:00:00
+Displacement from Russia-Ukraine conflict in Slovakia,Displacement from Russia-Ukraine conflict,SVK002,Slovakia,SVK,"Displacement,Conflict",1.6,2,Low,Decreasing,Very High,2.5,3.8,1.6,1.4,1.8,1,1.1,1.1,1,Europe,2024-02-29 00:00:00
+Food Security Crisis in Eswatini,Food Security Crisis,SWZ001,Eswatini,SWZ,Drought,2.4,3,Medium,Increasing,High,2.1,3.1,1.5,2.7,2.4,3,2,2.5,1.5,Africa,2024-02-29 00:00:00
+Syrian conflict,Conflict,SYR001,Syria,SYR,"Conflict,Displacement,Violence",4.5,5,Very High,Decreasing,High,4.7,4.6,4.8,4.5,5,4,4.5,4.4,4.5,Middle east,2024-02-29 00:00:00
+Türkiye / Syria earthquake in Syria,Türkiye / Syria earthquake,SYR002,Syria,SYR,Earthquake,4.1,5,Very High,Decreasing,Medium,3.4,2.9,3.6,4.2,4.4,4,4.5,4.4,4.5,Middle east,2024-02-29 00:00:00
+Complex crisis in Chad,Complex crisis,TCD001,Chad,TCD,"Conflict,Displacement",4.2,5,Very High,Decreasing,Very High,3.8,4.8,3.1,4.8,4.6,5,3.5,3.5,3.5,Africa,2024-02-29 00:00:00
+Lake Chad basin crisis,Lake Chad basin crisis,TCD003,Chad,TCD,Conflict,3.5,4,High,Stable,Very High,2.3,0.6,3,4.05,3.1,5,3.3,3.5,3,Africa,2024-02-29 00:00:00
+CAR refugees in Chad,CAR refugees,TCD004,Chad,TCD,Displacement,3.5,4,High,Stable,Very High,2.3,1.7,2.6,4.25,3.5,5,2.8,3.5,2,Africa,2024-02-29 00:00:00
+Darfur refugees in Chad,Darfur refugees,TCD005,Chad,TCD,Displacement,3.6,4,High,Decreasing,Very High,2.8,2,3.1,4.3,3.6,5,2.8,3.5,2,Africa,2024-02-29 00:00:00
+Multiple situations in Thailand,Country level,THA001,Thailand,THA,"Conflict,Displacement",1.8,2,Low,Stable,Medium,2,1.2,2.4,1.3,1.6,1,2.3,2.5,2,Asia,2024-02-29 00:00:00
+Conflict in southern Thailand ,Conflict,THA002,Thailand,THA,Conflict,x,x,x,-,Low,1.6,1.1,1.8,x,x,x,1.8,2.5,1,Asia,2024-02-29 00:00:00
+Myanmar refugees in Thailand,Refugees,THA003,Thailand,THA,Conflict,2,2,Low,Stable,Medium,1.4,0.5,1.8,2.3,1.6,3,2,2.5,1.5,Asia,2024-02-29 00:00:00
+Food Security Crisis in Timor-Leste,Food Security Crisis,TLS003,Timor Leste,TLS,Food Security,2,2,Low,Stable,Very High,2.2,3.1,1.6,2.8,2.6,3,0.7,0.9,0.5,Asia,2024-02-29 00:00:00
+Venezuelan refugees in Trinidad and Tobago,Venezuelan refugees,TTO002,Trinidad and Tobago,TTO,Displacement,1.7,2,Low,Stable,Very High,2.1,3,1.6,1.35,0.7,2,2,1.4,2.5,Americas,2024-02-29 00:00:00
+Mixed migration flows in Tunisia,Mixed Migration,TUN002,Tunisia,TUN,Displacement,2.3,3,Medium,Increasing,High,3.4,4.4,2.8,1.25,1.5,1,2.7,2.3,3,Africa,2024-02-29 00:00:00
+Complex situation in Türkiye,Country level,TUR001,Türkiye,TUR,"Displacement,Conflict",3.5,4,High,Stable,High,3.5,3.6,3.4,3.75,4.5,3,3.2,2.9,3.5,Middle east,2024-02-29 00:00:00
+Syrian Refugees in Türkiye,Syrian refugees,TUR002,Türkiye,TUR,Displacement,3.1,4,High,Stable,Medium,3.1,3.2,3,3.45,3.9,3,2.5,2.9,2,Middle east,2024-02-29 00:00:00
+Mixed Migration Flows in Türkiye,Mixed Migration,TUR003,Türkiye,TUR,Displacement,2.1,3,Medium,Stable,High,2.2,2.3,2.1,1.7,2.4,1,2.5,2.9,2,Middle east,2024-02-29 00:00:00
+Kurdish Conflict,Kurdish conflict,TUR004,Türkiye,TUR,Conflict,x,x,x,-,Low,2.4,1.6,2.8,x,x,x,3,2.9,3,Middle east,2024-02-29 00:00:00
+Türkiye / Syria earthquake in Türkiye,Türkiye / Syria earthquake,TUR005,Türkiye,TUR,Earthquake,3.2,4,High,Decreasing,High,3.2,2.1,3.6,3.5,4,3,2.7,2.9,2.5,Middle east,2024-02-29 00:00:00
+Multiple Crises in Tanzania,Country level,TZA001,Tanzania,TZA,"Displacement,Drought",2.8,3,Medium,Increasing,Very High,3.1,3.2,3.1,3.2,3.4,3,2,1.9,2,Africa,2024-02-29 00:00:00
+International Displacement in Tanzania,Refugees,TZA002,Tanzania,TZA,Displacement,2.4,3,Medium,Stable,High,3.2,2.5,3.5,2.15,2.3,2,2,1.9,2,Africa,2024-02-29 00:00:00
+Food Security Crisis in North-East Tanzania,Food security in North-East,TZA003,Tanzania,TZA,Drought,2.5,3,Medium,Stable,High,1.9,2.5,1.6,3.15,3.3,3,2,1.9,2,Africa,2024-02-29 00:00:00
+International Displacement in Uganda,Refugees,UGA005,Uganda,UGA,Displacement,3.2,4,High,Stable,Medium,3.2,1.7,3.8,3.35,3.7,3,2.9,3.6,2,Africa,2024-02-29 00:00:00
+Russia-Ukraine conflict,Russia-Ukraine conflict,UKR002,Ukraine,UKR,"Conflict,Displacement",4.3,5,Very High,Stable,Very High,4.6,4.9,4.5,5,5,5,3.1,2.6,3.5,Europe,2024-02-29 00:00:00
+Complex crisis in Venezuela,Complex crisis,VEN001,Venezuela,VEN,"Socio-political,Violence,Floods",4.2,5,Very High,Increasing,Very High,4.3,4.9,3.9,4.4,4.8,4,3.7,3.3,4,Americas,2024-02-29 00:00:00
+Conflict in Yemen,Complex crisis,YEM001,Yemen,YEM,Conflict,4.6,5,Very High,Decreasing,Very High,4.6,4.9,4.5,5,5,5,4,3.9,4,Middle east,2024-02-29 00:00:00
+Mixed migration flows in Yemen,Mixed Migration,YEM002,Yemen,YEM,Displacement,2.4,3,Medium,Decreasing,Very High,2.5,1.7,2.9,1.6,2.2,1,3.5,3.9,3,Middle east,2024-02-29 00:00:00
+Drought in Zambia,Drought,ZMB002,Zambia,ZMB,Drought,3.3,4,High,Increasing,High,4.2,4.1,4.2,3.4,3.8,3,2.3,2.5,2,Africa,2024-02-29 00:00:00
+Complex crisis in Zimbabwe,Complex crisis,ZWE001,Zimbabwe,ZWE,"Socio-political,Drought",3.5,4,High,Stable,High,3.9,4.6,3.5,3.55,4.1,3,3.1,3.1,3,Africa,2024-02-29 00:00:00
