@@ -1,6 +1,6 @@
 <h1 style="font-size: 24px; font-weight: bold; text-align: center; padding: 10px; border: 2px solid #888;">Omdena's Sentiment Analysis Tool - Streamlit App</h1>
 
-### Application's URL: <https://irex-el-salvador-sentiment-tool.streamlit.app/>
+### Application's URL: 
 
 ## Overview
 
