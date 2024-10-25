@@ -248,7 +248,7 @@ def fetch_google_trends_data(country):
 #         return pd.DataFrame()
 
 #Function to fetch gdelt news and filter by specific word and country
-def fetch_gdelt_news_data(keyword,country):
+def fetch_gdelt_news(keyword,country):
 
     # Define the date range for querying (expand this range if necessary)
     date_range = ['2024 10 21', '2024 10 24']  # Adjust dates as needed
@@ -264,17 +264,17 @@ def fetch_gdelt_news_data(keyword,country):
         gdelt_past3days_df = pd.DataFrame(results)
 
     # Filter by country of interest, where 'Actor1Name' country did something to 'Actor2Name' country, word selection of interest from the CAMEOCodeDescription as shown, and any other relevant fields
-    Ukraine_military_past3days_df = gdelt_past3days_df[(gdelt_past3days_df['Actor2Name'] == country.upper()) & (
+    CountryandWordSpecificGdelt_data= gdelt_past3days_df[(gdelt_past3days_df['Actor2Name'] == country.upper()) & (
                 gdelt_past3days_df['CAMEOCodeDescription'].str.contains(keyword, case=False) & (
                     gdelt_past3days_df['IsRootEvent'] == 1))]
 
     # Select only specific relevant columns (e.g., 'Actor1Name', 'EventCode', 'Date')
-    Ukraine_military_past3days_df = Ukraine_military_past3days_df[
+    CountryandWordSpecificGdelt_data= CountryandWordSpecificGdelt_data[
         ['MonthYear', 'Actor1Name', 'Actor1KnownGroupCode', 'Actor2Name', 'Actor2KnownGroupCode', 'IsRootEvent',
          'EventCode', 'CAMEOCodeDescription', 'EventBaseCode', 'EventRootCode', 'QuadClass', 'GoldsteinScale',
          'NumMentions', 'NumSources', 'NumArticles', 'AvgTone', 'DATEADDED', 'SOURCEURL']]
 
-    return Ukraine_military_past3days_df[:10]
+    return CountryandWordSpecificGdelt_data[:10]
 
 
 # Function to run all the scrapers
