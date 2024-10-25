@@ -6,7 +6,10 @@ import requests  # For GDELT API requests
 import time
 import json
 import pdb
+import gdelt #Install gdelt using 'pip install gdelt'
 
+# Initialize GDELT 2.0
+gd2 = gdelt.gdelt(version=2)  #for GDELT data
 
 # Constants for Apify Actors
 APIFY_TWITTER_ACTOR_ID = '61RPP7dywgiy0JPD0'  # Replace with actual Twitter scraper actor ID
@@ -202,48 +205,76 @@ def fetch_google_trends_data(country):
 
 
    
-# Function to fetch news data using GDELT API
-def fetch_gdelt_news(keyword, country):
-    base_url = "http://api.gdeltproject.org/api/v2/doc/doc"
-    
-    params = {
-        'query': f'{keyword} {country}',
-        'mode': 'artlist',
-        'maxrecords': 50,  # Limit the number of results
-        'format': 'json'
-    }
-    
-    try:
-        response = requests.get(base_url, params=params)
-        raw_response = response.text
-        print("GDELT API Raw Response:", raw_response)
+# # Function to fetch news data using GDELT API
+# def fetch_gdelt_news(keyword, country):
+#     base_url = "http://api.gdeltproject.org/api/v2/doc/doc"
+#
+#     params = {
+#         'query': f'{keyword} {country}',
+#         'mode': 'artlist',
+#         'maxrecords': 50,  # Limit the number of results
+#         'format': 'json'
+#     }
+#
+#     try:
+#         response = requests.get(base_url, params=params)
+#         raw_response = response.text
+#         print("GDELT API Raw Response:", raw_response)
+#
+#         # Try to parse the JSON response
+#         try:
+#             data = json.loads(raw_response)
+#         except json.JSONDecodeError as e:
+#             print(f"Error parsing JSON: {e}")
+#             return pd.DataFrame()  # Return an empty DataFrame if the JSON is invalid
+#
+#         # Check if the 'articles' key exists in the response
+#         if 'articles' in data:
+#             articles = pd.DataFrame(data['articles'])
+#
+#             # Check if required columns are present
+#             columns_to_display = ['title', 'url', 'sourcecountry']
+#             if all(col in articles.columns for col in columns_to_display):
+#                 return articles[columns_to_display]
+#             else:
+#                 print(f"Expected columns not found. Available columns: {', '.join(articles.columns)}")
+#                 return pd.DataFrame()  # Return an empty DataFrame if columns are missing
+#         else:
+#             print("No 'articles' key found in GDELT response.")
+#             return pd.DataFrame()  # Return an empty DataFrame if no articles are found
+#
+#     except Exception as e:
+#         print(f"Error fetching news from GDELT: {e}")
+#         return pd.DataFrame()
 
-        # Try to parse the JSON response
-        try:
-            data = json.loads(raw_response)
-        except json.JSONDecodeError as e:
-            print(f"Error parsing JSON: {e}")
-            return pd.DataFrame()  # Return an empty DataFrame if the JSON is invalid
+#Function to fetch gdelt news and filter by specific word and country
+def fetch_gdelt_news_data(keyword,country):
 
-        # Check if the 'articles' key exists in the response
-        if 'articles' in data:
-            articles = pd.DataFrame(data['articles'])
-            
-            # Check if required columns are present
-            columns_to_display = ['title', 'url', 'sourcecountry']
-            if all(col in articles.columns for col in columns_to_display):
-                return articles[columns_to_display]
-            else:
-                print(f"Expected columns not found. Available columns: {', '.join(articles.columns)}")
-                return pd.DataFrame()  # Return an empty DataFrame if columns are missing
-        else:
-            print("No 'articles' key found in GDELT response.")
-            return pd.DataFrame()  # Return an empty DataFrame if no articles are found
-    
-    except Exception as e:
-        print(f"Error fetching news from GDELT: {e}")
-        return pd.DataFrame()
+    # Define the date range for querying (expand this range if necessary)
+    date_range = ['2024 10 21', '2024 10 24']  # Adjust dates as needed
 
+    # Pull data for the specified dates, covering all 15-minute intervals
+    results = gd2.Search(date_range, table='events', coverage=True)
+
+    # Check if results are empty
+    if len(results) == 0:
+        print("No results found.")
+    else:
+        # Convert results to a pandas DataFrame
+        gdelt_past3days_df = pd.DataFrame(results)
+
+    # Filter by country of interest, where 'Actor1Name' country did something to 'Actor2Name' country, word selection of interest from the CAMEOCodeDescription as shown, and any other relevant fields
+    Ukraine_military_past3days_df = gdelt_past3days_df[(gdelt_past3days_df['Actor2Name'] == country.upper()) & (
+                gdelt_past3days_df['CAMEOCodeDescription'].str.contains(keyword, case=False) & (
+                    gdelt_past3days_df['IsRootEvent'] == 1))]
+
+    # Select only specific relevant columns (e.g., 'Actor1Name', 'EventCode', 'Date')
+    Ukraine_military_past3days_df = Ukraine_military_past3days_df[
+        ['MonthYear', 'Actor1Name', 'Actor1KnownGroupCode', 'Actor2Name', 'Actor2KnownGroupCode', 'IsRootEvent',
+         'EventCode', 'CAMEOCodeDescription', 'EventBaseCode', 'EventRootCode', 'QuadClass', 'GoldsteinScale',
+         'NumMentions', 'NumSources', 'NumArticles', 'AvgTone', 'DATEADDED', 'SOURCEURL']]
+
+    return Ukraine_military_past3days_df[:10]
 
 
 # Function to run all the scrapers
