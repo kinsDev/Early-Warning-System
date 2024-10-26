@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import io
+from datetime import datetime
 
 
 # Updated function to check column consistency based on folder structure
@@ -42,7 +43,7 @@ def check_column_consistency(base_url, years, months, files_per_month):
 
 # URL and file configuration
 base_url = "https://raw.githubusercontent.com/username/repo/branch/data/INFORM Suite/INFORM Severity/EuroCom_INFORM_Severity_Data"
-years = range(2020, 2025)
+years = range(2020, datetime.now().year + 1)
 files_per_month = 22  # Adjust if necessary
 
 # Check for column consistency
