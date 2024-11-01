@@ -20,10 +20,10 @@ def run_notebook(notebook_path):
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while executing the notebook: {e}")
 
-def run_main():
+def run_main(year):
     
     base_dir = 'Data\INFORM Suite\INFORM Severity\EuroCom_INFORM_Severity_Data'
-    sources = [os.path.join(base_dir, f) for f in os.listdir(base_dir) if f != 'Monthly_merged_data' and os.path.isdir(os.path.join(base_dir, f))]
+    sources = [os.path.join(base_dir, f) for f in os.listdir(base_dir) if f != 'Monthly_merged_data' and os.path.isdir(os.path.join(base_dir, f)) and f.startswith(str(year))]
     
     print(sources)
     for source in sources:

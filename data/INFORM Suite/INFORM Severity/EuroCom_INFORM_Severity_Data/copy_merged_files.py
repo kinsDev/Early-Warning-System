@@ -9,7 +9,7 @@ def copy_file(source_folder, destination_folder, condition):
         print(f"Source folder '{source_folder}' does not exist.")
         return
 
-    # Ensure the destination folder exists, create it if it doesn’t
+    # Ensure the destination folder exists, create it if it doesn’t.
     os.makedirs(destination_folder, exist_ok=True)
 
     # Loop through files in the source folder
@@ -23,12 +23,14 @@ def copy_file(source_folder, destination_folder, condition):
             shutil.copy2(file_path, destination_folder)
             print(f"Copied '{file_name}' to '{destination_folder}'")
 
-def copy_main():
+def copy_main(year):
     base_dir = 'Data/INFORM Suite/INFORM Severity/EuroCom_INFORM_Severity_Data'
-    sources = [os.path.join(base_dir, f) for f in os.listdir(base_dir) if f != 'Monthly_merged_data' and os.path.isdir(os.path.join(base_dir, f))]
+    sources = [os.path.join(base_dir, f) for f in os.listdir(base_dir) if f != 'Monthly_merged_data' and os.path.isdir(os.path.join(base_dir, f)) and f.startswith(str(year))]
     
     for source in sources:
         destination = os.path.join(base_dir, "Monthly_merged_data")
         copy_file(source, destination, lambda filename: filename.endswith('merged.csv'))
+        
+
 
 
