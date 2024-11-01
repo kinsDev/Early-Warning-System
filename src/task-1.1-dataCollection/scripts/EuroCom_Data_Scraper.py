@@ -39,7 +39,7 @@ def save_csv_from_sheet(data, folder_path, month, year, sheet_name):
     except StopIteration:
         print(f"  Sheet '{sheet_name}' is empty. Skipping.")
 
-def main():
+def fetch_eurocom_data():
     base_dir = "Data/INFORM Suite/INFORM Severity/EuroCom_INFORM_Severity_Data"
     setup_directories(base_dir)
 
@@ -56,7 +56,7 @@ def main():
         print("No Excel links found.")
         return
 
-    print(f"Found {len(excel_links)} Excel files to download.")
+    print(f"Found {len(excel_links)} Excel file to download.")
     
     # Session for optimized network requests
     with requests.Session() as session:
@@ -89,4 +89,4 @@ def main():
 
     print("All files downloaded.")
 
-main()
+
