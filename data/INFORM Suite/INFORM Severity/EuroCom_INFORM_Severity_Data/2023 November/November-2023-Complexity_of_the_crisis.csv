@@ -1,0 +1,176 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,Empowerment,BTI - Democracy Status,Trust in society,Ethnic Fractionalisation,size of excluded ethnic groups,Ethnic fractionalisation,Gender Inequality,Income Gini coefficient,Inequality,Social cohesion,Conflict Intensity,Total killed in all crisis,Safety and security,Corruption Perception,Rule of Law (WGI),Rule of Law (BTI),Freedom in the World,Rule of Law,Society and safety,# of different types of affected population groups,Diversity of groups affected,Impediments to entry into country (bureaucratic and administrative),Restriction of movement (impediments to freedom of movement and/or administrative restrictions),Interference into implementation of humanitarian activities,"Violence against personnel, facilities and assets",Access of Humanitarian Actors to Affected Populations,Denial of existence of humanitarian needs or entitlements to assistance,Restriction and obstruction of access to services and assistance,Access of People in need to Aid,Ongoing insecurity/hostilities affecting humanitarian assistance,Presence of mines and improvised explosive devices ,"Physical constraints in the environment (obstacles related to terrain, climate, lack of infrastructure, etc.)",Physical and Security Constraints,Humanitarian access,Operating environment
+,,,,MAX,14,10,,1,0.5,,0.75,65,,,,3000,,100,2.5,10,100,,,,,,,,,,,,,,,,,,
+,,,,MIN,0,0,,0,0,,0,25,,,,1,,0,-2.5,0,0,,,,,,,,,,,,,,,,,,
+CRISIS,DRIVERS,CRISIS ID,COUNTRY,Iso3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Complex crisis in Afghanistan,"Conflict,Violence,Displacement,Drought,Earthquake,Socio-political",AFG001,Afghanistan,AFG,3.6,3.4,3.5,3.7,0,1.85,3.8,x,3.8,3.0499999999999994,5,4.8,4.9,4.2,4.2,3.5,3.7,3.9,4,4,4,0,2,3,3,4,2,2,4,3,3,3,5,4,4
+Earthquake in Herat Province,Earthquake,AFG006,Afghanistan,AFG,3.6,3.4,3.5,3.7,0,1.85,3.8,x,3.8,3.0499999999999994,5,4.8,4.9,4.2,4.2,3.5,3.7,3.9,4,2,2,0,0,1,0,1,0,2,2,1,3,3,5,3,2.5
+Drought in South-West Angola,Drought,AGO002,Angola,AGO,3.6,2.7,3.1500000000000004,3.8,5,4.4,3.9,3.3,3.5999999999999996,3.716666666666667,3,0.9,1.95,3.7,3.6,3.1,3.4,3.5,3.1,1,1,0,0,0,0,0,0,1,1,0,2,2,3,1,1
+Nagorno-Karabakh Conflict in Armenia,"Conflict,Displacement",ARM002,Armenia,ARM,2.9,1.5,2.2,0.2,0.2,0.2,1.7,0.6,1.15,1.1833333333333333,3,0.7,1.85,2.9,2.6,2,2.4,2.5,1.8,2,2,0,0,1,0,1,0,1,1,0,3,0,3,2,2
+Nagorno-Karabakh conflict in Azerbaijan,"Conflict,Displacement",AZE002,Azerbaijan,AZE,3.6,3.3,3.45,0.8,0.6,0.7,2.1,0.2,1.1500000000000001,1.7666666666666668,3,2.2,2.6,3.5,3.1,3.5,4.5,3.7,2.7,3,3,2,3,2,0,3,3,2,5,1,3,2,4,4,3.5
+Complex in Burundi,"Violence,Displacement,Floods",BDI001,Burundi,BDI,2.1,3.2,2.6500000000000004,1.3,0,0.65,3.5,1.7,2.6,1.9666666666666668,3,2.7,2.85,4.1,3.9,3.8,4.4,4.1,3,5,5,1,1,1,0,2,0,1,1,0,0,3,3,2,3.5
+Conflict in Burkina Faso,"Conflict,Displacement,Violence",BFA002,Burkina Faso,BFA,1.1,1.9,1.5,2.8,0,1.4,4.1,1.3,2.6999999999999997,1.8666666666666665,5,5,5,3,2.9,2.9,2.2,2.8,3.2,4,4,0,3,2,1,3,2,2,4,3,1,3,5,4,4
+Rohingya refugee crisis,"Conflict,Violence,Displacement",BGD002,Bangladesh,BGD,2.5,2.8,2.65,0.9,1.2,1.05,3.6,0.9,2.25,1.9833333333333334,3,2.8,2.9,3.7,3.1,3.3,3.1,3.3,2.7,3,3,2,1,1,0,2,1,2,3,1,0,0,1,2,2.5
+Floods and Monsoon Rain in Chattogram Division,Floods,BGD009,Bangladesh,BGD,2.5,2.8,2.65,0.9,1.2,1.05,3.6,0.9,2.25,1.9833333333333334,3,2.8,2.9,3.7,3.1,3.3,3.1,3.3,2.7,4,4,2,0,0,0,2,0,0,0,0,0,2,2,1,2.5
+Complex crisis in Bangladesh,"Socio-political,Displacement,Floods,Cyclone,Food Security,Epidemic,Other seasonal event",BGD010,Bangladesh,BGD,2.5,2.8,2.65,0.9,1.2,1.05,3.6,0.9,2.25,1.9833333333333334,3,2.8,2.9,3.7,3.1,3.3,3.1,3.3,2.7,5,5,2,1,1,0,2,1,2,3,1,1,2,3,3,4
+Cyclone Hamoon,Cyclone,BGD011,Bangladesh,BGD,2.5,2.8,2.65,0.9,1.2,1.05,3.6,0.9,2.25,1.9833333333333334,3,2.8,2.9,3.7,3.1,3.3,3.1,3.3,2.7,2,2,0,0,0,0,0,0,0,0,0,1,0,1,0,1
+Displacement from Russia-Ukraine conflict in Bulgaria,"Conflict,Displacement",BGR002,Bulgaria,BGR,1.8,1,1.4,1.5,0.5,1,1.5,2,1.75,1.3833333333333335,2,0,1,2.9,2.5,1.3,1,1.9,1.4,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Displacement from Russia-Ukraine conflict in Belarus,"Displacement,Conflict",BLR002,Belarus,BLR,4.3,2.8,3.55,1.9,0.4,1.15,0.8,0,0.4,1.7,3,0,1.5,2.8,3.3,3,4.1,3.3,2.2,2,2,2,1,1,0,2,3,2,5,0,3,0,3,3,2.5
+Country level Brazil,"Displacement,Floods",BRA001,Brazil,BRA,0.7,1.3,1,2.6,0.7,1.65,2.6,3.6,3.1,1.9166666666666667,3,2.4,2.7,3.3,2.7,1.3,1.3,2.2,2.3,5,5,0,0,0,0,0,0,0,0,0,0,1,1,0,2.5
+Venezuela displacement in Brazil,Displacement,BRA002,Brazil,BRA,0.7,1.3,1,2.6,0.7,1.65,2.6,3.6,3.1,1.9166666666666667,3,2.4,2.7,3.3,2.7,1.3,1.3,2.2,2.3,5,5,0,0,0,0,0,0,0,0,0,0,2,2,1,3
+Floods in rainy season 2022,Floods,BRA003,Brazil,BRA,0.7,1.3,1,2.6,0.7,1.65,2.6,3.6,3.1,1.9166666666666667,3,2.4,2.7,3.3,2.7,1.3,1.3,2.2,2.3,1,1,0,0,0,0,0,0,0,0,0,0,3,3,1,1
+Drought in the Amazonas,Drought,BRA004,Brazil,BRA,0.7,1.3,1,2.6,0.7,1.65,2.6,3.6,3.1,1.9166666666666667,3,2.4,2.7,3.3,2.7,1.3,1.3,2.2,2.3,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0.5
+Complex crisis in CAR,"Conflict,Displacement",CAF001,CAR,CAF,3.6,3.2,3.4000000000000004,4.4,1.8,3.1,4.5,3.9,4.2,3.5666666666666664,5,3.5,4.25,3.8,4.2,3.4,4.5,4,3.9,5,5,1,3,2,3,4,0,2,2,3,1,3,5,4,4.5
+Venezuela displacement in Chile,Displacement,CHL002,Chile,CHL,0.7,0.4,0.55,0.8,0.4,0.6000000000000001,1.9,2.4,2.15,1.0999999999999999,3,1.7,2.35,1.7,1.4,0.3,0.5,1,1.5,3,3,0,0,0,0,0,0,2,2,0,2,2,3,2,2.5
+Multiple crises in Cameroon,"Conflict,Displacement",CMR001,Cameroon,CMR,3.2,3.2,3.2,4.3,0,2.15,3.8,2.7,3.25,2.8666666666666667,5,3.9,4.45,3.8,3.6,3.4,4.1,3.7,3.7,5,5,1,3,3,0,3,2,3,5,3,1,3,5,4,4.5
+Lake Chad basin crisis in Cameroon,Conflict,CMR002,Cameroon,CMR,3.2,3.2,3.2,4.3,0,2.15,3.8,2.7,3.25,2.8666666666666667,5,3.9,4.45,3.8,3.6,3.4,4.1,3.7,3.7,4,4,1,3,2,0,3,0,3,3,3,1,2,4,3,3.5
+Anglophone Crisis in Cameroon,Conflict,CMR003,Cameroon,CMR,3.2,3.2,3.2,4.3,0,2.15,3.8,2.7,3.25,2.8666666666666667,5,3.9,4.45,3.8,3.6,3.4,4.1,3.7,3.7,4,4,1,3,3,0,3,2,3,5,3,1,3,5,4,4
+CAR refugees in Cameroon,"Conflict,Displacement",CMR004,Cameroon,CMR,3.2,3.2,3.2,4.3,0,2.15,3.8,2.7,3.25,2.8666666666666667,5,3.9,4.45,3.8,3.6,3.4,4.1,3.7,3.7,1,1,1,2,1,0,2,0,1,1,0,1,1,2,2,1.5
+Complex crisis in DRC,"Conflict,Displacement,Socio-political",COD001,DRC,COD,3.9,3.2,3.55,4.7,5,4.85,4.4,2.1,3.25,3.883333333333333,5,4.7,4.85,4.1,4.3,3.6,4.1,4,4.2,4,4,1,3,2,3,4,0,2,2,3,2,3,5,4,4
+Complex crisis in Congo,Conflict,COG001,Congo,COG,1.4,3.4,2.4,4.4,5,4.7,3.9,3,3.45,3.516666666666667,1,0,0.5,4.1,3.6,3.8,4,3.9,2.6,3,3,0,0,0,0,0,0,0,0,0,0,3,3,1,2
+Complex crisis in Colombia,"Socio-political,Conflict,Violence,Floods,Displacement",COL001,Colombia,COL,1.4,1.7,1.5499999999999998,2.1,2.5,2.3,2.7,3.3,3,2.283333333333333,4,3.5,3.75,3.2,2.9,1.9,1.7,2.4,2.8,3,3,0,2,0,0,2,0,2,2,2,2,3,5,3,3
+Venezuela displacement in Colombia,Displacement,COL002,Colombia,COL,1.4,1.7,1.5499999999999998,2.1,2.5,2.3,2.7,3.3,3,2.283333333333333,4,3.5,3.75,3.2,2.9,1.9,1.7,2.4,2.8,3,3,0,2,1,0,2,0,2,2,2,2,3,5,3,3
+Nicaraguan refugees in Costa Rica,Displacement,CRI002,Costa Rica,CRI,1.1,0.5,0.8,1.5,0.2,0.85,1.9,2.9,2.4,1.3499999999999999,0,x,0,2.2,2,0.3,0.5,1.3,0.9,2,2,0,0,0,0,0,0,0,0,0,0,1,1,0,1
+Displacement from Russia-Ukraine conflict in Czechia,"Conflict,Displacement",CZE002,Czech Republic,CZE,1.1,0.3,0.7000000000000001,0.3,0.6,0.44999999999999996,0.9,0,0.45,0.5333333333333333,0,0,0,2.2,1.5,0.5,0.5,1.2,0.6,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Multiple crises in Djibouti,"Displacement,Drought",DJI001,Djibouti,DJI,2.9,3.1,3,2.8,0,1.4,x,2.1,2.1,2.1666666666666665,1,0,0.5,3.5,3.4,3.5,3.8,3.6,2.1,5,5,0,0,0,0,0,0,2,2,0,0,0,0,1,3
+Mixed migration in Djibouti,Displacement,DJI002,Djibouti,DJI,2.9,3.1,3,2.8,0,1.4,x,2.1,2.1,2.1666666666666665,1,0,0.5,3.5,3.4,3.5,3.8,3.6,2.1,1,1,0,0,0,0,0,0,2,2,0,0,0,0,1,1
+Drought in Djibouti,Drought,DJI003,Djibouti,DJI,2.9,3.1,3,2.8,0,1.4,x,2.1,2.1,2.1666666666666665,1,0,0.5,3.5,3.4,3.5,3.8,3.6,2.1,5,5,0,0,0,0,0,0,2,2,0,0,0,0,1,3
+Venezuela displacement in Dominican Republic,Displacement,DOM002,Dominican Republic,DOM,2.5,1.6,2.05,0,0.7,0.35,3,2.1,2.55,1.6499999999999997,0,x,0,3.6,2.8,2.4,1.7,2.6,1.4,2,2,0,0,0,0,0,0,0,0,0,0,1,1,0,1
+Mixed migration flows in Algeria,Displacement,DZA002,Algeria,DZA,3.9,2.7,3.3,2,2.7,2.35,3,0.3,1.65,2.4333333333333336,2,2,2,3.3,3.3,2.9,3.3,3.2,2.5,4,4,2,0,1,0,2,0,1,1,0,1,0,1,1,2.5
+Sahrawi refugees in Algeria,Displacement,DZA003,Algeria,DZA,3.9,2.7,3.3,2,2.7,2.35,3,0.3,1.65,2.4333333333333336,2,2,2,3.3,3.3,2.9,3.3,3.2,2.5,2,2,2,1,2,0,2,0,2,2,0,1,1,2,2,2
+Multiple crises in Algeria,Displacement,DZA004,Algeria,DZA,3.9,2.7,3.3,2,2.7,2.35,3,0.3,1.65,2.4333333333333336,2,2,2,3.3,3.3,2.9,3.3,3.2,2.5,3,3,2,1,2,0,2,0,2,2,0,1,1,2,2,2.5
+Venezuela displacement in Ecuador,Displacement,ECU002,Ecuador,ECU,1.8,1.4,1.6,1.6,3.1,2.35,2.6,2.6,2.6,2.1833333333333336,3,0,1.5,3.1,3.1,1.8,1.8,2.5,2.1,3,3,0,0,0,2,2,0,1,1,1,1,3,4,2,2.5
+Refugees in Egypt,"Displacement,Conflict",EGY004,Egypt,EGY,3.9,3.3,3.5999999999999996,0.8,0.9,0.8500000000000001,3,0.8,1.9,2.1166666666666667,3,1.2,2.1,3.3,2.9,3.5,4,3.4,2.5,2,2,0,0,0,0,0,0,2,2,0,3,0,3,2,2
+Complex crisis in Eritrea,"Socio-political,Displacement",ERI001,Eritrea,ERI,5,3.9,4.45,3.1,0,1.55,x,x,x,3,5,x,5,3.9,4.1,4.4,4.9,4.3,4.1,5,5,1,1,2,0,2,2,2,4,0,3,3,4,3,4
+Mixed migration flows in Spain,Displacement,ESP002,Spain,ESP,1.1,x,1.1,2.5,3,2.75,0.5,1.2,0.85,1.5666666666666667,1,3,2,1.9,1.5,x,0.4,1.3,1.6,3,3,0,0,0,0,0,0,0,0,0,0,1,1,0,1.5
+Displacement from Russia-Ukraine conflict in Estonia,"Conflict,Displacement",EST002,Estonia,EST,0.4,0.1,0.25,2.4,2.9,2.65,0.6,0.7,0.6499999999999999,1.1833333333333333,0,0,0,1.3,1.2,0,0.3,0.7,0.6,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Complex crisis in Ethiopia,"Displacement,Floods,Conflict",ETH001,Ethiopia,ETH,3.9,3,3.45,3.8,2.7,3.25,3.4,1.3,2.35,3.016666666666667,5,5,5,3.2,3,3.4,3.8,3.4,3.8,4,4,2,3,3,2,5,2,3,5,3,3,3,5,5,4.5
+International Displacement,Displacement,ETH003,Ethiopia,ETH,3.9,3,3.45,3.8,2.7,3.25,3.4,1.3,2.35,3.016666666666667,5,5,5,3.2,3,3.4,3.8,3.4,3.8,3,3,2,1,2,1,3,2,3,5,3,1,3,5,4,3.5
+Northern Ethiopia Conflict,"Conflict,Displacement",ETH004,Ethiopia,ETH,3.9,3,3.45,3.8,2.7,3.25,3.4,1.3,2.35,3.016666666666667,5,5,5,3.2,3,3.4,3.8,3.4,3.8,4,4,2,3,2,1,4,0,2,2,3,3,3,5,4,4
+Drought in Ethiopia,Drought,ETH005,Ethiopia,ETH,3.9,3,3.45,3.8,2.7,3.25,3.4,1.3,2.35,3.016666666666667,5,5,5,3.2,3,3.4,3.8,3.4,3.8,3,3,2,2,3,2,4,0,2,2,2,3,3,5,4,3.5
+Mixed migration flows in Greece,Displacement,GRC002,Greece,GRC,1.8,x,1.8,0.4,0.3,0.35,0.8,1,0.9,1.0166666666666666,3,3,3,2.6,2.3,x,0.6,1.8,1.9,2,2,1,1,1,0,2,2,2,4,0,0,1,1,2,2
+Complex crisis in Guatemala,"Violence,Socio-political,Other seasonal event",GTM001,Guatemala,GTM,1.1,3,2.05,2.5,3.9,3.2,3.3,2.9,3.0999999999999996,2.783333333333333,3,3.2,3.1,3.7,3.6,3.4,2.4,3.3,3.1,5,5,0,0,0,0,0,0,1,1,0,0,3,3,1,3
+Complex crisis in Honduras,"Violence,Socio-political,Other seasonal event",HND001,Honduras,HND,1.8,2.7,2.25,0.8,0.7,0.75,3.2,2.9,3.05,2.0166666666666666,3,3.6,3.3,3.7,3.5,3.4,2.8,3.4,2.9,3,3,0,1,0,0,1,0,2,2,1,0,3,3,2,2.5
+Complex crisis in Haiti,"Earthquake,Violence,Socio-political,Other seasonal event",HTI001,Haiti,HTI,2.1,2.9,2.5,0,0,0,4.1,2,3.05,1.8499999999999999,5,3.9,4.45,4.1,3.5,3.5,3.1,3.6,3.3,5,5,0,2,3,3,4,0,2,2,3,0,2,4,3,4
+Nippes Earthquake ,Earthquake,HTI002,Haiti,HTI,2.1,2.9,2.5,0,0,0,4.1,2,3.05,1.8499999999999999,5,3.9,4.45,4.1,3.5,3.5,3.1,3.6,3.3,3,3,0,2,2,3,3,0,2,2,3,0,2,4,3,3
+Displacement from Russia-Ukraine conflict in Hungary,"Conflict,Displacement",HUN002,Hungary,HUN,1.1,1.6,1.35,0.9,0.5,0.7,1.7,0.6,1.15,1.0666666666666667,1,0,0.5,2.8,2,2.1,1.5,2.1,1.2,2,2,1,0,0,0,1,0,1,1,0,0,0,0,1,1.5
+Papua Conflict,"Socio-political,Violence",IDN002,Indonesia,IDN,3.2,1.8,2.5,3.9,1.1,2.5,3,1.7,2.35,2.4499999999999997,3,2.6,2.8,3,2.8,2,2,2.5,2.6,4,4,1,2,2,0,2,2,3,5,1,0,3,3,3,3.5
+Conflict in Jammu and Kashmir,Socio-political,IND002,India,IND,2.5,1.4,1.95,4.4,0.1,2.25,3.3,1.3,2.3,2.1666666666666665,3,2.8,2.9,3,2.5,1.5,1.5,2.1,2.4,x,x,2,1,2,0,2,0,2,2,1,1,2,3,2,2
+Afghan Refugees in Iran,Displacement,IRN004,Iran,IRN,5,3.6,4.3,3.4,1.6,2.5,3.3,2.1,2.7,3.1666666666666665,4,x,4,3.7,3.2,3.9,4.2,3.8,3.7,2,2,1,1,1,0,2,2,2,4,0,1,0,1,2,2
+Multiple crises in Iraq,"Violence,Displacement,Socio-political,Conflict",IRQ001,Iraq,IRQ,4.3,3,3.65,2.7,0,1.35,3.6,0.6,2.1,2.3666666666666667,5,4.1,4.55,4,4.2,3.1,3.5,3.7,3.5,5,5,1,2,1,0,2,2,2,4,2,3,0,4,3,4
+Conflict  in Iraq,"Conflict,Socio-political,Violence",IRQ002,Iraq,IRQ,4.3,3,3.65,2.7,0,1.35,3.6,0.6,2.1,2.3666666666666667,5,4.1,4.55,4,4.2,3.1,3.5,3.7,3.5,5,5,1,1,1,0,2,2,2,4,2,3,0,4,3,4
+Syrian and Palestinian refugees in iraq,Displacement,IRQ003,Iraq,IRQ,4.3,3,3.65,2.7,0,1.35,3.6,0.6,2.1,2.3666666666666667,5,4.1,4.55,4,4.2,3.1,3.5,3.7,3.5,5,5,1,2,1,0,2,0,1,1,0,3,0,3,2,3.5
+Mixed migration flows in Italy,Displacement,ITA002,Italy,ITA,0.7,x,0.7,0.6,0.1,0.35,0.5,1.4,0.95,0.6666666666666666,0,4.4,2.2,2.4,2.2,x,0.6,1.7,1.5,3,3,0,1,1,0,2,0,2,2,0,0,1,1,2,2.5
+Syrian refugees in Jordan,Displacement,JOR002,Jordan,JOR,4.3,2.8,3.55,2.9,5,3.95,3.1,1.1,2.1,3.1999999999999997,3,0.9,1.95,2.6,2.4,2.9,3.2,2.8,2.7,2,2,0,0,0,0,0,0,2,2,0,2,0,2,1,1.5
+Multiple crisis in Kenya ,"Drought,Displacement",KEN001,Kenya,KEN,3.6,2.6,3.1,4.3,0.8,2.55,3.6,2,2.8,2.8166666666666664,5,x,5,3.6,3,2.3,2.6,2.9,3.6,3,3,0,0,0,0,0,2,2,4,2,0,3,4,3,3
+Refugee situation in Kenya,Displacement,KEN002,Kenya,KEN,3.6,2.6,3.1,4.3,0.8,2.55,3.6,2,2.8,2.8166666666666664,5,x,5,3.6,3,2.3,2.6,2.9,3.6,2,2,0,0,0,0,0,2,2,4,2,0,3,4,3,2.5
+Drought in Kenya,Drought,KEN003,Kenya,KEN,3.6,2.6,3.1,4.3,0.8,2.55,3.6,2,2.8,2.8166666666666664,5,x,5,3.6,3,2.3,2.6,2.9,3.6,3,3,0,0,0,0,0,0,2,2,2,0,3,4,2,2.5
+2023 Floods in Laos,Floods,LAO003,Laos,LAO,4.3,3.5,3.9,3.2,4,3.6,3.1,1.7,2.4,3.3000000000000003,2,1.1,1.55,3.6,3.4,3.9,4.3,3.8,2.9,2,2,1,0,0,0,1,0,0,0,0,3,0,3,1,1.5
+Syrian refugees in Lebanon,Displacement,LBN002,Lebanon,LBN,2.9,2.4,2.65,4.1,1,2.55,2.4,0.9,1.65,2.283333333333333,3,3.2,3.1,3.6,3.4,2.6,2.8,3.1,2.8,2,2,0,1,1,0,2,1,3,4,1,3,1,4,3,2.5
+Socioeconomic crisis in Lebanon,"Socio-political,Violence,Tecnological Disaster",LBN004,Lebanon,LBN,2.9,2.4,2.65,4.1,1,2.55,2.4,0.9,1.65,2.283333333333333,3,3.2,3.1,3.6,3.4,2.6,2.8,3.1,2.8,3,3,0,1,1,0,2,1,3,4,3,3,0,4,3,3
+Complex crisis in Libya,"Conflict,Displacement,Socio-political",LBY001,Libya,LBY,4.6,3.8,4.199999999999999,1.4,0,0.7,1.1,x,1.1,2,3,5,4,4.1,4.3,3.6,4.6,4.2,3.4,5,5,1,3,2,0,3,2,3,5,0,1,3,3,4,4.5
+Mixed migration flows in Libya,Displacement,LBY002,Libya,LBY,4.6,3.8,4.199999999999999,1.4,0,0.7,1.1,x,1.1,2,3,5,4,4.1,4.3,3.6,4.6,4.2,3.4,4,4,1,3,2,0,3,2,3,5,0,1,2,3,4,4
+Storm Daniel and floods in Libya,"Floods,Other seasonal event",LBY003,Libya,LBY,4.6,3.8,4.199999999999999,1.4,0,0.7,1.1,x,1.1,2,3,5,4,4.1,4.3,3.6,4.6,4.2,3.4,5,5,1,2,0,0,2,0,2,2,0,1,3,3,2,3.5
+Multiple crises in Sri Lanka,"Socio-political,Food Security,Floods",LKA001,Sri Lanka,LKA,3.2,1.7,2.45,2.1,1.1,1.6,2.5,1.8,2.15,2.066666666666667,3,1,2,3.1,2.5,1.8,2.3,2.4,2.2,2,2,0,0,0,0,0,0,0,0,0,2,3,4,1,1.5
+Socio-economic crisis in Sri Lanka,"Socio-political,Food Security",LKA002,Sri Lanka,LKA,3.2,1.7,2.45,2.1,1.1,1.6,2.5,1.8,2.15,2.066666666666667,3,1,2,3.1,2.5,1.8,2.3,2.4,2.2,1,1,0,0,0,0,0,0,0,0,0,2,1,3,1,1
+2023 Floods and Monsoon Rain,Floods,LKA003,Sri Lanka,LKA,3.2,1.7,2.45,2.1,1.1,1.6,2.5,1.8,2.15,2.066666666666667,3,1,2,3.1,2.5,1.8,2.3,2.4,2.2,2,2,0,0,0,0,0,0,0,0,0,2,2,3,1,1.5
+Displacement from Russia-Ukraine conflict in Lithuania,"Conflict,Displacement",LTU002,Lithuania,LTU,1.8,0.3,1.05,1.4,1.3,1.35,0.8,1.3,1.05,1.1500000000000001,0,0,0,2,1.5,0.1,0.5,1,0.7,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Displacement from Russia-Ukraine conflict in Latvia,"Conflict,Displacement",LVA002,Latvia,LVA,1.4,0.6,1,2.9,3.5,3.2,1.1,1.3,1.2000000000000002,1.8,0,0,0,2.2,1.5,0.9,0.6,1.3,1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Multiple crises in Morocco,"Displacement,Earthquake",MAR001,Morocco,MAR,3.2,3.2,3.2,2.5,4,3.25,3.3,1.8,2.55,3,3,5,4,3,2.6,3.4,3.2,3.1,3.4,2,2,0,0,1,0,1,0,1,1,0,1,3,3,2,2
+Mixed migration flows in Morocco,Displacement,MAR002,Morocco,MAR,3.2,3.2,3.2,2.5,4,3.25,3.3,1.8,2.55,3,3,5,4,3,2.6,3.4,3.2,3.1,3.4,4,4,0,0,0,0,0,0,1,1,0,1,2,3,1,2.5
+Al Haouz Earthquake in Morocco,Earthquake,MAR003,Morocco,MAR,3.2,3.2,3.2,2.5,4,3.25,3.3,1.8,2.55,3,3,5,4,3,2.6,3.4,3.2,3.1,3.4,2,2,0,0,1,0,1,0,0,0,0,1,3,3,1,1.5
+DIsplacement from Russia-Ukraine conflict in Moldova,"Displacement,Conflict",MDA002,Moldova,MDA,2.5,2.1,2.3,2.1,1.9,2,1.5,0.1,0.8,1.7,2,0,1,3.4,2.9,2.8,2,2.8,1.8,2,2,0,1,0,0,1,0,0,0,0,0,0,0,0,1
+Multiple crisis in Madagascar,"Drought,Cyclone",MDG001,Madagascar,MDG,2.9,2.3,2.5999999999999996,3.1,0,1.55,x,2.2,2.2,2.1166666666666667,0,1.8,0.9,3.8,3.5,2.9,2,3.1,2,1,1,1,0,1,0,2,0,2,2,0,0,1,1,2,1.5
+Drought in Madagascar,Drought,MDG002,Madagascar,MDG,2.9,2.3,2.5999999999999996,3.1,0,1.55,x,2.2,2.2,2.1166666666666667,0,1.8,0.9,3.8,3.5,2.9,2,3.1,2,1,1,1,0,1,0,2,0,0,0,0,0,1,1,1,1
+Tropical cyclone Freddy in Madagascar,Cyclone,MDG008,Madagascar,MDG,2.9,2.3,2.5999999999999996,3.1,0,1.55,x,2.2,2.2,2.1166666666666667,0,1.8,0.9,3.8,3.5,2.9,2,3.1,2,1,1,1,0,1,0,2,0,2,2,0,0,1,1,2,1.5
+Multiple crisis in Mexico,"Violence,Displacement",MEX001,Mexico,MEX,1.4,2,1.7,1.7,1.1,1.4,2.2,2.6,2.4000000000000004,1.8333333333333333,4,5,4.5,3.6,3.2,2.5,1.9,2.8,3,5,5,0,2,1,1,2,2,3,5,1,0,1,2,3,4
+Criminal Violence in Mexico,"Violence,Displacement",MEX002,Mexico,MEX,1.4,2,1.7,1.7,1.1,1.4,2.2,2.6,2.4000000000000004,1.8333333333333333,4,5,4.5,3.6,3.2,2.5,1.9,2.8,3,5,5,0,2,0,1,2,2,1,3,1,0,1,2,2,3.5
+Mixed Migration in Mexico,Displacement,MEX003,Mexico,MEX,1.4,2,1.7,1.7,1.1,1.4,2.2,2.6,2.4000000000000004,1.8333333333333333,4,5,4.5,3.6,3.2,2.5,1.9,2.8,3,3,3,0,2,1,1,2,2,3,5,1,0,1,2,3,3
+Complex crisis in Mali,Conflict,MLI001,Mali,MLI,0.7,2.1,1.4,0.9,0,0.45,4.5,1,2.75,1.5333333333333332,5,4.8,4.9,3.6,3.3,2.8,3,3.2,3.2,5,5,0,3,2,3,4,0,3,3,3,1,3,5,4,4.5
+Multiple crises in Myanmar,"Socio-political,Conflict,Violence",MMR001,Myanmar,MMR,5,3.4,4.2,2.6,3,2.8,3.1,0.7,1.9,2.966666666666667,5,5,5,3.6,3.6,3.6,3.5,3.6,3.9,5,5,2,3,3,3,5,2,3,5,3,1,3,5,5,5
+Rakhine Conflict,Conflict,MMR002,Myanmar,MMR,5,3.4,4.2,2.6,3,2.8,3.1,0.7,1.9,2.966666666666667,5,5,5,3.6,3.6,3.6,3.5,3.6,3.9,4,4,2,3,2,0,3,2,3,5,0,1,3,3,4,4
+Kachin and Shan Conflict,Conflict,MMR003,Myanmar,MMR,5,3.4,4.2,2.6,3,2.8,3.1,0.7,1.9,2.966666666666667,5,5,5,3.6,3.6,3.6,3.5,3.6,3.9,3,3,2,3,1,0,3,2,3,5,3,1,3,5,4,3.5
+Post-coup conflict in Myanmar,"Violence,Socio-political,Conflict",MMR004,Myanmar,MMR,5,3.4,4.2,2.6,3,2.8,3.1,0.7,1.9,2.966666666666667,5,5,5,3.6,3.6,3.6,3.5,3.6,3.9,3,3,2,3,3,3,5,2,3,5,3,1,3,5,5,4
+Cyclone Mocha in Myanmar,"Cyclone,Floods",MMR005,Myanmar,MMR,5,3.4,4.2,2.6,3,2.8,3.1,0.7,1.9,2.966666666666667,5,5,5,3.6,3.6,3.6,3.5,3.6,3.9,4,4,2,3,3,0,4,2,3,5,3,1,3,5,5,4.5
+Multiple Crises in Mozambique,"Conflict,Displacement,Cyclone",MOZ001,Mozambique,MOZ,2.5,2.8,2.65,4.5,1.7,3.1,3.8,3.6,3.7,3.15,4,3.6,3.8,3.7,3.5,3.5,2.8,3.4,3.5,3,3,1,0,1,0,2,2,3,5,1,1,3,4,4,3.5
+Cabo Delgado Islamist Insurgency,"Conflict,Displacement",MOZ004,Mozambique,MOZ,2.5,2.8,2.65,4.5,1.7,3.1,3.8,3.6,3.7,3.15,4,3.6,3.8,3.7,3.5,3.5,2.8,3.4,3.5,3,3,1,0,1,0,2,2,3,5,1,1,3,4,4,3.5
+Tropical Cyclone Freddy in Mozambique,Cyclone,MOZ010,Mozambique,MOZ,2.5,2.8,2.65,4.5,1.7,3.1,3.8,3.6,3.7,3.15,4,3.6,3.8,3.7,3.5,3.5,2.8,3.4,3.5,2,2,1,0,1,0,2,2,3,5,1,1,3,4,4,3
+Refugees from Mali in Mauritania,Displacement,MRT002,Mauritania,MRT,3.2,2.9,3.05,3.3,0,1.65,4.1,1,2.55,2.4166666666666665,2,0.4,1.2,3.6,3.1,3,3.3,3.3,2.3,2,2,0,0,0,0,0,0,0,0,0,2,0,2,1,1.5
+Food Security in Mauritania,"Drought,Floods",MRT003,Mauritania,MRT,3.2,2.9,3.05,3.3,0,1.65,4.1,1,2.55,2.4166666666666665,2,0.4,1.2,3.6,3.1,3,3.3,3.3,2.3,3,3,0,0,0,0,0,0,0,0,0,2,1,3,1,2
+Complex crisis in Malawi,"Drought,Socio-political,Cyclone",MWI002,Malawi,MWI,1.4,1.8,1.6,3,0,1.5,4.1,2.5,3.3,2.1333333333333333,0,4.7,2.35,3.5,2.8,2.3,1.9,2.6,2.4,3,3,2,0,0,0,2,0,2,2,0,0,2,2,2,2.5
+Tropical Cyclone Freddy in Malawi,Cyclone,MWI005,Malawi,MWI,1.4,1.8,1.6,3,0,1.5,4.1,2.5,3.3,2.1333333333333333,0,4.7,2.35,3.5,2.8,2.3,1.9,2.6,2.4,2,2,2,0,0,0,2,0,2,2,0,0,2,2,2,2
+International Refugees in Malaysia,Displacement,MYS001,Malaysia,MYS,3.9,2.1,3,3,0.6,1.8,1.8,2,1.9,2.233333333333333,1,0,0.5,2.4,1.9,2.3,2.4,2.3,1.7,3,3,1,1,0,0,2,2,2,4,0,0,0,0,2,2.5
+Food Security Crisis in Namibia,Drought,NAM002,Namibia,NAM,1.1,1.3,1.2000000000000002,3.6,1.6,2.6,3.1,4.3,3.7,2.5,0,0,0,2.4,2.2,1.6,1.2,1.9,1.5,1,1,1,1,1,0,2,0,0,0,0,0,2,2,1,1
+Multiple crises in Niger,"Conflict,Displacement",NER001,Niger,NER,2.1,2,2.05,3.1,0.9,2,4.3,1.2,2.75,2.2666666666666666,2,3.9,2.95,3.4,3,2.3,2.6,2.8,2.7,4,4,1,3,1,0,2,0,2,2,2,1,3,4,3,3.5
+Lake Chad basin crisis in Niger,Conflict,NER002,Niger,NER,2.1,2,2.05,3.1,0.9,2,4.3,1.2,2.75,2.2666666666666666,2,3.9,2.95,3.4,3,2.3,2.6,2.8,2.7,4,4,1,3,1,0,2,0,2,2,2,1,3,4,3,3.5
+Mali/Burkina Faso conflict,Conflict,NER003,Niger,NER,2.1,2,2.05,3.1,0.9,2,4.3,1.2,2.75,2.2666666666666666,2,3.9,2.95,3.4,3,2.3,2.6,2.8,2.7,4,4,1,3,1,0,2,0,2,2,2,1,3,4,3,3.5
+Nigerian Refugees,Displacement,NER004,Niger,NER,2.1,2,2.05,3.1,0.9,2,4.3,1.2,2.75,2.2666666666666666,2,3.9,2.95,3.4,3,2.3,2.6,2.8,2.7,2,2,1,2,1,0,2,0,1,1,1,1,3,4,2,2
+Complex crisis in Nigeria,"Conflict,Displacement,Violence",NGA001,Nigeria,NGA,3.9,2.3,3.0999999999999996,4.1,0.3,2.1999999999999997,x,1.3,1.3,2.1999999999999997,5,5,5,3.7,3.4,2.4,2.7,3.1,3.4,4,4,1,3,2,3,4,2,3,5,3,0,3,4,4,4
+Middle belt conflict,Violence,NGA003,Nigeria,NGA,3.9,2.3,3.0999999999999996,4.1,0.3,2.1999999999999997,x,1.3,1.3,2.1999999999999997,5,5,5,3.7,3.4,2.4,2.7,3.1,3.4,5,5,1,2,0,3,3,0,0,0,2,0,2,3,2,3.5
+Lake Chad basin crisis in Nigeria,"Conflict,Displacement",NGA004,Nigeria,NGA,3.9,2.3,3.0999999999999996,4.1,0.3,2.1999999999999997,x,1.3,1.3,2.1999999999999997,5,5,5,3.7,3.4,2.4,2.7,3.1,3.4,4,4,1,3,2,3,4,2,3,5,3,0,3,4,4,4
+Northwest Banditry,"Violence,Displacement",NGA007,Nigeria,NGA,3.9,2.3,3.0999999999999996,4.1,0.3,2.1999999999999997,x,1.3,1.3,2.1999999999999997,5,5,5,3.7,3.4,2.4,2.7,3.1,3.4,5,5,1,2,0,3,3,0,2,2,2,0,2,3,3,4
+Cameroonian Refugees in Nigeria,Displacement,NGA008,Nigeria,NGA,3.9,2.3,3.0999999999999996,4.1,0.3,2.1999999999999997,x,1.3,1.3,2.1999999999999997,5,5,5,3.7,3.4,2.4,2.7,3.1,3.4,2,2,1,2,2,3,4,0,1,1,0,0,1,1,2,2
+Socioeconomic crisis in Nicaragua,Socio-political,NIC001,Nicaragua,NIC,2.9,3,2.95,1.3,1.4,1.35,3,2.7,2.85,2.3833333333333333,3,0.7,1.85,3.9,3.7,3.8,3.5,3.7,2.6,x,x,2,0,3,0,2,3,1,4,1,0,1,2,3,3
+Complex crisis in Pakistan,"Displacement,Conflict",PAK001,Pakistan,PAK,3.9,3.1,3.5,3.2,1.6,2.4000000000000004,3.6,0.8,2.2,2.7000000000000006,3,4.5,3.75,3.4,3.2,3.4,3.1,3.3,3.3,5,5,2,1,2,0,2,2,2,4,1,1,3,4,3,4
+Kashmir conflict in Pakistan,Conflict,PAK004,Pakistan,PAK,3.9,3.1,3.5,3.2,1.6,2.4000000000000004,3.6,0.8,2.2,2.7000000000000006,3,4.5,3.75,3.4,3.2,3.4,3.1,3.3,3.3,3,3,2,1,2,0,2,2,2,4,1,1,3,4,3,3
+Floods in Pakistan ,Other seasonal event,PAK005,Pakistan,PAK,3.9,3.1,3.5,3.2,1.6,2.4000000000000004,3.6,0.8,2.2,2.7000000000000006,3,4.5,3.75,3.4,3.2,3.4,3.1,3.3,3.3,1,1,2,1,2,0,2,2,1,3,1,1,3,4,3,2
+Venezuela displacement in Panama,Displacement,PAN002,Panama,PAN,0.7,1.5,1.1,1.7,1.3,1.5,3.1,3.1,3.1,1.9000000000000001,0,0,0,3.2,2.6,2,0.8,2.2,1.4,2,2,0,1,0,0,1,0,2,2,1,0,1,2,2,2
+Venezuela displacement in Peru,Displacement,PER002,Peru,PER,1.8,1.7,1.75,3,4.5,3.75,2.5,2.1,2.3,2.6,3,1,2,3.2,3,1.9,1.4,2.4,2.3,3,3,0,0,0,1,1,2,2,4,1,1,3,4,3,3
+Mindanao conflict,"Conflict,Violence",PHL003,Philippines,PHL,1.8,2.1,1.9500000000000002,1.3,1.4,1.35,2.8,2.2,2.5,1.9333333333333336,4,3.1,3.55,3.3,3,2.6,2.1,2.8,2.8,4,4,0,1,0,0,1,0,0,0,0,1,1,2,1,2.5
+Highlands Violence,Earthquake,PNG003,Papua New Guinea,PNG,1.1,2,1.55,0.3,0,0.15,4.9,2.1,3.5,1.7333333333333334,4,3.1,3.55,3.6,3.3,2.1,1.9,2.7,2.7,4,4,0,1,0,0,1,0,0,0,1,0,3,3,1,2.5
+Displacement from Russia-Ukraine conflict in Poland,"Displacement,Conflict",POL002,Poland,POL,0.7,1,0.85,0.4,0.1,0.25,0.8,0.7,0.75,0.6166666666666667,0,0,0,2.1,2,1.6,0.8,1.6,0.7,2,2,0,0,0,0,0,0,1,1,0,0,0,0,0,1
+Complex crisis in DPRK,"Socio-political,Floods,Other seasonal event,Food Security",PRK001,DPRK,PRK,5,3.7,4.35,0,0,0,x,x,x,2.175,3,1.2,2.1,4.2,4.2,4.4,4.9,4.4,2.9,1,1,1,2,2,0,2,3,3,5,0,0,3,3,3,2
+Conflict in Palestine,"Conflict,Socio-political,Violence",PSE002,Palestine,PSE,x,x,x,0,0,0,x,1.1,1.1,0.55,1,5,3,x,3,x,4.5,3.8,2.5,5,5,1,3,2,3,4,3,3,5,3,2,3,5,5,5
+Conflict in West Bank,"Conflict,Displacement,Socio-political,Violence",PSE003,Palestine,PSE,x,x,x,0,0,0,x,1.1,1.1,0.55,1,5,3,x,3,x,4.5,3.8,2.5,5,5,1,3,2,3,4,2,3,5,2,2,0,3,4,4.5
+Conflict in Gaza,"Conflict,Displacement,Socio-political,Violence",PSE004,Palestine,PSE,x,x,x,0,0,0,x,1.1,1.1,0.55,1,5,3,x,3,x,4.5,3.8,2.5,5,5,1,3,2,3,4,3,3,5,3,2,3,5,5,5
+Lake Chad basin regional crisis,0,REG001,"Nigeria,Niger,Chad,Cameroon","NGA,NER,TCD,CMR",2.8,2.7,2.75,4,0.8,2.4,4.3,1.9,3.0999999999999996,2.75,4.25,4.7,4.475,3.7,3.5,3,3.4,3.4,3.5,5,5,1,3,2,2,4,2,3,5,3,3,3,5,5,5
+Venezuela Regional Crisis,0,REG002,"Venezuela,Brazil,Colombia,Ecuador,Peru,Trinidad and Tobago,Chile,Dominican Republic,Panama","VEN,BRA,COL,ECU,PER,TTO,CHL,DOM,PAN",1.4,1.5,1.45,1.9,2,1.95,2.6,2.6,2.6,2,2.111111111111111,5,3.5555555555555554,3.2,2.9,1.9,1.6,2.4,2.7,5,5,0,2,2,3,3,2,2,4,1,3,3,5,4,4.5
+Regional Kashmir conflict,0,REG003,"India,Pakistan","IND,PAK",3.2,2.3,2.75,3.8,0.8,2.3,3.5,1.1,2.3,2.4499999999999997,3,4.5,3.75,3.2,2.8,2.4,2.3,2.7,3,3,3,2,1,2,0,2,2,2,4,2,1,3,4,3,3
+Syrian Regional Crisis,0,REG004,"Syria,Türkiye,Iraq,Egypt,Jordan,Lebanon","SYR,TUR,IRQ,EGY,JOR,LBN",3.8,3,3.4,2.5,3.3,2.9,3,1.2,2.1,2.8000000000000003,3.8333333333333335,5,4.416666666666667,3.5,3.4,3.3,3.6,3.5,3.6,5,5,1,3,3,0,3,2,3,5,3,3,1,5,4,4.5
+Eastern Mediterranean Route ,0,REG006,"Türkiye,Greece","TUR,GRC",2.1,2.5,2.3,1.2,1.8,1.5,1.4,1.6,1.5,1.7666666666666666,3.5,3,3.25,2.8,2.5,3.3,2,2.7,2.6,2,2,1,1,1,0,2,2,2,4,0,3,1,3,3,2.5
+Central Mediterranean Route,0,REG007,"Algeria,Tunisia,Libya,Italy","DZA,TUN,LBY,ITA",2.9,2.7,2.8,1.1,0.7,0.9,1.6,0.9,1.25,1.6499999999999997,2,5,3.5,3.1,3.1,2.9,2.5,2.9,2.7,4,4,1,0,1,0,2,2,3,5,0,1,1,2,3,3.5
+Western Mediterranean Route,0,REG008,"Algeria,Morocco,Spain","DZA,MAR,ESP",2.7,2.9,2.8,2.3,3.2,2.75,2.2,1.1,1.6500000000000001,2.4,2,5,3.5,2.7,2.5,3.1,2.3,2.7,2.9,4,4,0,0,0,0,0,0,0,0,0,1,1,2,1,2.5
+Rohingya Regional Crisis,0,REG011,"Bangladesh,Myanmar","BGD,MMR",3.8,3.1,3.45,1.8,2.1,1.9500000000000002,3.3,0.8,2.05,2.4833333333333334,4,5,4.5,3.6,3.3,3.4,3.3,3.4,3.5,4,4,2,3,2,0,3,3,3,5,0,1,3,3,4,4
+Southern Africa Regional Food Security Crisis,0,REG012,"Lesotho,Madagascar,Malawi,Namibia,Eswatini,Zambia,Zimbabwe,Tanzania","LSO,MDG,MWI,NAM,SWZ,ZMB,ZWE,TZA",2.4,2.2,2.3,2.2,0.2,1.2000000000000002,3.6,3,3.3,2.2666666666666666,0.875,4.7,2.7875,3.3,3,2.7,2.5,2.9,2.7,5,5,2,1,1,0,2,2,3,5,1,1,3,4,4,4.5
+Nagorno-Karabakh Conflict,0,REG013,"Armenia,Azerbaijan","ARM,AZE",3.2,2.4,2.8,0.5,0.4,0.45,1.9,0.4,1.15,1.4666666666666668,3,2.3,2.65,3.2,2.9,2.8,3.4,3.1,2.4,2,2,2,3,2,0,3,3,2,5,2,3,2,5,4,3
+Eastern Africa Regional Drought Crisis,Drought,REG014,"Ethiopia,Somalia,Kenya","ETH,SOM,KEN",3.8,3.3,3.55,2.7,1.2,1.9500000000000002,3.5,1.6,2.55,2.6833333333333336,5,5,5,3.8,3.6,3.4,3.7,3.6,3.8,5,5,2,3,2,3,5,2,3,5,3,2,3,5,5,5
+Turkiye / Syria earthquake,Earthquake,REG015,"Türkiye,Syria","TUR,SYR",3.6,3.3,3.45,2.4,5,3.7,2.8,1.8,2.3,3.15,4.5,0,2.25,3.7,3.7,3.8,4.2,3.9,3.1,5,5,1,3,3,0,3,2,3,5,3,3,1,5,4,4.5
+Displacement from Russia-Ukraine conflict in Romania,"Conflict,Displacement",ROU002,Romania,ROU,2.1,1.2,1.65,1.5,0.3,0.9,2.1,1.4,1.75,1.4333333333333333,1,0,0.5,2.8,2.1,1.6,0.9,1.9,1.3,2,2,0,0,2,0,2,0,1,1,0,0,0,0,1,1.5
+Displacement from Russia-Ukraine conflict in Russia,"Conflict,Displacement",RUS002,Russia,RUS,4.3,2.8,3.55,1.7,1.6,1.65,1.7,1.6,1.65,2.283333333333333,3,2.9,2.95,3.6,3.2,3,4,3.5,2.9,2,2,1,1,1,0,2,3,3,5,1,0,0,1,3,2.5
+Burundi and DRC refugees in Rwanda,Displacement,RWA002,Rwanda,RWA,3.2,3,3.1,1.4,5,3.2,2.7,2.3,2.5,2.9333333333333336,3,x,3,2.4,2.4,3.1,3.9,3,3,2,2,1,0,0,0,1,0,0,0,0,0,3,3,1,1.5
+Complex crisis in Sudan,"Displacement,Violence,Floods",SDN001,Sudan,SDN,3.6,4,3.8,4,5,4.5,3.7,1.2,2.45,3.5833333333333335,5,3.5,4.25,4.2,3.6,4.5,4.4,4.2,4,5,5,2,3,3,3,5,2,2,4,3,1,3,5,5,5
+Refugees in Sudan,Displacement,SDN005,Sudan,SDN,3.6,4,3.8,4,5,4.5,3.7,1.2,2.45,3.5833333333333335,5,3.5,4.25,4.2,3.6,4.5,4.4,4.2,4,2,2,2,3,3,3,5,1,2,3,3,1,3,5,4,3
+Drought in Senegal,Drought,SEN002,Senegal,SEN,1.8,1.5,1.65,3.6,0,1.8,3.5,1.9,2.7,2.0500000000000003,3,1.7,2.35,2.8,2.7,2,1.5,2.3,2.2,1,1,0,0,0,0,0,0,0,0,0,1,1,2,1,1
+Complex crisis in El Salvador,"Displacement,Violence,Floods,Drought",SLV001,El Salvador,SLV,0.7,1.4,1.0499999999999998,0.9,0,0.45,2.6,1.7,2.15,1.2166666666666666,3,2.1,2.55,3.3,3.3,2,1.7,2.6,2.1,3,3,0,1,1,0,2,2,2,4,1,0,1,2,3,3
+Complex crisis in Somalia,"Conflict,Displacement,Floods,Drought",SOM001,Somalia,SOM,x,4.3,4.3,0,0,0,x,1.5,1.5,1.9333333333333333,5,5,5,4.6,4.9,4.5,4.7,4.7,3.9,5,5,1,3,3,3,5,0,2,2,3,3,3,5,4,4.5
+Mixed Migration Flows in Somalia,Displacement,SOM002,Somalia,SOM,x,4.3,4.3,0,0,0,x,1.5,1.5,1.9333333333333333,5,5,5,4.6,4.9,4.5,4.7,4.7,3.9,1,1,1,3,3,3,5,0,2,2,3,2,3,5,4,2.5
+Complex crisis in South Sudan,"Conflict,Floods,Displacement",SSD001,South Sudan,SSD,1.4,3.7,2.55,3.9,0,1.95,x,2.4,2.4,2.3000000000000003,5,5,5,4.4,4.5,3.9,5,4.5,3.9,5,5,2,2,2,3,4,2,2,4,3,3,3,5,4,4.5
+Displacement from Russia-Ukraine conflict in Slovakia,"Displacement,Conflict",SVK002,Slovakia,SVK,1.4,0.7,1.0499999999999998,1.7,1.9,1.7999999999999998,1.3,0,0.65,1.1666666666666665,1,0,0.5,2.5,1.9,1,0.6,1.5,1.1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Food Security Crisis in Eswatini,Drought,SWZ001,Eswatini,SWZ,3.2,3.2,3.2,0,0,0,3.9,3.7,3.8,2.3333333333333335,3,1.4,2.2,3.3,3,3.8,4.1,3.6,2.7,1,1,0,1,0,0,1,0,2,2,0,0,2,2,2,1.5
+Syrian conflict,"Conflict,Displacement,Violence",SYR001,Syria,SYR,4.6,4.1,4.35,2.7,5,3.85,3.6,1.6,2.6,3.5999999999999996,5,4.6,4.8,4.4,4.6,4.3,5,4.6,4.3,5,5,1,3,3,0,3,2,3,5,3,2,0,4,4,4.5
+Türkiye / Syria earthquake in Syria,Earthquake,SYR002,Syria,SYR,4.6,4.1,4.35,2.7,5,3.85,3.6,1.6,2.6,3.5999999999999996,5,4.6,4.8,4.4,4.6,4.3,5,4.6,4.3,5,5,1,3,3,0,3,2,3,5,3,2,0,4,4,4.5
+Complex crisis in Chad,"Conflict,Displacement",TCD001,Chad,TCD,1.8,3.5,2.65,4.6,1.9,3.25,4.7,2.3,3.5,3.1333333333333333,5,1.9,3.45,4,3.8,4.1,4.2,4,3.5,4,4,1,3,1,0,2,0,3,3,3,2,3,5,3,3.5
+Lake Chad basin crisis,Conflict,TCD003,Chad,TCD,1.8,3.5,2.65,4.6,1.9,3.25,4.7,2.3,3.5,3.1333333333333333,5,1.9,3.45,4,3.8,4.1,4.2,4,3.5,4,4,1,3,1,0,2,0,3,3,3,2,3,5,3,3.5
+CAR refugees in Chad,Displacement,TCD004,Chad,TCD,1.8,3.5,2.65,4.6,1.9,3.25,4.7,2.3,3.5,3.1333333333333333,5,1.9,3.45,4,3.8,4.1,4.2,4,3.5,2,2,1,2,1,0,2,0,2,2,2,2,2,4,3,2.5
+Darfur refugees in Chad,Displacement,TCD005,Chad,TCD,1.8,3.5,2.65,4.6,1.9,3.25,4.7,2.3,3.5,3.1333333333333333,5,1.9,3.45,4,3.8,4.1,4.2,4,3.5,2,2,1,2,1,0,2,0,2,2,2,2,2,4,3,2.5
+Multiple situations in Thailand,"Conflict,Displacement",THA001,Thailand,THA,2.1,3.4,2.75,1.6,0.5,1.05,2.5,1.2,1.85,1.8833333333333335,3,2,2.5,3.2,2.4,3.4,3.4,3.1,2.5,2,2,1,1,1,0,2,0,2,2,0,3,1,3,2,2
+Conflict in southern Thailand ,Conflict,THA002,Thailand,THA,2.1,3.4,2.75,1.6,0.5,1.05,2.5,1.2,1.85,1.8833333333333335,3,2,2.5,3.2,2.4,3.4,3.4,3.1,2.5,1,1,1,1,0,0,2,0,0,0,0,3,0,3,2,1.5
+Myanmar refugees in Thailand,Conflict,THA003,Thailand,THA,2.1,3.4,2.75,1.6,0.5,1.05,2.5,1.2,1.85,1.8833333333333335,3,2,2.5,3.2,2.4,3.4,3.4,3.1,2.5,1,1,1,0,1,0,2,0,2,2,0,3,1,3,2,1.5
+Food Security Crisis in Timor-Leste,Food Security,TLS003,Timor Leste,TLS,0.4,1.2,0.8,0,0,0,x,0.5,0.5,0.43333333333333335,0,0,0,3.1,3.6,1.5,1.5,2.4,0.9,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5
+Venezuelan refugees in Trinidad and Tobago,Displacement,TTO002,Trinidad and Tobago,TTO,0.7,0.8,0.75,3.8,4,3.9,2.2,1.9,2.05,2.2333333333333334,0,0,0,3,2.6,1.4,0.9,2,1.4,3,3,0,0,0,0,0,2,2,4,0,0,2,2,2,2.5
+Mixed migration flows in Tunisia,Displacement,TUN002,Tunisia,TUN,2.5,1.7,2.1,0.2,0,0.1,2,1,1.5,1.2333333333333334,3,4.4,3.7,2.9,2.4,2.3,1.5,2.3,2.4,4,4,0,0,1,0,1,2,2,4,0,1,0,1,2,3
+Complex situation in Türkiye,"Displacement,Conflict",TUR001,Türkiye,TUR,2.5,2.5,2.5,2,3.4,2.7,2,2.1,2.05,2.4166666666666665,4,2.7,3.35,3.1,2.8,3.3,3.4,3.2,3,4,4,1,1,2,0,2,2,2,4,0,3,1,3,3,3.5
+Syrian Refugees in Türkiye,Displacement,TUR002,Türkiye,TUR,2.5,2.5,2.5,2,3.4,2.7,2,2.1,2.05,2.4166666666666665,4,2.7,3.35,3.1,2.8,3.3,3.4,3.2,3,2,2,1,0,1,0,2,0,1,1,0,3,1,3,2,2
+Mixed Migration Flows in Türkiye,Displacement,TUR003,Türkiye,TUR,2.5,2.5,2.5,2,3.4,2.7,2,2.1,2.05,2.4166666666666665,4,2.7,3.35,3.1,2.8,3.3,3.4,3.2,3,2,2,1,0,0,0,1,0,1,1,0,3,0,3,2,2
+Kurdish Conflict,Conflict,TUR004,Türkiye,TUR,2.5,2.5,2.5,2,3.4,2.7,2,2.1,2.05,2.4166666666666665,4,2.7,3.35,3.1,2.8,3.3,3.4,3.2,3,3,3,1,1,1,0,2,2,1,3,0,3,1,3,3,3
+Türkiye / Syria earthquake in Türkiye,Earthquake,TUR005,Türkiye,TUR,2.5,2.5,2.5,2,3.4,2.7,2,2.1,2.05,2.4166666666666665,4,2.7,3.35,3.1,2.8,3.3,3.4,3.2,3,3,3,1,1,2,0,2,1,0,1,0,3,1,3,2,2.5
+Multiple Crises in Tanzania,"Displacement,Drought",TZA001,Tanzania,TZA,2.5,2,2.25,2.5,0,1.25,3.6,1.9,2.75,2.0833333333333335,1,1.3,1.15,3.2,3.1,2.5,3,3,2.1,2,2,2,0,1,0,2,0,2,2,0,0,3,3,2,2
+International Displacement in Tanzania,Displacement,TZA002,Tanzania,TZA,2.5,2,2.25,2.5,0,1.25,3.6,1.9,2.75,2.0833333333333335,1,1.3,1.15,3.2,3.1,2.5,3,3,2.1,2,2,2,0,1,0,2,0,2,2,0,0,3,3,2,2
+Food Security Crisis in North-East Tanzania,Drought,TZA003,Tanzania,TZA,2.5,2,2.25,2.5,0,1.25,3.6,1.9,2.75,2.0833333333333335,1,1.3,1.15,3.2,3.1,2.5,3,3,2.1,2,2,2,0,1,0,2,0,2,2,0,0,3,3,2,2
+International Displacement in Uganda,Displacement,UGA005,Uganda,UGA,2.5,2.4,2.45,4.6,2.4,3.5,3.5,2.2,2.85,2.9333333333333336,5,4.9,4.95,3.6,2.8,2.4,3.3,3,3.6,2,2,2,1,1,0,2,0,1,1,0,1,2,3,2,2
+Russia-Ukraine conflict,"Conflict,Displacement",UKR002,Ukraine,UKR,1.4,1.6,1.5,1.6,0.2,0.9,1.9,0.2,1.05,1.1500000000000001,3,5,4,3.5,3.2,1.9,1.9,2.6,2.6,2,2,1,3,3,3,5,3,3,5,3,3,3,5,5,3.5
+Complex crisis in Venezuela,"Socio-political,Violence,Floods",VEN001,Venezuela,VEN,2.5,3.5,3,1.3,1.2,1.25,3.1,2.5,2.8,2.35,3,3.6,3.3,4.2,4.8,4.1,4.2,4.3,3.3,5,5,2,2,2,0,3,1,2,3,1,1,2,3,3,4
+Conflict in Yemen,Conflict,YEM001,Yemen,YEM,4.3,4.3,4.3,3.1,0,1.55,5,1.5,3.25,3.033333333333333,4,4.6,4.3,4.3,4.3,4.4,4.5,4.4,3.9,4,4,1,3,2,2,4,2,3,5,1,3,2,4,4,4
+Mixed migration flows in Yemen,Displacement,YEM002,Yemen,YEM,4.3,4.3,4.3,3.1,0,1.55,5,1.5,3.25,3.033333333333333,4,4.6,4.3,4.3,4.3,4.4,4.5,4.4,3.9,2,2,0,3,2,2,3,2,3,5,1,3,2,4,4,3
+Drought in Zambia,Drought,ZMB002,Zambia,ZMB,2.1,2.1,2.1,3.5,0,1.75,3.6,4,3.8,2.5500000000000003,0,1.4,0.7,3.3,3,2.9,2.3,2.9,2.1,3,3,1,1,1,0,2,0,0,0,0,0,2,2,1,2
+Complex crisis in Zimbabwe,"Socio-political,Drought",ZWE001,Zimbabwe,ZWE,5,2.8,3.9,1.5,0.3,0.9,3.5,3.2,3.35,2.716666666666667,3,1.9,2.45,3.8,3.8,3.4,3.6,3.7,3,4,4,2,0,1,0,2,2,0,2,0,2,2,3,2,3

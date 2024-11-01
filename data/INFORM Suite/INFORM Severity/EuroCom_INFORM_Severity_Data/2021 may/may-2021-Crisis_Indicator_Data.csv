@@ -1,0 +1,137 @@
+Crisis,TYPE OF CRISIS,CRISIS ID,COUNTRY,ISO3,Landmass affected by disaster,People living in the affected area,Total # of people affected by the crisis,Total # of crisis related displaced people,Total # of crisis related Injuries,Total # of illness cases reported,Total # of crisis related fatalities,Building partially damaged,Building totally damaged,Total Building in the affected area,Econimic losses,# of people affected facing minimal humanitarian needs (level 1),# of people affected facing stressed humanitarian needs (level 2),# of people affected facing moderate humanitarian conditions and needs (level 3),# of people affected facing severe humanitarian conditions and needs (level 4),# of people affected facing extreme humanitarian conditions and needs (level 5),# of groups affected by crisis,people in need facing limited access constraints,people in need facing restricted access constraints,Impediments to entry into country (bureaucratic and administrative),Restriction of movement (impediments to freedom of movement and/or administrative restrictions),Interference into implementation of humanitarian activities,"Violence against personnel, facilities and assets",Denial of existence of humanitarian needs or entitlements to assistance,Restriction and obstruction of access to services and assistance,Ongoing insecurity/hostilities affecting humanitarian assistance,Presence of mines and improvised explosive devices ,"Physical constraints in the environment (obstacles related to terrain, climate, lack of infrastructure, etc.)"
+0,,,,,sq. Km,Number,Number,Number,Number,,Number,Number,Number,Number,million USD,Number,Number,Number,Number,Number,Number,Number,Number,,,,,,,,,
+Complex crisis in Afghanistan,Complex crisis,AFG001,Afghanistan,AFG,652867,38042000,38042000,5427000,x,x,13023,x,x,#N/A,13114,0,19642000,12100000,5800000,500000,5,x,x,1,3,2,3,0,3,3,3,3
+Nagorno-Karabakh Conflict in Armenia,Conflict,ARM002,Armenia,ARM,28203,3024000,84000,66000,x,x,2,x,x,#N/A,x,2874000,18000,66000,0,0,2,x,x,0,0,0,0,0,0,0,2,0
+Nagorno-Karabakh conflict in Azerbaijan,Conflict,AZE002,Azerbaijan,AZE,31560,5874000,5874000,91000,x,x,91,x,x,#N/A,x,x,x,x,x,x,3,x,x,2,2,0,0,0,2,3,3,0
+Complex in Burundi,Complex crisis,BDI001,Burundi,BDI,25680,12600000,12600000,416000,x,70187,262,x,x,#N/A,444,0,10200000,1272000,1032000,96000,5,x,x,1,2,2,0,2,0,1,0,2
+Conflict in Burkina Faso,Conflict,BFA002,Burkina Faso,BFA,151789,8736000,5277000,1142000,x,x,566,x,x,#N/A,x,3459000,3107000,490000,764000,916000,4,x,x,0,2,2,3,0,2,3,0,3
+Rohingya refugee crisis,International displacement,BGD002,Bangladesh,BGD,650,1356000,1356000,884000,607,0,15,x,x,#N/A,x,0,472000,670000,207000,0,3,0,0,2,1,2,0,2,3,3,1,3
+Venezuela displacement in Brazil,International displacement,BRA002,Brazil,BRA,224274,1495000,889000,490000,x,x,0,x,x,#N/A,x,606000,399000,490000,0,0,2,x,x,0,0,0,0,0,0,0,0,0
+Complex crisis in CAR,Complex crisis,CAF001,CAR,CAF,623000,4900000,4900000,1616000,x,x,310,x,x,#N/A,x,0,2100000,900000,1900000,0,5,x,x,0,3,2,3,0,2,3,0,3
+Multiple crises in Cameroon,Multiple crises country,CMR001,Cameroon,CMR,440640,25876000,4343000,1946000,150,x,454,x,x,#N/A,x,21533000,343000,2000000,2000000,0,5,x,x,0,3,3,2,1,2,3,1,2
+Boko Haram in Cameroon,Conflict,CMR002,Cameroon,CMR,34263,4483000,1984000,562000,x,x,244,x,x,#N/A,5.2,2499000,1354000,616000,14000,0,5,x,x,0,1,1,0,0,2,2,1,1
+Anglophone Crisis in Cameroon,Conflict,CMR003,Cameroon,CMR,76850,4476000,2449000,1117000,x,x,286,x,x,#N/A,x,2027000,1489000,882000,78000,0,4,x,377500,0,3,3,2,1,2,3,1,2
+CAR refugees in Cameroon,International displacement,CMR004,Cameroon,CMR,172703,1565000,316000,320000,0,x,x,0,0,#N/A,x,1249000,0,316000,0,0,3,x,x,0,0,1,0,0,2,0,1,1
+Complex crisis in DRC,Complex crisis,COD001,DRC,COD,2267048,102743000,49870000,8037000,x,x,2440,x,x,#N/A,1700,52920000,30270000,14112000,4704000,784000,5,x,x,1,3,2,3,1,2,3,1,3
+Complex crisis in Congo,Complex crisis,COG001,Congo,COG,341500,5599000,1200000,295000,x,x,x,x,x,#N/A,x,4399000,0,1200000,0,0,5,x,x,0,0,0,0,0,0,0,0,1
+Complex crisis in Colombia,Complex crisis,COL001,Colombia,COL,1109500,50300000,4963000,4507000,x,x,445,x,x,#N/A,x,45337000,1200000,1400000,1700000,663000,5,1800000,11500,0,2,0,0,0,2,1,3,1
+Venezuela displacement in Colombia,International displacement,COL002,Colombia,COL,111093,22194000,3601000,2859000,x,x,x,x,x,#N/A,x,18593000,0,3439000,162000,0,3,x,x,0,2,0,0,0,2,1,3,1
+Nicaraguan refugees in Costa Rica,International displacement,CRI002,Costa Rica,CRI,4966,1730000,86000,86000,0,0,0,0,0,#N/A,0,1644000,43000,43000,0,0,2,0,#N/A,0,0,0,0,0,0,0,0,0
+Multiple crises in Djibouti,Multiple crises country,DJI001,Djibouti,DJI,23180,1011000,613000,x,x,x,2,x,x,#N/A,x,398000,389000,197000,27000,0,5,x,x,1,1,0,0,0,2,0,0,1
+Mixed migration in Djibouti,International displacement,DJI002,Djibouti,DJI,23180,1011000,583000,30000,x,x,27,0,0,#N/A,0,981000,0,30000,0,0,2,0,0,1,0,0,0,0,0,0,0,1
+Drought in Djibouti,Drought,DJI003,Djibouti,DJI,23180,1011000,583000,x,0,x,x,0,0,#N/A,x,428000,389000,167000,27000,0,5,0,0,1,0,0,0,0,0,0,0,1
+Mixed migration flows in Algeria,International displacement,DZA002,Algeria,DZA,2381000,43100000,x,x,x,x,651,0,0,#N/A,x,x,x,x,x,x,2,x,x,1,0,1,0,0,2,0,1,0
+Sahrawi refugees in Algeria,International displacement,DZA003,Algeria,DZA,159000,223000,174000,174000,x,x,0,x,x,#N/A,x,49000,84000,90000,0,0,1,0,0,1,1,2,0,0,0,0,1,2
+Multiple crises in Algeria,Multiple crises country,DZA004,Algeria,DZA,2381000,43100000,x,x,x,x,651,x,x,#N/A,x,x,x,x,x,x,2,x,x,1,1,2,0,0,2,0,1,1
+Venezuela displacement in Ecuador,International displacement,ECU002,Ecuador,ECU,3449,5441000,625000,416000,x,x,1,x,x,#N/A,x,4817000,209000,416000,0,0,2,x,0,0,0,0,0,0,2,0,1,0
+Syrian Refugee Crisis in Egypt,International displacement,EGY002,Egypt,EGY,91071.77,23300000,1435000,503000,x,x,0,x,x,#N/A,x,21865000,933000,165000,338000,0,2,x,x,1,1,0,0,0,0,1,1,1
+Complex crisis in Eritrea,Complex crisis,ERI001,Eritrea,ERI,101000,3227000,2582000,314000,x,x,0,x,x,#N/A,x,645000,0,2582000,0,0,5,x,x,3,0,0,0,2,0,0,2,0
+Mixed migration flows in spain,International displacement,ESP002,Spain,ESP,92610,11983000,40000,40000,x,x,225,x,x,#N/A,x,11943000,0,40000,0,0,2,x,x,x,x,x,x,x,x,x,x,x
+Complex crisis in Ethiopia,Complex crisis,ETH001,Ethiopia,ETH,1000000,103700000,103700000,2737000,x,x,3825,x,x,#N/A,x,0,80200000,925000,17150000,5425000,4,x,x,1,2,2,0,3,2,3,3,3
+Flood Crisis in Ethiopia,Flood,ETH002,Ethiopia,ETH,742878,61952000,1018000,294000,x,x,12,x,x,#N/A,x,61221000,221000,401000,0,0,3,x,x,x,x,x,x,x,x,x,x,2
+International Displacement,International displacement,ETH003,Ethiopia,ETH,907050,72381000,769000,769000,x,x,x,x,x,#N/A,x,71612000,0,769000,0,0,3,x,x,2,1,2,0,2,2,1,3,x
+Crisis in Tigray,Conflict,ETH004,Ethiopia,ETH,50079,5156000,5156000,347000,x,#N/A,x,#N/A,#N/A,#N/A,#N/A,0,0,5126000,0,30000,4,#N/A,#N/A,2,2,3,3,2,0,3,3,3
+Mixed migration flows in Greece,International displacement,GRC002,Greece,GRC,3364.07,364000,119000,119000,0,x,16,x,x,#N/A,x,245000,101000,18000,0,0,2,x,x,0,0,1,0,0,2,0,0,0
+Complex crisis in Guatemala,Complex crisis,GTM001,Guatemala,GTM,107160,14900000,5500000,242000,x,1678,1876,0,0,#N/A,x,4931000,6669000,2872000,428000,0,3,x,x,0,1,0,1,0,2,0,0,1
+Hurricane Eta and Iota in Guatemala,Tropical cyclone,GTM003,Guatemala,GTM,96841,9540000,2439000,210000,30,x,61,74237,4133,#N/A,x,7101000,639000,1800000,0,0,3,#N/A,#N/A,0,0,0,0,0,0,1,0,3
+Complex crisis in Honduras,Complex crisis,HND001,Honduras,HND,111890,9158000,2700000,247000,75122,7103,1882,x,x,#N/A,12965,6458000,1400000,950000,350000,0,3,x,x,0,2,1,1,0,2,1,0,0
+Hurricane Eta and Iota in Honduras,Tropical cyclone,HND002,Honduras,HND,112490,7490000,4700000,96000,x,x,98,28000,x,#N/A,x,2790000,1900000,2800000,0,0,3,#N/A,#N/A,0,2,0,1,2,0,3,0,2
+Complex crisis in Haiti,Complex crisis,HTI001,Haiti,HTI,27166,11400000,6300000,53000,x,x,225,x,x,#N/A,x,5100000,1900000,1900000,1500000,1000000,2,x,x,0,1,0,0,0,0,2,0,3
+Papua Conflict,Conflict,IDN002,Indonesia,IDN,416060,3594000,3594000,x,x,x,26,x,x,#N/A,x,x,x,x,x,x,4,x,x,0,2,2,0,0,1,2,0,2
+Conflict in Jammu and Kashmir,Conflict,IND002,India,IND,222236,12541000,x,x,x,x,109,x,x,#N/A,x,12541000,x,x,x,x,x,x,x,1,1,1,0,1,2,1,1,2
+Afghan Refugees in Iran,International displacement,IRN004,Iran,IRN,239561,24823000,2780000,2780000,x,x,0,x,x,#N/A,x,22043000,0,780000,2000000,0,2,x,x,2,2,2,0,2,2,1,1,2
+Multiple crises in Iraq,Multiple crises country,IRQ001,Iraq,IRQ,435051.992,39310000,6130000,8402000,x,x,1185,x,x,#N/A,133900,33180000,1785000,242000,2648000,1455000,5,1500000,300000,1,2,2,0,2,3,0,3,2
+Conflict  in Iraq,Conflict,IRQ002,Iraq,IRQ,435052,6130000,5825000,8158000,x,x,1185,x,x,#N/A,133900,305000,1725000,164000,2501000,1435000,5,1500000,300000,1,2,2,0,2,3,0,3,2
+Syrian and Palestinian refugees in iraq,International displacement,IRQ003,Iraq,IRQ,40643,5138000,477000,245000,x,x,0,x,0,#N/A,x,4661000,0,310000,147000,20000,5,x,0,1,1,0,0,0,2,0,3,1
+Mixed migration flows in Italy,International displacement,ITA002,Italy,ITA,41054,7120000,x,x,x,x,238,x,0,#N/A,x,7120000,x,x,x,x,2,x,x,1,1,1,0,1,1,0,0,0
+Syrian refugees in Jordan,International displacement,JOR002,Jordan,JOR,40463,8708000,1917000,1397000,x,x,0,x,x,#N/A,x,6790000,609000,785000,523000,0,2,x,x,1,1,0,0,2,1,2,0,2
+Refugee situation in Kenya,International displacement,KEN002,Kenya,KEN,113673,6684000,519000,519000,0,x,x,0,0,#N/A,x,6165000,0,519000,0,0,2,x,x,0,0,0,0,0,0,0,1,0
+Syrian refugees in Lebanon,International displacement,LBN002,Lebanon,LBN,10201.2,6856000,3503000,3503000,x,0,0,x,x,#N/A,x,3353000,295000,1575000,1573000,60000,2,x,x,1,2,2,0,2,2,0,3,1
+Socioeconomic crisis in Lebanon,Political and economic crisis,LBN004,Lebanon,LBN,10201.2,6856000,6856000,x,x,x,14,x,x,#N/A,x,0,2174000,1658000,2964000,60000,3,x,x,1,2,2,0,2,2,0,3,1
+Complex crisis in Libya,Multiple crises country,LBY001,Libya,LBY,1759540,7400000,1800000,1467000,x,x,630,x,x,#N/A,x,4900000,1200000,871000,273000,156000,5,198000,633000,1,3,3,3,2,3,3,1,3
+Mixed migration flows in Libya,International displacement,LBY002,Libya,LBY,1759540,7400000,576000,576000,x,x,604,x,x,#N/A,x,6824000,228000,65000,4000,3000,2,79000,229000,1,3,3,0,2,3,3,1,3
+Drought in Lesotho,Drought,LSO002,Lesotho,LSO,30400,1467000,1062000,x,0,0,0,0,0,#N/A,x,405000,480000,482000,100000,0,1,0,0,0,0,0,0,0,2,0,0,1
+Mixed migration flows in Morocco,International displacement,MAR002,Morocco,MAR,446300,35587000,x,x,x,x,161,0,0,#N/A,0,x,x,x,x,x,1,0,0,0,0,1,0,0,1,0,1,0
+Drought in Madagascar,Drought,MDG002,Madagascar,MDG,81967,3909000,2967000,x,0,x,x,x,x,#N/A,x,942000,1618000,1067000,282000,0,1,x,x,0,0,0,0,0,2,0,0,0
+Multiple crisis in Mexico,Multiple crises country,MEX001,Mexico,MEX,1635481,92033000,x,584000,x,45472,3714,x,x,#N/A,x,x,x,x,x,x,5,x,x,x,1,1,0,0,1,1,x,x
+Criminal Violence in Mexico,Other type of violence,MEX002,Mexico,MEX,1078234,70024000,x,351000,x,x,3454,x,x,#N/A,x,x,x,x,x,x,4,x,x,x,1,1,0,x,1,x,x,x
+Mixed Migration in Mexico,International displacement,MEX003,Mexico,MEX,1437306,70840000,275000,275000,x,x,233,x,x,#N/A,x,x,x,x,x,x,3,x,x,x,1,1,0,1,1,1,x,x
+Complex crisis in Mali,Complex crisis,MLI001,Mali,MLI,1220190,20402000,11712000,469000,x,44056,974,x,x,#N/A,x,8691000,5812000,3700000,2200000,0,5,x,x,0,2,2,3,2,2,3,1,3
+Multiple crises in Myanmar,Multiple crises country,MMR001,Myanmar,MMR,289700,10395000,5124000,1470000,x,x,196,x,x,#N/A,x,5271000,3429000,1047000,498000,150000,4,x,x,2,3,2,0,3,3,2,1,3
+Rakhine Conflict,Conflict,MMR002,Myanmar,MMR,44857,3882000,1563000,1360000,x,x,112,x,x,#N/A,x,2318000,729000,247000,437000,150000,4,x,x,2,3,2,0,3,3,2,1,3
+Kachin and Shan Conflict,Conflict,MMR003,Myanmar,MMR,244843,6513000,3560000,111000,x,x,84,x,x,#N/A,x,2953000,2699000,800000,61000,0,3,x,x,2,2,2,0,2,3,1,1,2
+Complex crisis in Mozambique,Complex crisis,MOZ001,Mozambique,MOZ,781990,21456000,6117000,807000,26,277460,663,147000,143000,#N/A,773,15339000,3556000,2377000,184000,0,3,x,x,1,2,2,0,1,2,3,1,1
+Cabo Delgado Islamist Insurgency,Other type of violence,MOZ004,Mozambique,MOZ,280615,4941000,3057000,670000,x,0,620,x,x,#N/A,x,1885000,1480000,1436000,141000,0,63423,x,x,0,1,0,0,0,2,1,1,1
+Food Security Crisis in Mozambique,Food Security,MOZ006,Mozambique,MOZ,781990,18143000,11321000,94000,0,0,x,#N/A,#N/A,#N/A,#N/A,6822000,8407000,2649000,265000,0,3,#N/A,#N/A,0,0,0,1,0,0,1,0,1
+Tropical Cyclone Eloise in Mozambique,Tropical cyclone,MOZ007,Mozambique,MOZ,377612,12187000,441000,43000,18,x,13,56364,8565,#N/A,x,11746000,181000,217000,43000,0,3,x,x,1,1,0,0,0,1,0,1,3
+Refugees from Mali in Mauritania,International displacement,MRT002,Mauritania,MRT,75,73000,63000,63000,0,x,x,0,0,#N/A,x,11000,0,63000,0,0,2,x,x,0,0,0,0,0,0,0,1,3
+Food Security in Mauritania,Drought,MRT003,Mauritania,MRT,1030700,4147000,1513000,x,x,x,x,x,x,#N/A,x,2634000,1036000,457000,20000,0,3,x,x,0,0,0,0,0,0,0,1,3
+Complex crisis in Malawi,Complex crisis,MWI002,Malawi,MWI,94276,17677000,8908000,0,0,0,41,x,x,#N/A,x,8769000,6266000,2509000,133000,0,1,x,x,0,0,0,0,0,2,0,0,0
+International Refugees in Malaysia,International displacement,MYS001,Malaysia,MYS,9395,3815000,179000,179000,#N/A,#N/A,0,#N/A,#N/A,#N/A,#N/A,3636000,0,179000,0,0,3,#N/A,#N/A,1,0,0,0,1,1,0,0,0
+Food Security Crisis in Namibia,Food Security,NAM002,Namibia,NAM,823,2256000,1091000,0,0,0,x,#N/A,#N/A,#N/A,#N/A,1165000,651000,426000,14000,0,1,#N/A,#N/A,1,0,0,0,0,2,0,0,0
+Multiple crises in Niger,Multiple crises country,NER001,Niger,NER,1267000,23800000,3882000,594000,x,x,385,x,x,#N/A,x,19918000,60000,3648000,173000,0,5,x,x,0,2,0,2,0,2,3,1,3
+Boko Haram in Niger,Conflict,NER002,Niger,NER,156906,949000,293000,270000,141012,x,119,x,x,#N/A,x,656000,1000,272000,20000,0,5,x,x,0,2,0,0,0,2,2,1,3
+Mali/Burkina Faso conflict,Conflict,NER003,Niger,NER,210600,8400000,1356000,219000,x,x,229,x,x,#N/A,x,7044000,9000,1310000,36000,0,5,x,x,0,2,0,2,0,2,3,1,3
+Nigerian Refugees,International displacement,NER004,Niger,NER,8616,1328000,704000,100000,x,x,15,0,0,#N/A,0,624000,0,662000,42000,0,2,x,x,0,1,0,0,0,0,2,1,3
+Complex crisis in Nigeria,Complex crisis,NGA001,Nigeria,NGA,909890,72033000,9677000,4825000,x,x,3053,x,4300,#N/A,x,62356000,0,9677000,0,0,5,x,800000,1,2,3,2,2,2,2,1,2
+Middle belt conflict,Conflict,NGA003,Nigeria,NGA,181664,15100000,401000,401000,x,x,199,x,x,#N/A,x,14700000,0,401000,0,0,5,x,x,0,0,0,0,0,2,0,1,0
+Boko Haram crisis in Nigeria,Conflict,NGA004,Nigeria,NGA,157918,13100000,10220000,3914000,x,x,1399,x,4300,#N/A,x,2880000,2550000,3650000,4020000,0,4,x,800000,1,2,3,2,2,2,2,1,2
+Northwest Banditry,Other type of violence,NGA007,Nigeria,NGA,237708,30376000,446000,446000,x,x,1455,500,10500,#N/A,49,30058000,0,446000,0,0,5,x,x,0,0,1,0,0,2,1,1,0
+Cameroonian Refugees in Nigeria,International displacement,NGA008,Nigeria,NGA,115769,17657000,62000,62000,x,x,x,x,x,#N/A,x,17595000,0,62000,0,0,2139,x,x,0,0,0,0,0,2,0,1,0
+Socioeconomic crisis in Nicaragua,Political and economic crisis,NIC001,Nicaragua,NIC,120339.54,6444000,417000,102000,x,17631,3,0,0,#N/A,1214,x,x,x,0,0,1,0,0,x,x,1,0,1,1,0,0,2
+Hurricane Eta and Iota in Nicaragua,Tropical cyclone,NIC002,Nicaragua,NIC,92703,2661000,1800000,73000,x,x,23,8000,5890,#N/A,x,861000,1727000,73000,0,0,3,#N/A,#N/A,1,2,2,0,2,0,0,0,3
+Complex crisis in Pakistan,Complex crisis,PAK001,Pakistan,PAK,796100,225200000,144769000,21037000,x,x,429,x,x,#N/A,x,80431000,133769000,10443000,557000,0,5,x,x,2,0,2,0,0,2,1,1,3
+Kashmir conflict in Pakistan,Conflict,PAK004,Pakistan,PAK,13297,4450000,x,x,x,x,20,x,x,#N/A,x,x,x,x,x,x,3,x,x,2,0,2,0,0,2,1,1,3
+Venezuela displacement in Peru,International displacement,PER002,Peru,PER,178440,16328000,1368000,1100000,x,x,3,0,0,#N/A,x,13650000,58000,1310000,0,0,2,1,0,0,1,0,0,0,1,0,0,2
+Mindanao conflict,Conflict,PHL003,Philippines,PHL,138354,24136000,301000,301000,x,x,259,x,x,#N/A,x,23905000,0,301000,0,0,4,x,x,0,1,0,0,0,2,1,1,3
+Complex crisis in DPRK,Complex crisis,PRK001,DPRK,PRK,120410,25666000,25666000,x,x,x,10,x,x,#N/A,x,0,15120000,4970000,5459000,0,1,x,x,1,2,2,0,3,3,0,0,3
+Conflict in Palestine,Conflict,PSE002,Palestine,PSE,6020,5200000,5200000,6389000,1012,x,11,160000,11422,#N/A,x,0,2750000,0,980000,1470000,4,x,4950000,2,3,3,0,3,3,2,2,2
+Regional Boko Haram Crisis,Regional crisis,REG001,"Nigeria,Niger,Chad,Cameroon","NGA,NER,TCD,CMR",369002,19217000,13183000,5158000,x,x,1833,0,4300,#N/A,5200000,6035000,4223000,4636000,4201000,122000,5,x,800000,1,1,2,2,0,2,2,2,3
+Venezuela Regional Crisis,Regional crisis,REG002,"Venezuela,Brazil,Colombia,Ecuador,Peru,Trinidad and Tobago","VEN,BRA,COL,ECU,PER,TTO",1458646,73069000,35266000,5443000,x,x,x,0,0,#N/A,x,39506000,13009000,20392000,162000,0,4,x,x,0,0,0,2,0,0,0,x,0
+Regional Kashmir conflict,Regional crisis,REG003,"India,Pakistan","IND,PAK",235533,16991000,16991000,x,x,x,533,x,x,#N/A,x,x,x,x,x,x,3,x,x,2,1,2,0,1,2,1,1,3
+Syrian Regional Crisis,Regional crisis,REG004,"Syria,Turkey,Iraq,Egypt,Jordan,Lebanon","SYR,TUR,IRQ,EGY,JOR,LBN",499587,97659000,30302000,22852000,x,x,3043,x,x,#N/A,x,67356000,9499000,4517000,10218000,6070000,5,#N/A,x,1,2,2,0,2,3,0,3,3
+Eastern Mediterranean Route ,Regional crisis,REG006,"Turkey,Greece","TUR,GRC",x,x,x,x,x,x,47,x,x,#N/A,x,x,x,x,x,x,2,x,x,0,0,3,0,2,3,1,0,2
+Central Mediterranean Route,Regional crisis,REG007,"Algeria,Tunisia,Libya,Italy","DZA,TUN,LBY,ITA",x,x,x,x,x,x,604,x,x,#N/A,x,x,x,x,x,x,2,x,x,2,3,3,0,2,3,3,1,3
+Western Mediterranean Route,Regional crisis,REG008,"Algeria,Morocco,Spain","DZA,MAR,ESP",x,x,x,x,x,x,161,x,x,#N/A,x,x,x,x,x,x,2,x,x,1,0,2,0,0,2,0,1,0
+Rohingya Regional Crisis,Regional crisis,REG011,"Bangladesh,Myanmar","BGD,MMR",45507,5231000,2913000,1216000,x,x,210,x,x,#N/A,x,2318000,1201000,917000,644000,150000,4,x,x,2,3,2,0,3,3,3,1,3
+Southern Africa Regional Food Security Crisis,Regional crisis,REG012,"Lesotho,Madagascar,Malawi,Mozambique,Namibia,Eswatini,Zambia,Zimbabwe","LSO,MDG,MWI,MOZ,NAM,SWZ,ZMB,ZWE",1842269,61177000,36978000,94000,0,0,41,0,0,#N/A,0,24199000,23347000,11684000,1948000,0,5,#N/A,#N/A,1,0,0,0,0,2,0,2,0
+Nagorno-Karabakh Conflict,Regional crisis,REG013,"Armenia,Azerbaijan","ARM,AZE",59763,5877000,2937000,93000,x,x,138,x,x,#N/A,x,x,x,x,x,x,3,x,x,2,2,0,0,0,2,3,3,0
+Burundi and DRC refugees in Rwanda,International displacement,RWA002,Rwanda,RWA,10646,4576000,140000,140000,x,x,x,0,0,#N/A,0,4436000,0,140000,0,0,2,0,0,1,0,0,0,0,2,0,0,1
+Complex crisis in Sudan,Multiple crises country,SDN001,Sudan,SDN,1840687,46800000,30800000,4014000,x,x,0,x,x,#N/A,x,16000000,17400000,6100000,6700000,600000,5,x,x,1,1,2,0,2,2,1,1,3
+Refugees in Sudan,International displacement,SDN005,Sudan,SDN,15000,11554000,11554000,3682000,x,x,x,x,x,#N/A,x,0,10454000,400000,500000,200000,3876000,#N/A,#N/A,2,3,2,2,0,x,2,2,3
+Floods in Sudan ,Flood,SDN006,Sudan,SDN,1840687,43000000,885000,480000,54,x,155,83000,93000,#N/A,x,42140000,810000,50000,0,0,3,x,x,2,2,0,0,0,3,1,1,3
+Refugees from Ethiopia,International displacement,SDN007,Sudan,SDN,1119730,5092000,5092000,63000,x,x,x,x,x,#N/A,x,0,5029000,63000,0,0,2,x,x,1,1,2,0,2,2,1,1,3
+Violence West-Darfur,Other type of violence,SDN008,Sudan,SDN,79460,1839000,1839000,169000,0,0,702,55,0,#N/A,0,0,1670000,169000,0,0,2,0,0,2,3,0,0,0,2,2,0,2
+Drought in Senegal,Drought,SEN002,Senegal,SEN,192530,16709000,3188000,x,0,0,0,0,0,#N/A,x,13521000,2676000,498000,13000,0,4,0,0,1,0,0,0,0,0,0,1,0
+Complex crisis in El Salvador,Complex crisis,SLV001,El Salvador,SLV,20720,6700000,1400000,454000,x,2304,736,x,x,#N/A,x,5300000,757000,548000,95000,0,3,x,x,0,2,1,0,0,2,1,0,2
+Complex crisis in Somalia,Complex crisis,SOM001,Somalia,SOM,627340,12300000,12300000,4277000,x,x,1491,x,x,#N/A,x,0,6400000,0,5782000,118000,5,x,x,1,1,2,3,1,2,3,2,2
+Mixed Migration Flows in Somalia,International displacement,SOM002,Somalia,SOM,28836,1322000,25000,25000,x,x,91,0,0,#N/A,0,1296000,0,0,25000,0,1,x,x,1,3,2,3,2,2,2,2,2
+Floods in Somalia,Flood,SOM004,Somalia,SOM,175003,3049000,166000,66000,5,199,35,0,4277,#N/A,0,2883000,0,154000,12000,0,2,x,x,1,3,2,3,2,3,2,2,2
+Complex crisis in South Sudan,Complex crisis,SSD001,South Sudan,SSD,644000,11685000,11685000,4437000,x,600000,1127,x,x,#N/A,14369,0,3400000,4471000,3829000,0,5,x,1500000,1,1,1,1,1,1,1,1,1
+Food Security Crisis in Eswatini,Food Security,SWZ001,Eswatini,SWZ,17204,1130000,781000,0,0,0,x,#N/A,#N/A,#N/A,#N/A,349000,433000,288000,60000,0,1,#N/A,#N/A,0,0,0,0,0,2,0,0,1
+Syrian conflict,Complex crisis,SYR001,Syria,SYR,185180,17500000,17500000,15509000,x,x,3695,x,x,#N/A,x,0,4100000,30000,7380000,5990000,5,x,1160000,2,3,3,3,3,2,3,2,3
+Complex crisis in Chad,Multiple crises country,TCD001,Chad,TCD,1259200,16797000,7607000,963000,x,x,221,x,x,#N/A,x,9175000,1207000,4736000,1472000,192000,5,x,x,1,2,2,0,0,2,3,2,3
+Boko Haram in Chad,Conflict,TCD003,Chad,TCD,19915,686000,686000,413000,x,x,71,x,x,#N/A,x,0,318000,98000,147000,122000,5,x,x,1,2,2,0,0,2,3,2,3
+CAR refugees in Chad,International displacement,TCD004,Chad,TCD,154623,4456000,1004000,173000,x,x,x,x,0,#N/A,x,3452000,0,743000,261000,0,3,x,x,1,2,2,0,0,2,3,2,3
+Darfur refugees in Chad,International displacement,TCD005,Chad,TCD,205671,2577000,1123000,371000,x,x,25,x,0,#N/A,x,1454000,0,694000,429000,0,2,x,x,1,2,2,0,0,2,3,2,3
+Tibesti Conflict in Chad,Conflict,TCD006,Chad,TCD,220000,38000,38000,x,x,x,4,x,x,#N/A,x,0,20000,11000,6000,1000,3,x,x,1,2,0,0,0,0,0,2,3
+Multiple situations in Thailand,Multiple crises country,THA001,Thailand,THA,30342,3549000,3549000,92000,x,x,63,x,x,#N/A,x,3458000,0,92000,0,0,2,x,x,0,1,1,0,0,1,1,3,2
+Conflict in southern Thailand ,Conflict,THA002,Thailand,THA,18330,3458000,3458000,x,x,x,63,x,x,#N/A,x,x,x,x,x,x,1,x,x,0,1,0,0,0,0,1,3,2
+Myanmar refugees in Thailand,International displacement,THA003,Thailand,THA,9,92000,92000,92000,0,x,x,x,x,#N/A,x,0,0,92000,0,0,1,x,x,0,0,1,0,0,1,1,3,2
+Tropical Cyclone Seroja,Tropical cyclone,TLS002,Timor Leste,TLS,14870,1293000,33000,2000,0,0,45,0,4546,#N/A,0,1260000,24000,2000,0,0,3,0,0,0,0,0,0,0,0,0,0,3
+Venezuelan refugees in Trinidad and Tobago,International displacement,TTO002,Trinidad and Tobago,TTO,5130,1450000,60000,60000,x,x,60,0,0,#N/A,0,1395000,0,60000,0,0,2,x,0,0,1,1,0,0,1,1,3,2
+Mixed migration flows in Tunisia,International displacement,TUN002,Tunisia,TUN,155360,11718000,x,x,x,x,564,0,0,#N/A,x,x,x,x,x,x,1,x,x,0,0,0,0,0,2,0,1,0
+Complex situation in Turkey,Multiple crises country,TUR001,Turkey,TUR,378923,53611000,5800000,4000000,x,x,116,x,x,#N/A,x,47811000,3562000,1652000,587000,0,4,x,x,0,1,1,0,2,2,0,3,0
+Syrian Refugees in Turkey,International displacement,TUR002,Turkey,TUR,132028,36158000,5470000,3670000,x,x,x,0,0,#N/A,x,30687000,3562000,1652000,257000,0,2,x,x,0,0,1,0,2,2,0,3,0
+Mixed Migration Flows in Turkey,International displacement,TUR003,Turkey,TUR,177504,37626000,5800000,4000000,x,x,31,0,0,#N/A,x,31826000,3562000,1652000,587000,0,2,x,x,0,0,1,0,2,2,0,3,0
+Kurdish Conflict,Conflict,TUR004,Turkey,TUR,195587,12974000,x,x,x,x,85,x,x,#N/A,x,x,x,x,x,x,3,x,x,0,0,1,0,2,2,0,3,0
+International Displacement in Tanzania,International displacement,TZA002,Tanzania,TZA,187000,11385000,287000,287000,0,x,0,x,x,#N/A,x,11098000,0,287000,0,0,2,x,x,0,0,0,0,0,2,0,0,0
+Multiple crises in Uganda,Multiple crises country,UGA001,Uganda,UGA,99973,14476000,1435000,1435000,x,x,110,x,x,#N/A,x,9662000,3285000,1529000,0,0,3,x,x,0,0,1,0,1,2,1,0,2
+International Displacement in Uganda,International displacement,UGA005,Uganda,UGA,66662,7440000,1435000,1435000,x,x,x,x,x,#N/A,x,6011000,0,1429000,0,0,2,#N/A,#N/A,0,0,0,0,0,0,0,1,2
+Conflict in Ukraine,Conflict,UKR002,Ukraine,UKR,53206,6309000,5400000,1458000,x,x,3,x,x,#N/A,x,909000,2000000,1700000,1700000,0,3,x,x,2,3,2,0,0,2,2,3,2
+La Soufrière Volcano Eruption,Volcano,VCT002,St. Vincent and the Grenadines,VCT,229,37000,20000,13000,0,0,0,0,0,#N/A,0,17000,7000,13000,0,0,3,0,0,0,0,0,0,0,0,0,0,3
+Complex crisis in Venezuela,Complex crisis,VEN001,Venezuela,VEN,882050,27412000,27412000,5443000,x,x,8253,x,x,#N/A,223750,0,12610000,14803000,0,0,2,x,x,2,2,3,0,2,2,2,0,3
+Conflict in Yemen,Complex crisis,YEM001,Yemen,YEM,527970,30939000,30939000,4000000,650,47470,9906,x,x,#N/A,x,3600000,6400000,8400000,8900000,3400000,5,x,x,2,3,3,3,2,3,3,3,3
+Mixed migration flows in Yemen,International displacement,YEM002,Yemen,YEM,1240,30939000,137000,422000,x,552437,64,x,x,#N/A,x,30939000,0,0,0,137000,2,x,x,2,3,3,3,2,3,3,3,3
+Drought in Zambia,Drought,ZMB002,Zambia,ZMB,448388,6889000,4363000,0,0,0,x,0,0,#N/A,x,2526000,2387000,1651000,33000,0,3,x,x,0,0,0,0,0,0,0,0,1
+Complex crisis in Zimbabwe,Complex crisis,ZWE001,Zimbabwe,ZWE,386847,14645000,6800000,21000,0,0,15,x,x,#N/A,x,7845000,0,6800000,0,0,5,x,x,1,2,0,0,0,2,0,2,0
