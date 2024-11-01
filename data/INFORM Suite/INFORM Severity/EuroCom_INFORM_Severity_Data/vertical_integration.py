@@ -36,4 +36,4 @@ def integrate_main():
     # Get the directory of the current Python file
     final_directory = "Data\INFORM Suite\INFORM Severity\EuroCom_INFORM_Severity_Data\Monthly_merged_data"
     year = os.listdir(final_directory)[0][:4]
-    vertical_integration(final_directory,os.path.join(f'final_data_{year}.csv'))
+    vertical_integration(final_directory,os.path.join(final_directory, f'final_data_{year}.csv'))

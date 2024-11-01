@@ -5,7 +5,7 @@ from modules.cache_functions import cache_contributors, load_about_html
 
 
 def about_us_page(contributors):
-    load_header("Contributors to this project.")
+    load_header("Conozcan a los colaboradores del desafío")
 
     all_contributors = cache_contributors()
 
