@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/task-1.1-dataCollection/scripts"
+    ]
+}
