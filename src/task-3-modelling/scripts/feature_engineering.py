@@ -1,12 +1,59 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from typing import Dict, List
 
 class FeatureEngineering:
     def __init__(self, config: Config):
         self.config = config
         self.scaler = StandardScaler()
 
+    def _process_base_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        self.df = df.copy()
+        self.df = self.create_temporal_features()
+        self.df = self.create_geographical_features()
+        self.df = self.create_socioeconomic_features()
+        self.df = self.create_governance_features()
+        self.df = self.create_crisis_impact_features()
+        self.df = self.create_humanitarian_features()
+        self.df = self.create_access_constraint_features()
+
+        important_indicators = [
+            'crisis_severity_index',
+            'humanitarian_severity_index',
+            'access_constraint_index'
+        ]
+        self.df = self.create_lag_features(important_indicators)
+
+        return self.df
+
+    def _create_temporal_sequences(self, df: pd.DataFrame) -> pd.DataFrame:
+        sequence_length = self.config.model_params['lstm']['sequence_length']
+        sequences = {}
+
+        for col in df.select_dtypes(include=[np.number]).columns:
+            sequences[col] = self._create_sliding_window(df[col], sequence_length)
+
+        return pd.DataFrame(sequences)
+
+    def _create_sliding_window(self, series: pd.Series, window_size: int) -> np.ndarray:
+        data = series.values
+        windows = []
+        for i in range(len(data) - window_size + 1):
+            windows.append(data[i:i + window_size])
+        return np.array(windows)
+
+    def _format_temporal_data(self, df: pd.DataFrame) -> pd.DataFrame:
+        prophet_df = df.copy()
+        prophet_df['ds'] = pd.to_datetime(df['YYYY_MM'], format='%Y_%m')
+
+        # Additional Prophet-specific formatting
+        for col in df.select_dtypes(include=[np.number]).columns:
+            prophet_df[f'regressor_{col}'] = df[col]
+
+        return prophet_df
+
+    # Existing feature creation methods remain unchanged
     def create_temporal_features(self):
         self.df['date'] = pd.to_datetime(self.df['YYYY_MM'], format='%Y_%m')
         self.df['year'] = self.df['date'].dt.year
@@ -58,21 +105,11 @@ class FeatureEngineering:
                 self.df[f'{col}_lag_{lag}'] = self.df.groupby('Iso3')[col].shift(lag)
         return self.df
 
-    def process_features(self, df):
-        self.df = df.copy()
-        self.df = self.create_temporal_features()
-        self.df = self.create_geographical_features()
-        self.df = self.create_socioeconomic_features()
-        self.df = self.create_governance_features()
-        self.df = self.create_crisis_impact_features()
-        self.df = self.create_humanitarian_features()
-        self.df = self.create_access_constraint_features()
+    def process_features(self, df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
+        base_features = self._process_base_features(df)
 
-        important_indicators = [
-            'crisis_severity_index',
-            'humanitarian_severity_index',
-            'access_constraint_index'
-        ]
-        self.df = self.create_lag_features(important_indicators)
-
-        return self.df
+        return {
+            'base': base_features,
+            'lstm': self._prepare_lstm_features(base_features),
+            'prophet': self._prepare_prophet_features(base_features)
+        }

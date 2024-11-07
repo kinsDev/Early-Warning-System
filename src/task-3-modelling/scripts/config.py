@@ -3,6 +3,7 @@ import yaml
 
 class Config:
     def __init__(self, config_path: str = "config.yaml"):
+        # Base paths
         self.base_path = Path("D:/ACAPS/ACAPS/src/task-3-modelling/scripts/Combined_Dataset_Experimentation")
         self.data_path = self.base_path / "combined_data.csv"
         self.model_path = self.base_path / "models"
@@ -17,6 +18,27 @@ class Config:
         self.test_size = 0.2
         self.cv_folds = 5
         self.max_sequence_length = 512  # For text processing
+
+        # Model-specific parameters
+        self.model_params = {
+            'lstm': {
+                'sequence_length': 30,
+                'hidden_size': 50,
+                'num_layers': 2
+            },
+            'prophet': {
+                'seasonality_mode': 'multiplicative',
+                'yearly_seasonality': True
+            },
+            'lightgbm': {
+                'n_estimators': 1000,
+                'learning_rate': 0.01
+            },
+            'catboost': {
+                'iterations': 1000,
+                'verbose': False
+            }
+        }
 
         # Target variables with their corresponding columns
         self.targets = {
@@ -39,7 +61,6 @@ class Config:
             'temporal_context': [
                 'YYYY_MM'
             ],
-
             'geographical_context': [
                 'Country',
                 'Iso3',
@@ -47,7 +68,6 @@ class Config:
                 'Crisis Id',
                 'Crisis'
             ],
-
             'socio_economic_indicators': [
                 'Empowerment',
                 'Bti - Democracy Status',
@@ -57,14 +77,12 @@ class Config:
                 'Income Gini Coefficient',
                 'Corruption Perception'
             ],
-
             'governance_indicators': [
                 'Rule Of Law (Wgi)',
                 'Rule Of Law (Bti)',
                 'Rule Of Law',
                 'Freedom In The World'
             ],
-
             'crisis_impact_metrics': [
                 'Conflict Intensity',
                 'Total Killed In All Crisis',
@@ -77,7 +95,6 @@ class Config:
                 'Economic Losses [Figure]',
                 'Economic Losses [Date]'
             ],
-
             'humanitarian_conditions': [
                 '# Of People Facing Minimal Humanitarian Needs (Level 1)',
                 '# Of People Facing Stressed Humanitarian Conditions And Needs (Level 2)',
@@ -92,7 +109,6 @@ class Config:
                 'People Displaced',
                 'People Affected'
             ],
-
             'access_constraints': [
                 'Humanitarian Access',
                 'Access Of Humanitarian Actors To Affected Populations',
