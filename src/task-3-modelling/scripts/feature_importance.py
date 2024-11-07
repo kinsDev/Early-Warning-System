@@ -1,6 +1,7 @@
 from typing import Dict, List
 import pandas as pd
 import numpy as np
+from .config import Config
 import matplotlib.pyplot as plt
 from sklearn.feature_selection import mutual_info_regression, mutual_info_classif
 from catboost import CatBoostRegressor, CatBoostClassifier

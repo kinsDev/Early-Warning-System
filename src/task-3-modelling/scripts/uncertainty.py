@@ -2,6 +2,7 @@ from typing import Dict, Tuple, List
 import torch
 import numpy as np
 from collections import defaultdict
+from .config import Config
 
 class UncertaintyEstimator:
     def __init__(self, config: Config):

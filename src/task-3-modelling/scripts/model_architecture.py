@@ -1,4 +1,5 @@
 from typing import Dict
+from .config import Config
 import torch
 import torch.nn as nn
 from lightgbm import LGBMRegressor, LGBMClassifier

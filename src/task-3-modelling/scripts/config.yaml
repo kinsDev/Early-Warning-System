@@ -1,4 +1,4 @@
-base_path: "D:/ACAPS/ACAPS/src/task-3-modelling/scripts/Combined_Dataset_Experimentation"
+base_path: "scripts/Combined_Dataset_Experimentation"
 data_path: "combined_data.csv"
 model_path: "models"
 output_path: "outputs"

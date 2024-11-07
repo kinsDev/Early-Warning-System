@@ -4,7 +4,7 @@ import yaml
 class Config:
     def __init__(self, config_path: str = "config.yaml"):
         # Base paths
-        self.base_path = Path("D:/ACAPS/ACAPS/src/task-3-modelling/scripts/Combined_Dataset_Experimentation")
+        self.base_path = Path("scripts/Combined_Dataset_Experimentation")
         self.data_path = self.base_path / "combined_data.csv"
         self.model_path = self.base_path / "models"
         self.output_path = self.base_path / "outputs"
