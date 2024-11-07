@@ -1,57 +1,92 @@
+from typing import Dict, List
+import numpy as np
+import pandas as pd
+import torch
 from sklearn.metrics import (
     mean_squared_error,
+    mean_absolute_error,
+    r2_score,
     accuracy_score,
     precision_recall_fscore_support,
     confusion_matrix
 )
-import numpy as np
-from typing import Dict, Any
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 class ModelEvaluator:
     def __init__(self, config: Config):
         self.config = config
 
-    def evaluate_model(self, model: CrisisPredictor,
-                       test_data: Dict[str, torch.Tensor]) -> Dict[str, Any]:
-        """Evaluate model performance on test data."""
-        model.eval()
+    def evaluate_predictions(self, y_true: Dict[str, pd.DataFrame],
+                             y_pred: Dict[str, torch.Tensor]) -> Dict[str, Dict]:
+        """Evaluate predictions for all targets."""
         metrics = {}
-
-        with torch.no_grad():
-            predictions = model(test_data)
-
-            # Evaluate each target separately
-            for target in self.config.targets:
-                target_preds = predictions['base_predictions'][target]
-                target_true = test_data[target]
-
-                if self.config.targets[target] == 'regression':
-                    metrics[target] = {
-                        'mse': mean_squared_error(target_true, target_preds),
-                        'rmse': np.sqrt(mean_squared_error(target_true, target_preds))
-                    }
-                else:
-                    metrics[target] = {
-                        'accuracy': accuracy_score(target_true, target_preds),
-                        'precision_recall_f1': precision_recall_fscore_support(
-                            target_true, target_preds, average='weighted'
-                        )
-                    }
-
+        for target, specs in self.config.targets.items():
+            if specs['type'] == 'regression':
+                metrics[target] = self._evaluate_regression(y_true[target], y_pred[target])
+            else:
+                metrics[target] = self._evaluate_classification(y_true[target], y_pred[target])
         return metrics
 
-    def plot_confusion_matrices(self, predictions: Dict[str, np.ndarray],
-                                true_values: Dict[str, np.ndarray]) -> None:
-        """Plot confusion matrices for classification targets."""
-        for target in self.config.targets:
-            if self.config.targets[target] != 'regression':
-                plt.figure(figsize=(8, 6))
-                cm = confusion_matrix(true_values[target], predictions[target])
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-                plt.title(f'Confusion Matrix - {target}')
-                plt.ylabel('True Label')
-                plt.xlabel('Predicted Label')
-                plt.savefig(self.config.output_path / f'confusion_matrix_{target}.png')
-                plt.close()
+    def _evaluate_regression(self, y_true: pd.DataFrame, y_pred: torch.Tensor) -> Dict:
+        """Calculate regression metrics."""
+        y_pred_np = y_pred.numpy() if isinstance(y_pred, torch.Tensor) else y_pred
+        return {
+            'mse': mean_squared_error(y_true, y_pred_np),
+            'rmse': np.sqrt(mean_squared_error(y_true, y_pred_np)),
+            'mae': mean_absolute_error(y_true, y_pred_np),
+            'r2': r2_score(y_true, y_pred_np)
+        }
+
+    def _evaluate_classification(self, y_true: pd.DataFrame, y_pred: torch.Tensor) -> Dict:
+        """Calculate classification metrics."""
+        y_pred_np = y_pred.numpy() if isinstance(y_pred, torch.Tensor) else y_pred
+        precision, recall, f1, _ = precision_recall_fscore_support(y_true, y_pred_np, average='weighted')
+
+        return {
+            'accuracy': accuracy_score(y_true, y_pred_np),
+            'precision': precision,
+            'recall': recall,
+            'f1': f1,
+            'confusion_matrix': confusion_matrix(y_true, y_pred_np).tolist()
+        }
+
+    def evaluate_feature_importance(self, feature_importance: Dict[str, pd.Series]) -> Dict:
+        """Evaluate feature importance metrics."""
+        importance_metrics = {}
+        for target, importance in feature_importance.items():
+            importance_metrics[target] = {
+                'top_features': importance.nlargest(10).index.tolist(),
+                'importance_scores': importance.nlargest(10).tolist(),
+                'feature_stability': self._calculate_feature_stability(importance)
+            }
+        return importance_metrics
+
+    def _calculate_feature_stability(self, importance: pd.Series) -> float:
+        """Calculate stability score for feature importance."""
+        normalized_scores = importance / importance.sum()
+        return -np.sum(normalized_scores * np.log(normalized_scores + 1e-10))
+
+    def evaluate_uncertainty(self, predictions: Dict[str, np.ndarray]) -> Dict:
+        """Evaluate uncertainty estimates."""
+        uncertainty_metrics = {}
+        for target, preds in predictions.items():
+            uncertainty_metrics[target] = {
+                'mean_uncertainty': np.mean(np.std(preds, axis=0)),
+                'max_uncertainty': np.max(np.std(preds, axis=0)),
+                'uncertainty_distribution': np.percentile(np.std(preds, axis=0),
+                                                          [25, 50, 75]).tolist()
+            }
+        return uncertainty_metrics
+
+    def generate_evaluation_report(self, metrics: Dict,
+                                   feature_metrics: Dict,
+                                   uncertainty_metrics: Dict) -> pd.DataFrame:
+        """Generate comprehensive evaluation report."""
+        report_data = []
+        for target in metrics.keys():
+            report_data.append({
+                'target': target,
+                'model_metrics': metrics[target],
+                'feature_importance': feature_metrics[target],
+                'uncertainty_metrics': uncertainty_metrics[target]
+            })
+        return pd.DataFrame(report_data)

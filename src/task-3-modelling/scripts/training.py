@@ -1,58 +1,107 @@
-import torch
-from torch.utils.data import DataLoader
-from sklearn.model_selection import TimeSeriesSplit
-import numpy as np
 from typing import Dict, List
+import torch
+import numpy as np
+from collections import defaultdict
+from tqdm import tqdm
 import logging
 
 class ModelTrainer:
     def __init__(self, config: Config, model: CrisisPredictor):
         self.config = config
         self.model = model
+        self.optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
+        self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+            self.optimizer, mode='min', patience=5, factor=0.5
+        )
         self.logger = logging.getLogger(__name__)
 
-    def train_model(self, train_data: Dict[str, torch.Tensor],
-                    val_data: Dict[str, torch.Tensor],
-                    epochs: int = 100) -> Dict[str, List[float]]:
-        """Train the crisis prediction model."""
-        optimizer = torch.optim.Adam(self.model.parameters())
-        criterion = nn.MSELoss()
+    def train_model(self, X: Dict[str, torch.Tensor], y: Dict[str, torch.Tensor]) -> Dict:
+        """Train the model using the provided data."""
+        history = defaultdict(list)
+        best_loss = float('inf')
 
-        history = {
-            'train_loss': [],
-            'val_loss': []
-        }
-
-        for epoch in range(epochs):
-            # Training
+        for epoch in range(self.config.epochs):
             self.model.train()
-            train_loss = 0
+            epoch_losses = self._train_epoch(X, y)
 
-            for batch in DataLoader(train_data, batch_size=32, shuffle=True):
-                optimizer.zero_grad()
-                outputs = self.model(batch)
-                loss = criterion(outputs['final_predictions'], batch['targets'])
-                loss.backward()
-                optimizer.step()
-                train_loss += loss.item()
+            # Validation step
+            val_losses = self._validate(X, y)
 
-            # Validation
-            self.model.eval()
-            val_loss = 0
+            # Update learning rate
+            self.scheduler.step(val_losses['total_loss'])
 
-            with torch.no_grad():
-                for batch in DataLoader(val_data, batch_size=32):
-                    outputs = self.model(batch)
-                    loss = criterion(outputs['final_predictions'], batch['targets'])
-                    val_loss += loss.item()
+            # Log progress
+            self._log_progress(epoch, epoch_losses, val_losses)
 
-            # Log metrics
-            history['train_loss'].append(train_loss)
-            history['val_loss'].append(val_loss)
+            # Save best model
+            if val_losses['total_loss'] < best_loss:
+                best_loss = val_losses['total_loss']
+                self._save_checkpoint(epoch, best_loss)
 
-            if (epoch + 1) % 10 == 0:
-                self.logger.info(f"Epoch {epoch+1}/{epochs}: "
-                                 f"Train Loss = {train_loss:.4f}, "
-                                 f"Val Loss = {val_loss:.4f}")
+            # Update history
+            history = self._update_history(history, epoch_losses, val_losses)
 
+        return history
+
+    def _train_epoch(self, X: Dict[str, torch.Tensor], y: Dict[str, torch.Tensor]) -> Dict:
+        """Train for one epoch."""
+        self.optimizer.zero_grad()
+        outputs = self.model.forward(X)
+        losses = self._calculate_losses(outputs, y)
+
+        losses['total_loss'].backward()
+        torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.config.grad_clip)
+        self.optimizer.step()
+
+        return {k: v.item() for k, v in losses.items()}
+
+    def _validate(self, X: Dict[str, torch.Tensor], y: Dict[str, torch.Tensor]) -> Dict:
+        """Perform validation."""
+        self.model.eval()
+        with torch.no_grad():
+            outputs = self.model.forward(X)
+            losses = self._calculate_losses(outputs, y)
+        return {k: v.item() for k, v in losses.items()}
+
+    def _calculate_losses(self, outputs: Dict[str, torch.Tensor],
+                          targets: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
+        """Calculate losses for all targets."""
+        losses = {}
+        total_loss = 0
+
+        for target_name, target_spec in self.config.targets.items():
+            if target_spec['type'] == 'regression':
+                loss = torch.nn.MSELoss()(outputs[target_name], targets[target_name])
+            else:
+                loss = torch.nn.CrossEntropyLoss()(outputs[target_name], targets[target_name])
+
+            losses[f'{target_name}_loss'] = loss
+            total_loss += target_spec.get('weight', 1.0) * loss
+
+        losses['total_loss'] = total_loss
+        return losses
+
+    def _save_checkpoint(self, epoch: int, loss: float):
+        """Save model checkpoint."""
+        checkpoint = {
+            'epoch': epoch,
+            'model_state': self.model.state_dict(),
+            'optimizer_state': self.optimizer.state_dict(),
+            'loss': loss
+        }
+        torch.save(checkpoint, self.config.model_path / f'checkpoint_epoch_{epoch}.pt')
+
+    def _log_progress(self, epoch: int, train_losses: Dict, val_losses: Dict):
+        """Log training progress."""
+        self.logger.info(
+            f"Epoch {epoch}: Train Loss = {train_losses['total_loss']:.4f}, "
+            f"Val Loss = {val_losses['total_loss']:.4f}"
+        )
+
+    def _update_history(self, history: Dict, train_losses: Dict, val_losses: Dict) -> Dict:
+        """Update training history."""
+        for k, v in train_losses.items():
+            history[f'train_{k}'].append(v)
+        for k, v in val_losses.items():
+            history[f'val_{k}'].append(v)
         return history
