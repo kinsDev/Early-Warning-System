@@ -18,20 +18,86 @@ class Config:
         self.cv_folds = 5
         self.max_sequence_length = 512  # For text processing
 
-        # Target variables
+        # Target variables with their corresponding columns
         self.targets = {
-            'severity_level': 'regression',
-            'crisis_probability': 'binary',
-            'humanitarian_conditions': 'ordinal',
-            'escalation_risk': 'multiclass'
+            'severity_level': {
+                'columns': ['Inform Severity Index', 'Inform Severity Category'],
+                'type': 'regression'
+            },
+            'crisis_probability': {
+                'columns': ['Concentration Of Conditions', 'Complexity Of The Crisis', 'Updated_Score'],
+                'type': 'multiclass'
+            },
+            'escalation_risk': {
+                'columns': ['Trend (Last 3 Months)', 'Impact Of The Crisis'],
+                'type': 'multiclass'
+            }
         }
 
-        # Feature groups
+        # Feature groups - organized by category
         self.feature_groups = {
-            'contextual': ['Country', 'Iso3', 'Region', 'Crisis Id', 'Crisis'],
-            'socio_economic': ['Empowerment', 'Bti - Democracy Status', 'Trust In Society',
-                               'Ethnic Fractionalisation', 'Gender Inequality', 'Income Gini Coefficient'],
-            'crisis_impact': ['Conflict Intensity', 'Total Killed In All Crisis', 'Safety And Security'],
-            'humanitarian': ['People In Need', 'People Displaced', 'People Affected'],
-            'access': ['Humanitarian Access', 'Access Of Humanitarian Actors To Affected Populations']
+            'temporal_context': [
+                'YYYY_MM'
+            ],
+
+            'geographical_context': [
+                'Country',
+                'Iso3',
+                'Region',
+                'Crisis Id',
+                'Crisis'
+            ],
+
+            'socio_economic_indicators': [
+                'Empowerment',
+                'Bti - Democracy Status',
+                'Trust In Society',
+                'Ethnic Fractionalisation',
+                'Gender Inequality',
+                'Income Gini Coefficient',
+                'Corruption Perception'
+            ],
+
+            'governance_indicators': [
+                'Rule Of Law (Wgi)',
+                'Rule Of Law (Bti)',
+                'Rule Of Law',
+                'Freedom In The World'
+            ],
+
+            'crisis_impact_metrics': [
+                'Conflict Intensity',
+                'Total Killed In All Crisis',
+                'Safety And Security',
+                'People In Need',
+                'Buildings Damaged [Helper 8]',
+                'Buildings Damaged [Figure]',
+                'Buildings Damaged [Date]',
+                'Economic Losses [Helper 11]',
+                'Economic Losses [Figure]',
+                'Economic Losses [Date]'
+            ],
+
+            'humanitarian_conditions': [
+                '# Of People Facing Minimal Humanitarian Needs (Level 1)',
+                '# Of People Facing Stressed Humanitarian Conditions And Needs (Level 2)',
+                '# Of People Facing Moderate Humanitarian Conditions And Needs (Level 3)',
+                '# Of People Facing Severe Humanitarian Conditions And Needs (Level 4)',
+                '# Of People Facing Extreme Humanitarian Conditions And Needs (Level 5)',
+                '% Of People In None/Minimal Conditions - Level 1',
+                '% Of People In Stressed Conditions - Level 2',
+                '% Of People In Moderate Conditions - Level 3',
+                '% Of People Severe Conditions - Level 4',
+                '% Of People Extreme Conditions - Level 5',
+                'People Displaced',
+                'People Affected'
+            ],
+
+            'access_constraints': [
+                'Humanitarian Access',
+                'Access Of Humanitarian Actors To Affected Populations',
+                'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance',
+                'Physical And Security Constraints',
+                'Access Of People In Need To Aid'
+            ]
         }
