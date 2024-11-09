@@ -2,7 +2,7 @@ from typing import List, Tuple, Dict
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from .config import Config
+from config import Config
 
 class DataLoader:
     def __init__(self, config: Config):

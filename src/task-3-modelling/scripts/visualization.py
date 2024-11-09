@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
+from config import Config
 
 class Visualizer:
     def __init__(self, config: Config):

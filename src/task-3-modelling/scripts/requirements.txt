@@ -18,3 +18,5 @@ statsmodels
 scipy
 sklearn-pandas
 tqdm
+ipywidgets
+python-dotenv

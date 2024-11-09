@@ -4,6 +4,7 @@ import json
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
+from config import Config
 
 class ModelPersistence:
     def __init__(self, config: Config):

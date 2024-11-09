@@ -4,7 +4,8 @@ import numpy as np
 from collections import defaultdict
 from tqdm import tqdm
 import logging
-from .config import Config
+from config import Config
+from scripts.model_architecture import CrisisPredictor
 
 class ModelTrainer:
     def __init__(self, config: Config, model: CrisisPredictor):

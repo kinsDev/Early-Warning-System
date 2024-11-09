@@ -2,7 +2,8 @@ from typing import Dict, Tuple, List
 import torch
 import numpy as np
 from collections import defaultdict
-from .config import Config
+from config import Config
+from models import CrisisPredictor
 
 class UncertaintyEstimator:
     def __init__(self, config: Config):

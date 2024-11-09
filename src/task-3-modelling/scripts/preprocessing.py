@@ -2,7 +2,7 @@ from sklearn.preprocessing import StandardScaler, RobustScaler, LabelEncoder
 from sklearn.impute import SimpleImputer
 import pandas as pd
 from typing import Dict
-from .config import Config
+from config import Config
 
 class DataPreprocessor:
     def __init__(self, config: Config):
