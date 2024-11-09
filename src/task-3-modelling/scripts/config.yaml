@@ -1,60 +1,20 @@
-base_path: "scripts/Combined_Dataset_Experimentation"
-data_path: "combined_data.csv"
-model_path: "models"
-output_path: "outputs"
+# Path configurations
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  results_dir: "results"
 
-# Model parameters
-seed: 42
-test_size: 0.2
-cv_folds: 5
-max_sequence_length: 512
-
-# Model-specific parameters
-model_params:
-  lstm:
-    sequence_length: 30
-    hidden_size: 50
-    num_layers: 2
-  prophet:
-    seasonality_mode: "multiplicative"
-    yearly_seasonality: true
-  lightgbm:
-    n_estimators: 1000
-    learning_rate: 0.01
-  catboost:
-    iterations: 1000
-    verbose: false
-
-# Target variables
-targets:
-  severity_level:
-    columns:
-      - "Inform Severity Index"
-      - "Inform Severity Category"
-    type: "regression"
-  crisis_probability:
-    columns:
-      - "Concentration Of Conditions"
-      - "Complexity Of The Crisis"
-      - "Updated_Score"
-    type: "multiclass"
-  escalation_risk:
-    columns:
-      - "Trend (Last 3 Months)"
-      - "Impact Of The Crisis"
-    type: "multiclass"
-
-# Feature groups
-feature_groups:
-  temporal_context:
+# Feature configurations
+features:
+  core_contextual:
     - "YYYY_MM"
-  geographical_context:
     - "Country"
     - "Iso3"
     - "Region"
     - "Crisis Id"
     - "Crisis"
-  socio_economic_indicators:
+
+  socio_economic:
     - "Empowerment"
     - "Bti - Democracy Status"
     - "Trust In Society"
@@ -62,12 +22,14 @@ feature_groups:
     - "Gender Inequality"
     - "Income Gini Coefficient"
     - "Corruption Perception"
+
   governance_indicators:
     - "Rule Of Law (Wgi)"
     - "Rule Of Law (Bti)"
     - "Rule Of Law"
     - "Freedom In The World"
-  crisis_impact_metrics:
+
+  crisis_impact:
     - "Conflict Intensity"
     - "Total Killed In All Crisis"
     - "Safety And Security"
@@ -78,6 +40,7 @@ feature_groups:
     - "Economic Losses [Helper 11]"
     - "Economic Losses [Figure]"
     - "Economic Losses [Date]"
+
   humanitarian_conditions:
     - "# Of People Facing Minimal Humanitarian Needs (Level 1)"
     - "# Of People Facing Stressed Humanitarian Conditions And Needs (Level 2)"
@@ -91,9 +54,91 @@ feature_groups:
     - "% Of People Extreme Conditions - Level 5"
     - "People Displaced"
     - "People Affected"
+
   access_constraints:
     - "Humanitarian Access"
     - "Access Of Humanitarian Actors To Affected Populations"
     - "Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance"
     - "Physical And Security Constraints"
     - "Access Of People In Need To Aid"
+
+# Target variables
+targets:
+  severity:
+    - "Inform Severity Index"
+    - "Inform Severity Category"
+  probability:
+    - "Concentration Of Conditions"
+    - "Complexity Of The Crisis"
+    - "Updated_Score"
+  escalation:
+    - "Trend (Last 3 Months)"
+    - "Impact Of The Crisis"
+
+# Model parameters
+model_params:
+  prophet:
+    changepoint_prior_scale: 0.05
+    seasonality_prior_scale: 10.0
+    yearly_seasonality: true
+    weekly_seasonality: false
+    daily_seasonality: false
+
+  lstm:
+    units: 64
+    dropout: 0.2
+    recurrent_dropout: 0.1
+    activation: "relu"
+    optimizer: "adam"
+    epochs: 100
+    batch_size: 32
+
+  catboost:
+    iterations: 1000
+    learning_rate: 0.03
+    depth: 6
+    l2_leaf_reg: 3
+    random_seed: 42
+
+  lightgbm:
+    num_leaves: 31
+    learning_rate: 0.05
+    feature_fraction: 0.9
+    bagging_fraction: 0.8
+    bagging_freq: 5
+
+# Training configurations
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  cv_folds: 5
+  early_stopping_rounds: 50
+
+# Evaluation metrics
+evaluation:
+  metrics:
+    regression:
+      - "rmse"
+      - "mae"
+      - "r2"
+    classification:
+      - "accuracy"
+      - "f1_score"
+      - "roc_auc"
+    ordinal:
+      - "ordinal_accuracy"
+      - "mean_absolute_error"
+
+# Uncertainty estimation
+uncertainty:
+  monte_carlo_iterations: 100
+  confidence_level: 0.95
+  dropout_rate: 0.1
+
+# Visualization settings
+visualization:
+  style: "seaborn"
+  figure_size: [12, 8]
+  dpi: 300
+  save_format: "png"

@@ -10,6 +10,8 @@ from uncertainty import UncertaintyEstimator
 from visualization import Visualizer
 from model_persistence import ModelPersistence
 
+__version__ = '1.0.0'
+
 __all__ = [
     'Config',
     'DataLoader',
