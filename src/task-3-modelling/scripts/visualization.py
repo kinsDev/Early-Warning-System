@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
 from config import Config
+from .evaluation import ModelEvaluator
 
 class Visualizer:
     def __init__(self, config: Config):

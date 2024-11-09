@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from collections import defaultdict
 from config import Config
-from models import CrisisPredictor
+from .model_architecture import CrisisPredictor
 
 class UncertaintyEstimator:
     def __init__(self, config: Config):
