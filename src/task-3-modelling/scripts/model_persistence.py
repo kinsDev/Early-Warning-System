@@ -5,8 +5,8 @@ import joblib
 import json
 import pandas as pd
 from datetime import datetime
-from config import Config
-from model_architecture import CrisisPredictor
+from .config import Config
+from .model_architecture import CrisisPredictor
 
 class ModelPersistence:
     def __init__(self, config: Config):

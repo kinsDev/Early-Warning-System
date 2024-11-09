@@ -2,11 +2,11 @@ import logging
 import argparse
 from pathlib import Path
 import pandas as pd
-from config import Config
-from feature_engineering import FeatureEngineering
-from preprocessing import DataPreprocessor
-from feature_importance import FeatureSelector
-from model_architecture import CrisisPredictor
+from .config import Config
+from .feature_engineering import FeatureEngineering
+from .preprocessing import DataPreprocessor
+from .feature_importance import FeatureSelector
+from .model_architecture import CrisisPredictor
 
 def setup_logging(config: Config) -> None:
     logging.basicConfig(

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from typing import Dict, List
-from config import Config
+from .config import Config
 
 class FeatureEngineering:
     def __init__(self, config: Config):
