@@ -20,3 +20,6 @@ sklearn-pandas
 tqdm
 ipywidgets
 python-dotenv
+pytest
+joblib
+plotly
