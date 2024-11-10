@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 class ModelPersistence:
     def __init__(self, config: Config):
         self.config = config
-        self.model_dir = Path(config.base_dir) / 'scripts' / 'Combined_Dataset_Experimentation' / 'outputs' / 'models'
+        self.model_dir = config.models_dir 
         self.model_dir.mkdir(exist_ok=True)
 
     def save_model(self, model: CrisisPredictor, metadata: Dict, version: str):

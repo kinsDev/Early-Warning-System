@@ -6,24 +6,35 @@ from .config import Config
 
 class DataLoader:
     def __init__(self, config: Config):
-        self.data_path = config.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
-
+        print("Initializing DataLoader with config:", config)
+        self._config = config
+        print("Config stored in DataLoader:", self._config)
+        
+    @property
+    def config(self):
+        return self._config
+        
     def load_data(self) -> pd.DataFrame:
         """Load and perform initial data preparation."""
-        print(f"Loading data from: {self.data_path}")
-        if not self.data_path.exists():
-            raise FileNotFoundError(f"Data file not found at {self.data_path}")
-        df = pd.read_csv(self.data_path)
+        data_path = self.config.data_dir / 'combined_data.csv'
+        print(f"Loading data from: {data_path}")
+
+        if not data_path.exists():
+            raise FileNotFoundError(f"Data file not found at {data_path}")
+
+        df = pd.read_csv(data_path)
         df['date'] = pd.to_datetime(df['YYYY_MM'], format='%Y_%m')
         return df
 
-
+    
     def split_temporal(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """Split data temporally for time series prediction."""
-        split_date = df['date'].max() - pd.DateOffset(months=self.config.test_size * len(df['date'].unique()))
+        n_months = int(self.config.test_size * len(df['date'].unique()))
+        split_date = df['date'].max() - pd.DateOffset(months=n_months)
         train_df = df[df['date'] <= split_date]
         test_df = df[df['date'] > split_date]
         return train_df, test_df
+
 
     def prepare_features_targets(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame]]:
         """Prepare features and targets from the dataframe."""

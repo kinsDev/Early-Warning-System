@@ -5,21 +5,17 @@ class Config:
     def __init__(self, config_path=None):
         # Base paths setup
         self.base_dir = Path(__file__).parent.parent
-        
-        # Load config file first
-        config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')
-        with open(config_path) as f:
-            self.config = yaml.safe_load(f)
-        
-        # The set up directories
-        self.data_dir = self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
-        self.models_dir = self.data_dir / 'outputs' / 'models'
-        self.results_dir = self.data_dir / 'outputs' / 'results'
 
-        # Create directories if they don't exist
-        self.data_dir.mkdir(exist_ok=True)
-        self.models_dir.mkdir(exist_ok=True)
-        self.results_dir.mkdir(exist_ok=True)
+        # Load config file first
+        #config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')
+        #with open(config_path) as f:
+         #   self.config = yaml.safe_load(f)
+
+        # Set up directories
+        self.data_dir = self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
+        self.models_dir = self.base_dir / 'models'
+        self.results_dir = self.base_dir / 'results'
+
 
         # Load config file
         config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')

@@ -1,8 +1,9 @@
 # Path configurations
 paths:
   data_dir: "scripts/Combined_Dataset_Experimentation"
-  models_dir: "scripts/Combined_Dataset_Experimentation/outputs/models"
-  results_dir: "scripts/Combined_Dataset_Experimentation/outputs/results"
+  models_dir: "models"
+  results_dir: "results"
+
 
 # Feature configurations
 features:
