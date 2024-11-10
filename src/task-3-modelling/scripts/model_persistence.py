@@ -7,19 +7,25 @@ import pandas as pd
 from datetime import datetime
 from .config import Config
 from .model_architecture import CrisisPredictor
+import logging
+logging.basicConfig(level=logging.INFO)
+
 
 class ModelPersistence:
     def __init__(self, config: Config):
         self.config = config
-        self.model_dir = Path(config.models_dir)
+        self.model_dir = Path(config.base_dir) / 'scripts' / 'Combined_Dataset_Experimentation' / 'outputs' / 'models'
         self.model_dir.mkdir(exist_ok=True)
 
     def save_model(self, model: CrisisPredictor, metadata: Dict, version: str):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        model_path = self.model_dir / f"model_{version}_{timestamp}"
+        model_path = self.model_dir / f"model_{version}_{timestamp}.joblib"
+        
+        logging.info(f"Saving model version {version} to {model_path}")
 
-        # Save model state
+        # Save comprehensive model state
         model_state = {
+            'model': model,
             'model_state': model.state_dict(),
             'base_models': {
                 target: {name: model.serialize()
@@ -28,12 +34,21 @@ class ModelPersistence:
             },
             'meta_model': model.meta_model.state_dict(),
             'metadata': {
-                **metadata,
+                'timestamp': timestamp,
+                'name': version,
                 'save_date': datetime.now().isoformat(),
                 'model_version': version,
-                'config': self.config.__dict__
+                'config': self.config.__dict__,
+                **metadata
             }
         }
+        
+        try:
+            joblib.dump(model_state, model_path)
+        except Exception as e:
+            raise RuntimeError(f"Failed to save model: {str(e)}")
+
+        logging.info(f"Successfully saved model version {version}")
 
         # Save using joblib for better compression
         joblib.dump(model_state, f"{model_path}.joblib")
@@ -48,9 +63,9 @@ class ModelPersistence:
         model_files = list(self.model_dir.glob(f"model_{version}*.joblib"))
         if not model_files:
             raise FileNotFoundError(f"No model found for version {version}")
-
-        model_path = model_files[-1]  # Get most recent if multiple exists
-        model_state = joblib.load(model_path)
+        
+        latest_model = max(model_files, key=lambda x: x.stat().st_mtime)
+        model_state = joblib.load(latest_model)
 
         model = CrisisPredictor(self.config)
         model.load_state_dict(model_state['model_state'])
@@ -80,8 +95,9 @@ class ModelPersistence:
         model_files = list(self.model_dir.glob(f"model_{version}*.joblib"))
         if not model_files:
             raise FileNotFoundError(f"No model found for version {version}")
-
-        model_state = joblib.load(model_files[-1])
+        
+        latest_model = max(model_files, key=lambda x: x.stat().st_mtime)
+        model_state = joblib.load(latest_model)
         return model_state['metadata']
 
     def export_model_summary(self, version: str):

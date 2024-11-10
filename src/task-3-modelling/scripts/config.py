@@ -5,9 +5,16 @@ class Config:
     def __init__(self, config_path=None):
         # Base paths setup
         self.base_dir = Path(__file__).parent.parent
-        self.data_dir = self.base_dir / 'data'
-        self.models_dir = self.base_dir / 'models'
-        self.results_dir = self.base_dir / 'results'
+        
+        # Load config file first
+        config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')
+        with open(config_path) as f:
+            self.config = yaml.safe_load(f)
+        
+        # The set up directories
+        self.data_dir = self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
+        self.models_dir = self.data_dir / 'outputs' / 'models'
+        self.results_dir = self.data_dir / 'outputs' / 'results'
 
         # Create directories if they don't exist
         self.data_dir.mkdir(exist_ok=True)
@@ -54,10 +61,19 @@ class Config:
             'humanitarian_conditions': self.config['features']['humanitarian_conditions'],
             'access_constraints': self.config['features']['access_constraints']
         }
+        
+        self.validate_paths()
+
+    def validate_paths(self):
+        if not self.data_dir.exists():
+            raise FileNotFoundError(f"Data directory not found: {self.data_dir}")
+        if not Path(self.data_path).exists():
+            raise FileNotFoundError(f"Data file not found: {self.data_path}")
 
     @property
     def data_path(self):
-        return self.data_dir / "combined_data.csv"
+        return self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation' / 'combined_data.csv'
+        return self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation' / 'combined_data.csv'
 
     @property
     def model_path(self):

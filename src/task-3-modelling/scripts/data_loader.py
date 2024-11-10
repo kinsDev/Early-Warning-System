@@ -6,13 +6,17 @@ from .config import Config
 
 class DataLoader:
     def __init__(self, config: Config):
-        self.config = config
+        self.data_path = config.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
 
     def load_data(self) -> pd.DataFrame:
         """Load and perform initial data preparation."""
-        df = pd.read_csv(self.config.data_path)
+        print(f"Loading data from: {self.data_path}")
+        if not self.data_path.exists():
+            raise FileNotFoundError(f"Data file not found at {self.data_path}")
+        df = pd.read_csv(self.data_path)
         df['date'] = pd.to_datetime(df['YYYY_MM'], format='%Y_%m')
         return df
+
 
     def split_temporal(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """Split data temporally for time series prediction."""
