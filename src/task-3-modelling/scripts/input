@@ -1,3 +1,38 @@
+Here is the diagnostic code that checks all feature groups in the config.py file:
+def analyze_data_quality(df, config):
+    print("\nComprehensive Data Quality Analysis:")
+    print("-" * 50)
+
+    for group_name, features in config.feature_groups.items():
+        print(f"\nFeature Group: {group_name}")
+        print("-" * 30)
+
+        for col in features:
+            print(f"\nColumn: {col}")
+            print("Data type:", df[col].dtype)
+            # Check for non-numeric values
+            non_numeric = df[col][~df[col].astype(str).str.replace('.', '').str.isnumeric()]
+            print("Non-numeric values found:", non_numeric.unique())
+            print("Count of non-numeric values:", len(non_numeric))
+            # Show value distribution
+            print("Value distribution:")
+            print(df[col].value_counts().head())
+            print("-" * 20)
+
+# Run the analysis
+analyze_data_quality(train_df, config)
+
+Use the examples numbered below here as a guide to what some of the non-numerical values in dataset that might not be clear in the dataset mean:
+1. 'x' - this is an example of an undertermined value. You could replace this with a missing value such as 'nan'.
+2. 'X' - this is an example of an undertermined value. You could replace this with a missing value such as 'nan'.
+3. nan - this is an example of a missing value
+4. '5.63729635266926e-05' - this is an example of a numerical value stored in scientific notation string format. You could convert this to a float data type.
+5. '2020_09' - this is an example of date stored in the format YYYY_MM string format
+The rest of the non-numerical data types are pretty self explanatory from the column names above.
+
+
+
+The results below are from the Diagnostic code that checks all feature groups in the config.py file that you have acess to from our codebase.
 Comprehensive Data Quality Analysis:
 --------------------------------------------------
 
