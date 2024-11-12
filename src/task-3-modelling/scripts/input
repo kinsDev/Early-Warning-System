@@ -1,4 +1,198 @@
+The feature_engineering cell that was excuted successfully on the model_training_pipeline.ipynb:
+from scripts.feature_engineering import FeatureEngineering
+from sklearn.preprocessing import LabelEncoder
+from sklearn.impute import SimpleImputer
+import pandas as pd
+import numpy as np
+import re
 
+def clean_feature_names(X):
+    X = X.copy()
+    def clean_name(name):
+        name = str(name)
+        name = re.sub(r'[^A-Za-z0-9]+', '_', name)
+        name = re.sub(r'_{2,}', '_', name)
+        name = name.strip('_')
+        if not name[0].isalpha():
+            name = 'f_' + name
+        return name
+
+    clean_columns = [clean_name(col) for col in X.columns]
+    X.columns = clean_columns
+    return X
+
+class CustomFeatureEngineering(FeatureEngineering):
+    def __init__(self, config):
+        super().__init__(config)
+        self.label_encoders = {}
+        self.null_values = ['x', 'X', 'Missing', 'missing', 'False', 'false', '-', 'NA', 'na', 'N/A', 'n/a']
+        self.categorical_cols = ['Country', 'Iso3', 'Region', 'Crisis Id', 'Crisis']
+        self.identifier_cols = []
+        self.date_formats = {
+            'standard': '%Y-%m-%d',
+            'datetime': '%Y-%m-%d %H:%M:%S',
+            'year_month': '%Y_%m'
+        }
+
+    def process_features(self, df: pd.DataFrame):
+        self.identifier_cols = [col for col in df.columns if any(x in col for x in ['Total population', 'Helper'])]
+        df = df.copy()
+        processed_df = df.copy()
+
+        # Process each feature group
+        for group_name, features in self.config.feature_groups.items():
+            processed_df = self._process_feature_group(processed_df, features, group_name)
+
+        # Create derived features
+        temporal_features = self._create_temporal_features(processed_df)
+        encoded_features = self._encode_categorical_features(temporal_features)
+
+        # Additional feature derivation
+        final_features = self._derive_additional_features(encoded_features)
+
+        return {
+            'base': processed_df,
+            'temporal': temporal_features,
+            'encoded': encoded_features,
+            'final': final_features
+        }
+
+    def _process_feature_group(self, df, features, group_name):
+        df = df.copy()
+
+        for col in features:
+            if col not in df.columns:
+                continue
+
+            if col in self.categorical_cols or col in self.identifier_cols:
+                continue
+            elif 'Date' in col:
+                df[col] = self._parse_dates(df[col])
+            elif col == 'YYYY_MM':
+                df[col] = pd.to_datetime(df[col], format=self.date_formats['year_month'])
+            else:
+                df[col] = self._convert_numeric(df[col])
+
+        return df
+
+    def _parse_dates(self, series):
+        for format_name, date_format in self.date_formats.items():
+            try:
+                return pd.to_datetime(series, format=date_format)
+            except:
+                continue
+        return pd.to_datetime(series, errors='coerce')
+
+    def _convert_numeric(self, series):
+        return pd.to_numeric(series.replace(self.null_values, 0), errors='coerce').fillna(0)
+
+    def _create_temporal_features(self, df):
+        df = df.copy()
+        df['datetime'] = pd.to_datetime(df['YYYY_MM'], format=self.date_formats['year_month'])
+
+        # Extract temporal components
+        df['year'] = df['datetime'].dt.year
+        df['month'] = df['datetime'].dt.month
+        df['quarter'] = df['datetime'].dt.quarter
+        df['year_month'] = df['datetime'].dt.strftime('%Y%m')
+        df['month_of_quarter'] = df['month'] % 3 + 1
+
+        return df
+
+    def _encode_categorical_features(self, df):
+        df = df.copy()
+        categorical_cols = [col for col in self.categorical_cols if col in df.columns]
+
+        for col in categorical_cols:
+            if col not in self.label_encoders:
+                self.label_encoders[col] = LabelEncoder()
+            df[f'{col}_encoded'] = self.label_encoders[col].fit_transform(df[col].astype(str))
+
+        return df
+
+    def _derive_additional_features(self, df):
+        df = df.copy()
+
+        # Add any domain-specific feature combinations here
+        numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+
+        # Calculate rolling statistics for numeric columns
+        for col in numeric_cols:
+            df[f'{col}_rolling_mean'] = df.groupby('Crisis Id')[col].transform(
+                lambda x: x.rolling(window=3, min_periods=1).mean()
+            )
+
+        return df
+
+class CustomDataPreprocessor:
+    def __init__(self, config):
+        self.config = config
+        self.numerical_imputer = SimpleImputer(strategy='constant', fill_value=0)
+        self.categorical_imputer = SimpleImputer(strategy='constant', fill_value='missing')
+
+    def process_data(self, data_dict):
+        processed = {}
+        for key, df in data_dict.items():
+            if isinstance(df, pd.DataFrame):
+                processed[key] = self.handle_missing_values(df)
+        return processed
+
+    def handle_missing_values(self, df):
+        df = df.copy()
+
+        # Handle numerical columns
+        numerical_cols = df.select_dtypes(include=['float64', 'int64']).columns
+        if len(numerical_cols) > 0:
+            df[numerical_cols] = self.numerical_imputer.fit_transform(df[numerical_cols])
+
+        # Handle categorical columns
+        categorical_cols = df.select_dtypes(include=['object']).columns
+        if len(categorical_cols) > 0:
+            df[categorical_cols] = self.categorical_imputer.fit_transform(df[categorical_cols])
+
+        return df
+
+def process_features(df, config):
+    feature_engineer = CustomFeatureEngineering(config)
+    preprocessor = CustomDataPreprocessor(config)
+
+    engineered_features = feature_engineer.process_features(df)
+    processed_data = preprocessor.process_data(engineered_features)
+
+    return processed_data
+
+def detailed_inspection(processed_data):
+    print("\nDetailed Data Processing Results:")
+    print("-" * 50)
+
+    for key, df in processed_data.items():
+        print(f"\nDataset Type: {key}")
+        print(f"Shape: {df.shape}")
+
+        print("\nFeature Types Summary:")
+        print(df.dtypes.value_counts())
+
+        print("\nNumerical Columns Statistics:")
+        numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+        if len(numeric_cols) > 0:
+            print(df[numeric_cols].describe())
+
+        print("\nMissing Values Summary:")
+        missing_vals = df.isnull().sum()
+        if missing_vals.any():
+            print(missing_vals[missing_vals > 0])
+        else:
+            print("No missing values found")
+
+        print("-" * 50)
+
+# Run processing and inspection
+train_processed = process_features(train_df, config)
+detailed_inspection(train_processed)
+
+
+
+The Output I received after running the feature_engineering cell:
 Detailed Data Processing Results:
 --------------------------------------------------
 
