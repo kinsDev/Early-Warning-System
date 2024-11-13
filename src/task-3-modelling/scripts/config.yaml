@@ -78,7 +78,7 @@ targets:
 
 # Model parameters
 model_params:
-  learning_rate: 0.001  # Added learning rate parameter
+  learning_rate: 0.001 
   
   prophet:
     changepoint_prior_scale: 0.05
