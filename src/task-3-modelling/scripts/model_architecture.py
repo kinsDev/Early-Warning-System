@@ -8,11 +8,15 @@ from prophet import Prophet
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
 
-class CrisisPredictor:
+class CrisisPredictor(nn.Module):
     def __init__(self, config: Config):
+        super(CrisisPredictor, self).__init__()
         self.config = config
         self.models = self._initialize_models()
         self.meta_model = self._create_meta_model()
+        
+        # Register the meta_model as a submodule
+        self.add_module('meta_model', self.meta_model)
 
     def _initialize_models(self) -> Dict:
         models = {}

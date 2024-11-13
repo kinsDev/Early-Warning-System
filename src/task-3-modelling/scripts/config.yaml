@@ -78,13 +78,15 @@ targets:
 
 # Model parameters
 model_params:
+  learning_rate: 0.001  # Added learning rate parameter
+  
   prophet:
     changepoint_prior_scale: 0.05
     seasonality_prior_scale: 10.0
     yearly_seasonality: true
     weekly_seasonality: false
     daily_seasonality: false
-
+    
   lstm:
     units: 64
     dropout: 0.2
@@ -93,14 +95,14 @@ model_params:
     optimizer: "adam"
     epochs: 100
     batch_size: 32
-
+    
   catboost:
     iterations: 1000
     learning_rate: 0.03
     depth: 6
     l2_leaf_reg: 3
     random_seed: 42
-
+    
   lightgbm:
     num_leaves: 31
     learning_rate: 0.05

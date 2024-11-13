@@ -6,16 +6,10 @@ class Config:
         # Base paths setup
         self.base_dir = Path(__file__).parent.parent
 
-        # Load config file first
-        #config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')
-        #with open(config_path) as f:
-         #   self.config = yaml.safe_load(f)
-
         # Set up directories
         self.data_dir = self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation'
         self.models_dir = self.base_dir / 'models'
         self.results_dir = self.base_dir / 'results'
-
 
         # Load config file
         config_path = config_path or (self.base_dir / 'scripts' / 'config.yaml')
@@ -60,6 +54,10 @@ class Config:
         
         self.validate_paths()
 
+    @property
+    def learning_rate(self):
+        return self.config['model_params']['learning_rate']
+
     def validate_paths(self):
         if not self.data_dir.exists():
             raise FileNotFoundError(f"Data directory not found: {self.data_dir}")
@@ -68,7 +66,6 @@ class Config:
 
     @property
     def data_path(self):
-        return self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation' / 'combined_data.csv'
         return self.base_dir / 'scripts' / 'Combined_Dataset_Experimentation' / 'combined_data.csv'
 
     @property

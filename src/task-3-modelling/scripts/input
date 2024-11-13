@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. After running this code, I got the output below:
 # Cell 4.5 - Data Inspection
 print("Column Data Types:")
@@ -2855,3 +2856,5 @@ max         5.000000
 Name: Access Of People In Need To Aid, dtype: float64
 Recommended: Already numerical, handle missing values
 --------------------
+=======
+>>>>>>> 30481e4 (FIXING MODEL TRAINING NUANCES)
