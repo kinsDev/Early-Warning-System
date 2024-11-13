@@ -1,5 +1,8 @@
 /models
 scripts/old_codes.py
 ACAPS/src/task-3-modelling/scripts/input
+ACAPS/src/task-3-modelling/scripts/preprocessing_data_output
+ACAPS/src/task-3-modelling/scripts/feature_engineering_output
+ACAPS/src/task-3-modelling/scripts/column_characteristics_output
 ACAPS/src/task-3-modelling/scripts/model_training_pipeline_debugging
 scripts/testy.py

@@ -1,0 +1,567 @@
+Detailed Data Processing Results:
+--------------------------------------------------
+
+Dataset Type: base
+Shape: (10799, 399)
+
+Feature Types Summary:
+object            317
+float64            78
+datetime64[ns]      4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       People Living In The Affected Area  \
+count                        10799.000000
+mean                            96.594685
+std                            755.694615
+min                            -19.000000
+25%                              0.000000
+50%                              2.000000
+75%                             87.000000
+max                          44196.000000
+
+       Total # Of People Affected By The Crisis  \
+count                              10799.000000
+mean                                  87.065099
+std                                  753.559211
+min                                  -19.000000
+25%                                    0.000000
+50%                                    1.000000
+75%                                   65.000000
+max                                44196.000000
+
+       Total # Of Crisis Related Displaced People  \
+count                                10799.000000
+mean                                    86.653672
+std                                    759.440297
+min                                    -19.000000
+25%                                      0.000000
+50%                                      1.000000
+75%                                     40.000000
+max                                  44196.000000
+
+       Total # Of Crisis Related Fatalities  \
+count                          10799.000000
+mean                              66.273359
+std                              748.908990
+min                              -19.000000
+25%                                0.000000
+50%                                0.000000
+75%                               32.000000
+max                            44196.000000
+
+       # Of People Affected Facing Minimal Humanitarian Needs (Level 1)  \
+count                                       10799.000000
+mean                                           83.606538
+std                                           752.918519
+min                                           -16.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score
+count   10799.000000
+mean      106.023261
+std       750.350898
+min        -7.000000
+25%         0.000000
+50%        21.900000
+75%       138.950000
+max     44196.000000
+
+[8 rows x 78 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: temporal
+Shape: (10799, 405)
+
+Feature Types Summary:
+object            318
+float64            78
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       People Living In The Affected Area  \
+count                        10799.000000
+mean                            96.594685
+std                            755.694615
+min                            -19.000000
+25%                              0.000000
+50%                              2.000000
+75%                             87.000000
+max                          44196.000000
+
+       Total # Of People Affected By The Crisis  \
+count                              10799.000000
+mean                                  87.065099
+std                                  753.559211
+min                                  -19.000000
+25%                                    0.000000
+50%                                    1.000000
+75%                                   65.000000
+max                                44196.000000
+
+       Total # Of Crisis Related Displaced People  \
+count                                10799.000000
+mean                                    86.653672
+std                                    759.440297
+min                                    -19.000000
+25%                                      0.000000
+50%                                      1.000000
+75%                                     40.000000
+max                                  44196.000000
+
+       Total # Of Crisis Related Fatalities  \
+count                          10799.000000
+mean                              66.273359
+std                              748.908990
+min                              -19.000000
+25%                                0.000000
+50%                                0.000000
+75%                               32.000000
+max                            44196.000000
+
+       # Of People Affected Facing Minimal Humanitarian Needs (Level 1)  \
+count                                       10799.000000
+mean                                           83.606538
+std                                           752.918519
+min                                           -16.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score
+count   10799.000000
+mean      106.023261
+std       750.350898
+min        -7.000000
+25%         0.000000
+50%        21.900000
+75%       138.950000
+max     44196.000000
+
+[8 rows x 78 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: encoded
+Shape: (10799, 410)
+
+Feature Types Summary:
+object            318
+float64            83
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score  Country_encoded  Iso3_encoded  Region_encoded  \
+count   10799.000000     10799.000000  10799.000000    10799.000000
+mean      106.023261       119.634040     90.939994       10.900917
+std       750.350898        67.589164     39.514432        7.511453
+min        -7.000000         0.000000      0.000000        0.000000
+25%         0.000000        60.000000     65.000000        0.000000
+50%        21.900000       124.000000    108.000000       13.000000
+75%       138.950000       175.000000    125.000000       18.000000
+max     44196.000000       240.000000    125.000000       18.000000
+
+       Crisis Id_encoded  Crisis_encoded
+count       10799.000000    10799.000000
+mean          180.753033      194.685063
+std            81.498578       92.247140
+min             0.000000        0.000000
+25%           118.000000      130.000000
+50%           220.000000      238.000000
+75%           250.000000      272.000000
+max           250.000000      272.000000
+
+[8 rows x 83 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: final
+Shape: (10799, 493)
+
+Feature Types Summary:
+object            318
+float64           166
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)_rolling_mean  \
+count                                       10799.000000
+mean                                           97.598342
+std                                           964.689291
+min                                           -19.000000
+25%                                             0.000000
+50%                                             6.000000
+75%                                            64.500000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)_rolling_mean  \
+count                                       10799.000000
+mean                                           93.922848
+std                                           963.976815
+min                                           -19.000000
+25%                                             0.000000
+50%                                             5.666667
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)_rolling_mean  \
+count                                       10799.000000
+mean                                           99.946631
+std                                           964.861014
+min                                           -19.000000
+25%                                             0.000000
+50%                                             6.333333
+75%                                            72.333333
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)_rolling_mean  \
+count                                       10799.000000
+mean                                          103.517795
+std                                           965.459316
+min                                           -19.000000
+25%                                             0.000000
+50%                                             7.000000
+75%                                            76.833333
+max                                         44196.000000
+
+       Updated_Score_rolling_mean  Country_encoded_rolling_mean  \
+count                10799.000000                  10799.000000
+mean                   114.255101                     69.904189
+std                    960.185587                     79.598456
+min                     -7.000000                      0.000000
+25%                      0.000000                      0.000000
+50%                     27.200000                     39.000000
+75%                    142.266667                    144.000000
+max                  44196.000000                    240.000000
+
+       Iso3_encoded_rolling_mean  Region_encoded_rolling_mean  \
+count               10799.000000                 10799.000000
+mean                   36.943452                     3.138686
+std                    41.368265                     5.061898
+min                     0.000000                     0.000000
+25%                     0.000000                     0.000000
+50%                    18.000000                     0.000000
+75%                    75.000000                     7.000000
+max                   125.000000                    18.000000
+
+       Crisis Id_encoded_rolling_mean  Crisis_encoded_rolling_mean
+count                    10799.000000                 10799.000000
+mean                        72.895824                    77.123298
+std                         83.878544                    91.956759
+min                          0.000000                     0.000000
+25%                          0.000000                     0.000000
+50%                         33.000000                    27.000000
+75%                        147.000000                   164.000000
+max                        249.000000                   272.000000
+
+[8 rows x 166 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
