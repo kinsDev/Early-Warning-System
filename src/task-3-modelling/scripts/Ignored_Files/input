@@ -1,0 +1,17 @@
+This was the output after running the evaluation and visualization code: Generating predictions for evaluation...
+
+Model Performance Metrics:
+--------------------------------------------------
+MSE: 0.0728
+RMSE: 0.2699
+MAE: 0.0737
+R2: 0.9763
+
+What does MSE mean? And does it represent?
+What does RMSE mean? And does it represent?
+What does MAE mean? And does it represent?
+What does R2 mean? And does it represent?
+
+So, in a nutshell, based on the output, what is the accuracy of our LSTM model? 
+What was the target that our model was predicting?
+Based on the context of our Crisis predictor project, what target columns did we use as our target for the LSTM model?
