@@ -1,0 +1,115 @@
+Cell6 - Model Evaluation & Visualization:
+# Cell 6 - Model Evaluation and Visualization
+
+# Import required packages and set style
+import matplotlib.pyplot as plt
+plt.style.use('default')  # Using default style instead of seaborn
+
+# Initialize evaluator and visualizer
+evaluator = ModelEvaluator(config)
+visualizer = Visualizer(config)
+
+# Prepare test data and predictions
+print("Generating predictions for evaluation...")
+test_sequences = X_train[-1000:]  # Using last 1000 sequences for testing
+test_targets = y_train[-1000:]
+
+# Get model predictions
+trained_model.eval()
+with torch.no_grad():
+    test_predictions = trained_model(test_sequences)
+
+# Prepare data for evaluation
+y_true = {
+    'severity_level': test_targets.numpy()
+}
+y_pred = {
+    'severity_level': test_predictions.numpy()
+}
+
+# Calculate evaluation metrics
+print("\nCalculating performance metrics...")
+metrics = evaluator.evaluate_predictions(y_true, y_pred)
+
+# Print detailed metrics
+print("\nModel Performance Metrics:")
+print("-" * 50)
+for target, target_metrics in metrics.items():
+    print(f"\nTarget: {target}")
+    for metric_name, metric_value in target_metrics.items():
+        if isinstance(metric_value, (float, np.float32, np.float64)):
+            print(f"{metric_name.upper()}: {metric_value:.4f}")
+        else:
+            print(f"{metric_name.upper()}: {metric_value}")
+
+# Prepare visualization data
+dates = pd.date_range(end=pd.Timestamp.now(), periods=len(test_sequences), freq='D')
+visualization_data = {
+    'severity_level': {
+        'actual': test_targets.numpy(),
+        'predictions': test_predictions.numpy(),
+        'uncertainty': {
+            'std': np.std(test_predictions.numpy(), axis=1)
+        }
+    }
+}
+
+# Generate visualizations
+print("\nGenerating visualization plots...")
+visualizer.plot_results(dates, visualization_data, metrics)
+visualizer.plot_training_history({'train_loss': history})
+
+print("\nEvaluation and visualization completed successfully!")
+print(f"Visualization outputs saved to: {visualizer.output_path}")
+
+
+Error that I have:
+FileNotFoundError                         Traceback (most recent call last)
+File /opt/conda/lib/python3.10/site-packages/matplotlib/style/core.py:137, in use(style)
+    136 try:
+--> 137     style = _rc_params_in_file(style)
+    138 except OSError as err:
+
+File /opt/conda/lib/python3.10/site-packages/matplotlib/__init__.py:866, in _rc_params_in_file(fname, transform, fail_on_error)
+    865 rc_temp = {}
+--> 866 with _open_file_or_url(fname) as fd:
+    867     try:
+
+File /opt/conda/lib/python3.10/contextlib.py:135, in _GeneratorContextManager.__enter__(self)
+    134 try:
+--> 135     return next(self.gen)
+    136 except StopIteration:
+
+File /opt/conda/lib/python3.10/site-packages/matplotlib/__init__.py:843, in _open_file_or_url(fname)
+    842 fname = os.path.expanduser(fname)
+--> 843 with open(fname, encoding='utf-8') as f:
+    844     yield f
+
+FileNotFoundError: [Errno 2] No such file or directory: 'seaborn'
+
+The above exception was the direct cause of the following exception:
+
+OSError                                   Traceback (most recent call last)
+Cell In[15], line 9
+      7 # Initialize evaluator and visualizer
+      8 evaluator = ModelEvaluator(config)
+----> 9 visualizer = Visualizer(config)
+     11 # Prepare test data and predictions
+     12 print("Generating predictions for evaluation...")
+
+File ~/ACAPS/src/task-3-modelling/scripts/visualization.py:15, in Visualizer.__init__(self, config)
+     13 self.output_path = Path(config.output_path) / 'visualizations'
+     14 self.output_path.mkdir(parents=True, exist_ok=True)
+---> 15 plt.style.use('seaborn')
+
+File /opt/conda/lib/python3.10/site-packages/matplotlib/style/core.py:139, in use(style)
+    137         style = _rc_params_in_file(style)
+    138     except OSError as err:
+--> 139         raise OSError(
+    140             f"{style!r} is not a valid package style, path of style "
+    141             f"file, URL of style file, or library style name (library "
+    142             f"styles are listed in `style.available`)") from err
+    143 filtered = {}
+    144 for k in style:  # don't trigger RcParams.__getitem__('backend')
+
+OSError: 'seaborn' is not a valid package style, path of style file, URL of style file, or library style name (library styles are listed in `style.available`)

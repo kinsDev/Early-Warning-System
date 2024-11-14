@@ -1,0 +1,144 @@
+Cell 5 - model training using an LSTM - didn't use the ensemble model approach that you'll see on my scripts.
+I decided to first experiment with an LSTM model to see how well it would perform on the dataset, and then proceed to the ensemble model approach.
+
+Cell5 code:
+import torch
+import torch.nn as nn
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+
+class LSTMPredictor(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim, n_layers=2, dropout=0.2):
+        super().__init__()
+        self.hidden_dim = hidden_dim
+        self.n_layers = n_layers
+
+        self.lstm = nn.LSTM(input_dim, hidden_dim, n_layers, batch_first=True, dropout=dropout)
+        self.fc = nn.Linear(hidden_dim, output_dim)
+
+    def forward(self, x):
+        lstm_out, _ = self.lstm(x)
+        return self.fc(lstm_out[:, -1, :])
+
+def prepare_training_data(processed_data, sequence_length=30):
+    df = processed_data['final'].copy()
+    null_values = ['x', 'X', 'Missing', 'missing', 'False', 'false', '-', 'NA', 'na', 'N/A', 'n/a']
+
+    # Prepare features
+    numeric_features = df.select_dtypes(include=['float64', 'int64']).columns
+    X = df[numeric_features].fillna(0).values
+
+    # Standardize features
+    scaler = StandardScaler()
+    X = scaler.fit_transform(X)
+
+    # Create sequences
+    sequences = []
+    for i in range(len(X) - sequence_length):
+        sequences.append(X[i:(i + sequence_length)])
+    X_sequences = np.array(sequences)
+
+    # Prepare target (let's start with severity_level)
+    target_cols = config.targets['severity_level']['columns']
+    y = df[target_cols].copy()
+    for col in target_cols:
+        y[col] = pd.to_numeric(y[col].replace(null_values, '0'), errors='coerce')
+    y = y.values[sequence_length:]
+
+    return torch.FloatTensor(X_sequences), torch.FloatTensor(y), scaler
+
+def train_model(X_train, y_train, config):
+    # Model parameters
+    input_dim = X_train.shape[2]
+    hidden_dim = config.model_params['lstm']['units']
+    output_dim = y_train.shape[1]
+
+    # Initialize model
+    model = LSTMPredictor(
+        input_dim=input_dim,
+        hidden_dim=hidden_dim,
+        output_dim=output_dim,
+        dropout=config.model_params['lstm']['dropout']
+    )
+
+    # Training parameters
+    criterion = nn.MSELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=config.model_params['learning_rate'])
+    n_epochs = config.model_params['lstm']['epochs']
+    batch_size = config.model_params['lstm']['batch_size']
+
+    # Training loop
+    train_losses = []
+    for epoch in range(n_epochs):
+        model.train()
+        total_loss = 0
+        n_batches = len(X_train) // batch_size
+
+        for i in range(n_batches):
+            start_idx = i * batch_size
+            end_idx = start_idx + batch_size
+
+            batch_X = X_train[start_idx:end_idx]
+            batch_y = y_train[start_idx:end_idx]
+
+            optimizer.zero_grad()
+            outputs = model(batch_X)
+            loss = criterion(outputs, batch_y)
+
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+
+        avg_loss = total_loss / n_batches
+        train_losses.append(avg_loss)
+
+        if (epoch + 1) % 10 == 0:
+            print(f'Epoch [{epoch+1}/{n_epochs}], Loss: {avg_loss:.4f}')
+
+    return model, train_losses
+
+# Training execution
+print("Starting data preparation...")
+X_train, y_train, scaler = prepare_training_data(train_processed)
+
+print("\nData shapes:")
+print(f"Features shape: {X_train.shape}")
+print(f"Target shape: {y_train.shape}")
+
+print("\nStarting model training...")
+trained_model, history = train_model(X_train, y_train, config)
+
+print("\nTraining completed successfully!")
+
+# Plot training loss
+import matplotlib.pyplot as plt
+plt.plot(history)
+plt.title('Training Loss Over Time')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.show()
+
+
+
+Cell5 output:
+Starting data preparation...
+
+Data shapes:
+Features shape: torch.Size([10769, 30, 166])
+Target shape: torch.Size([10769, 2])
+
+Starting model training...
+Epoch [10/100], Loss: 0.2829
+Epoch [20/100], Loss: 0.2103
+Epoch [30/100], Loss: 0.1742
+Epoch [40/100], Loss: 0.1577
+Epoch [50/100], Loss: 0.1378
+Epoch [60/100], Loss: 0.1425
+Epoch [70/100], Loss: 0.1186
+Epoch [80/100], Loss: 0.1123
+Epoch [90/100], Loss: 0.1059
+Epoch [100/100], Loss: 0.1011
+
+Training completed successfully!

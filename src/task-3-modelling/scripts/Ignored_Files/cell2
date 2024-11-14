@@ -1,0 +1,29 @@
+Cell2 Codes - Load and Prepare Data:
+# Force reload the module
+import importlib
+import scripts.data_loader
+importlib.reload(scripts.data_loader)
+from scripts.data_loader import DataLoader
+
+# Create new instances
+config = Config()
+data_loader = DataLoader(config=config)
+
+# Debug prints
+print("DataLoader instance:", data_loader)
+print("DataLoader __dict__:", data_loader.__dict__)
+
+data_loader = DataLoader(config)
+df = data_loader.load_data()
+train_df, test_df = data_loader.split_temporal(df)
+print(f"Training set size: {len(train_df)}, Test set size: {len(test_df)}")
+
+
+
+Cell2 Output:
+Initializing DataLoader with config: <scripts.config.Config object at 0x7f11996d1450>
+Config stored in DataLoader: <scripts.config.Config object at 0x7f11996d1450>
+Loading data from: /root/ACAPS/src/task-3-modelling/scripts/Combined_Dataset_Experimentation/combined_data.csv
+/root/ACAPS/src/task-3-modelling/scripts/data_loader.py:25: DtypeWarning: Columns (25,26,27,28,30,31,33,34,35,56,61,64,69,72,229,232,237,240,245,248,253,256,261,264,269,272,277,280,285,288,292,297,299,302,303,304,322,323,331,332,333,334,338,346,347,348,349,350,351,378) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_path)
+Training set size: 10799, Test set size: 2463

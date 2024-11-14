@@ -1,0 +1,35 @@
+Cell1 Code - Initialize Configuration & Import custom modules:
+# Set up Python path
+import sys
+from pathlib import Path
+project_root = Path.cwd().parent
+sys.path.append(str(project_root))
+
+# Standard libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import GridSearchCV, ParameterGrid
+
+# Custom modules
+from scripts.config import Config
+from scripts.data_loader import DataLoader
+from scripts.preprocessing import DataPreprocessor
+from scripts.feature_engineering import FeatureEngineering
+from scripts.feature_importance import FeatureSelector
+from scripts.model_architecture import CrisisPredictor
+from scripts.training import ModelTrainer
+from scripts.evaluation import ModelEvaluator
+from scripts.uncertainty import UncertaintyEstimator
+from scripts.visualization import Visualizer
+from scripts.model_persistence import ModelPersistence
+
+# Initialize configuration
+config = Config()
+print("Configuration loaded successfully")
+
+
+
+Cell1 Output:
+Configuration loaded successfully

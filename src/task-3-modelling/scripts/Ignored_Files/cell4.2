@@ -1,0 +1,769 @@
+Cell4 code - Feature Engineering and Selection
+             This section is divided into three parts:
+             1. Diadnostic code to check all feature & target groups
+             2. Analyzing column characteristics
+             3. Feature Engineering (I will provide the code and output for this part in this file):
+
+Feature Engineering Code:
+from scripts.feature_engineering import FeatureEngineering
+from sklearn.preprocessing import LabelEncoder
+from sklearn.impute import SimpleImputer
+import pandas as pd
+import numpy as np
+import re
+
+def clean_feature_names(X):
+    X = X.copy()
+    def clean_name(name):
+        name = str(name)
+        name = re.sub(r'[^A-Za-z0-9]+', '_', name)
+        name = re.sub(r'_{2,}', '_', name)
+        name = name.strip('_')
+        if not name[0].isalpha():
+            name = 'f_' + name
+        return name
+
+    clean_columns = [clean_name(col) for col in X.columns]
+    X.columns = clean_columns
+    return X
+
+class CustomFeatureEngineering(FeatureEngineering):
+    def __init__(self, config):
+        super().__init__(config)
+        self.label_encoders = {}
+        self.null_values = ['x', 'X', 'Missing', 'missing', 'False', 'false', '-', 'NA', 'na', 'N/A', 'n/a']
+        self.categorical_cols = ['Country', 'Iso3', 'Region', 'Crisis Id', 'Crisis']
+        self.identifier_cols = []
+        self.date_formats = {
+            'standard': '%Y-%m-%d',
+            'datetime': '%Y-%m-%d %H:%M:%S',
+            'year_month': '%Y_%m'
+        }
+
+    def process_features(self, df: pd.DataFrame):
+        self.identifier_cols = [col for col in df.columns if any(x in col for x in ['Total population', 'Helper'])]
+        df = df.copy()
+        processed_df = df.copy()
+
+        # Process each feature group
+        for group_name, features in self.config.feature_groups.items():
+            processed_df = self._process_feature_group(processed_df, features, group_name)
+
+        # Create derived features
+        temporal_features = self._create_temporal_features(processed_df)
+        encoded_features = self._encode_categorical_features(temporal_features)
+
+        # Additional feature derivation
+        final_features = self._derive_additional_features(encoded_features)
+
+        return {
+            'base': processed_df,
+            'temporal': temporal_features,
+            'encoded': encoded_features,
+            'final': final_features
+        }
+
+    def _process_feature_group(self, df, features, group_name):
+        df = df.copy()
+
+        for col in features:
+            if col not in df.columns:
+                continue
+
+            if col in self.categorical_cols or col in self.identifier_cols:
+                continue
+            elif 'Date' in col:
+                df[col] = self._parse_dates(df[col])
+            elif col == 'YYYY_MM':
+                df[col] = pd.to_datetime(df[col], format=self.date_formats['year_month'])
+            else:
+                df[col] = self._convert_numeric(df[col])
+
+        return df
+
+    def _parse_dates(self, series):
+        for format_name, date_format in self.date_formats.items():
+            try:
+                return pd.to_datetime(series, format=date_format)
+            except:
+                continue
+        return pd.to_datetime(series, errors='coerce')
+
+    def _convert_numeric(self, series):
+        return pd.to_numeric(series.replace(self.null_values, 0), errors='coerce').fillna(0)
+
+    def _create_temporal_features(self, df):
+        df = df.copy()
+        df['datetime'] = pd.to_datetime(df['YYYY_MM'], format=self.date_formats['year_month'])
+
+        # Extract temporal components
+        df['year'] = df['datetime'].dt.year
+        df['month'] = df['datetime'].dt.month
+        df['quarter'] = df['datetime'].dt.quarter
+        df['year_month'] = df['datetime'].dt.strftime('%Y%m')
+        df['month_of_quarter'] = df['month'] % 3 + 1
+
+        return df
+
+    def _encode_categorical_features(self, df):
+        df = df.copy()
+        categorical_cols = [col for col in self.categorical_cols if col in df.columns]
+
+        for col in categorical_cols:
+            if col not in self.label_encoders:
+                self.label_encoders[col] = LabelEncoder()
+            df[f'{col}_encoded'] = self.label_encoders[col].fit_transform(df[col].astype(str))
+
+        return df
+
+    def _derive_additional_features(self, df):
+        df = df.copy()
+
+        # Add any domain-specific feature combinations here
+        numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+
+        # Calculate rolling statistics for numeric columns
+        for col in numeric_cols:
+            df[f'{col}_rolling_mean'] = df.groupby('Crisis Id')[col].transform(
+                lambda x: x.rolling(window=3, min_periods=1).mean()
+            )
+
+        return df
+
+class CustomDataPreprocessor:
+    def __init__(self, config):
+        self.config = config
+        self.numerical_imputer = SimpleImputer(strategy='constant', fill_value=0)
+        self.categorical_imputer = SimpleImputer(strategy='constant', fill_value='missing')
+
+    def process_data(self, data_dict):
+        processed = {}
+        for key, df in data_dict.items():
+            if isinstance(df, pd.DataFrame):
+                processed[key] = self.handle_missing_values(df)
+        return processed
+
+    def handle_missing_values(self, df):
+        df = df.copy()
+
+        # Handle numerical columns
+        numerical_cols = df.select_dtypes(include=['float64', 'int64']).columns
+        if len(numerical_cols) > 0:
+            df[numerical_cols] = self.numerical_imputer.fit_transform(df[numerical_cols])
+
+        # Handle categorical columns
+        categorical_cols = df.select_dtypes(include=['object']).columns
+        if len(categorical_cols) > 0:
+            df[categorical_cols] = self.categorical_imputer.fit_transform(df[categorical_cols])
+
+        return df
+
+def process_features(df, config):
+    feature_engineer = CustomFeatureEngineering(config)
+    preprocessor = CustomDataPreprocessor(config)
+
+    engineered_features = feature_engineer.process_features(df)
+    processed_data = preprocessor.process_data(engineered_features)
+
+    return processed_data
+
+def detailed_inspection(processed_data):
+    print("\nDetailed Data Processing Results:")
+    print("-" * 50)
+
+    for key, df in processed_data.items():
+        print(f"\nDataset Type: {key}")
+        print(f"Shape: {df.shape}")
+
+        print("\nFeature Types Summary:")
+        print(df.dtypes.value_counts())
+
+        print("\nNumerical Columns Statistics:")
+        numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+        if len(numeric_cols) > 0:
+            print(df[numeric_cols].describe())
+
+        print("\nMissing Values Summary:")
+        missing_vals = df.isnull().sum()
+        if missing_vals.any():
+            print(missing_vals[missing_vals > 0])
+        else:
+            print("No missing values found")
+
+        print("-" * 50)
+
+# Run processing and inspection
+train_processed = process_features(train_df, config)
+detailed_inspection(train_processed)
+
+
+
+Feature Engineering Output:
+
+Detailed Data Processing Results:
+--------------------------------------------------
+
+Dataset Type: base
+Shape: (10799, 399)
+
+Feature Types Summary:
+object            317
+float64            78
+datetime64[ns]      4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       People Living In The Affected Area  \
+count                        10799.000000
+mean                            96.594685
+std                            755.694615
+min                            -19.000000
+25%                              0.000000
+50%                              2.000000
+75%                             87.000000
+max                          44196.000000
+
+       Total # Of People Affected By The Crisis  \
+count                              10799.000000
+mean                                  87.065099
+std                                  753.559211
+min                                  -19.000000
+25%                                    0.000000
+50%                                    1.000000
+75%                                   65.000000
+max                                44196.000000
+
+       Total # Of Crisis Related Displaced People  \
+count                                10799.000000
+mean                                    86.653672
+std                                    759.440297
+min                                    -19.000000
+25%                                      0.000000
+50%                                      1.000000
+75%                                     40.000000
+max                                  44196.000000
+
+       Total # Of Crisis Related Fatalities  \
+count                          10799.000000
+mean                              66.273359
+std                              748.908990
+min                              -19.000000
+25%                                0.000000
+50%                                0.000000
+75%                               32.000000
+max                            44196.000000
+
+       # Of People Affected Facing Minimal Humanitarian Needs (Level 1)  \
+count                                       10799.000000
+mean                                           83.606538
+std                                           752.918519
+min                                           -16.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score
+count   10799.000000
+mean      106.023261
+std       750.350898
+min        -7.000000
+25%         0.000000
+50%        21.900000
+75%       138.950000
+max     44196.000000
+
+[8 rows x 78 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: temporal
+Shape: (10799, 405)
+
+Feature Types Summary:
+object            318
+float64            78
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       People Living In The Affected Area  \
+count                        10799.000000
+mean                            96.594685
+std                            755.694615
+min                            -19.000000
+25%                              0.000000
+50%                              2.000000
+75%                             87.000000
+max                          44196.000000
+
+       Total # Of People Affected By The Crisis  \
+count                              10799.000000
+mean                                  87.065099
+std                                  753.559211
+min                                  -19.000000
+25%                                    0.000000
+50%                                    1.000000
+75%                                   65.000000
+max                                44196.000000
+
+       Total # Of Crisis Related Displaced People  \
+count                                10799.000000
+mean                                    86.653672
+std                                    759.440297
+min                                    -19.000000
+25%                                      0.000000
+50%                                      1.000000
+75%                                     40.000000
+max                                  44196.000000
+
+       Total # Of Crisis Related Fatalities  \
+count                          10799.000000
+mean                              66.273359
+std                              748.908990
+min                              -19.000000
+25%                                0.000000
+50%                                0.000000
+75%                               32.000000
+max                            44196.000000
+
+       # Of People Affected Facing Minimal Humanitarian Needs (Level 1)  \
+count                                       10799.000000
+mean                                           83.606538
+std                                           752.918519
+min                                           -16.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score
+count   10799.000000
+mean      106.023261
+std       750.350898
+min        -7.000000
+25%         0.000000
+50%        21.900000
+75%       138.950000
+max     44196.000000
+
+[8 rows x 78 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: encoded
+Shape: (10799, 410)
+
+Feature Types Summary:
+object            318
+float64            83
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)  \
+count                                       10799.000000
+mean                                           89.476526
+std                                           756.484641
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            63.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)  \
+count                                       10799.000000
+mean                                           85.907121
+std                                           755.501566
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)  \
+count                                       10799.000000
+mean                                           91.942217
+std                                           756.778906
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            68.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)  \
+count                                       10799.000000
+mean                                           95.357811
+std                                           757.621965
+min                                           -19.000000
+25%                                             0.000000
+50%                                             1.000000
+75%                                            73.000000
+max                                         44196.000000
+
+       Updated_Score  Country_encoded  Iso3_encoded  Region_encoded  \
+count   10799.000000     10799.000000  10799.000000    10799.000000
+mean      106.023261       119.634040     90.939994       10.900917
+std       750.350898        67.589164     39.514432        7.511453
+min        -7.000000         0.000000      0.000000        0.000000
+25%         0.000000        60.000000     65.000000        0.000000
+50%        21.900000       124.000000    108.000000       13.000000
+75%       138.950000       175.000000    125.000000       18.000000
+max     44196.000000       240.000000    125.000000       18.000000
+
+       Crisis Id_encoded  Crisis_encoded
+count       10799.000000    10799.000000
+mean          180.753033      194.685063
+std            81.498578       92.247140
+min             0.000000        0.000000
+25%           118.000000      130.000000
+50%           220.000000      238.000000
+75%           250.000000      272.000000
+max           250.000000      272.000000
+
+[8 rows x 83 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------
+
+Dataset Type: final
+Shape: (10799, 493)
+
+Feature Types Summary:
+object            318
+float64           166
+datetime64[ns]      5
+int32               4
+Name: count, dtype: int64
+
+Numerical Columns Statistics:
+        Empowerment  Bti - Democracy Status  Trust In Society  \
+count  10799.000000            10799.000000      10799.000000
+mean       1.506528                1.436874          1.499643
+std        1.627075                1.456608          1.511796
+min        0.000000                0.000000          0.000000
+25%        0.000000                0.000000          0.000000
+50%        1.100000                1.400000          1.500000
+75%        2.900000                2.800000          2.800000
+max        5.000000                4.300000          4.450000
+
+       Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  \
+count              10799.000000                    10799.000000
+mean                   1.431021                        0.766126
+std                    1.630483                        1.312200
+min                    0.000000                        0.000000
+25%                    0.000000                        0.000000
+50%                    0.600000                        0.000000
+75%                    2.800000                        1.100000
+max                    4.700000                        5.000000
+
+       Gender Inequality  Income Gini Coefficient  Social Cohesion  \
+count       10799.000000             10799.000000     10799.000000
+mean            1.540615                 0.965126         1.314989
+std             1.701800                 1.120062         1.266568
+min             0.000000                 0.000000         0.000000
+25%             0.000000                 0.000000         0.000000
+50%             0.000000                 0.600000         1.583333
+75%             3.300000                 1.900000         2.400000
+max             5.000000                 4.300000         3.933333
+
+       Conflict Intensity  Total Killed In All Crisis  ...  \
+count        10799.000000                10799.000000  ...
+mean             2.202999                    1.739522  ...
+std              2.607430                    1.992369  ...
+min              0.000000                    0.000000  ...
+25%              0.000000                    0.000000  ...
+50%              1.000000                    0.000000  ...
+75%              4.000000                    3.700000  ...
+max             10.000000                    5.000000  ...
+
+       # Of People Affected Facing Stressed Humanitarian Needs (Level 2)_rolling_mean  \
+count                                       10799.000000
+mean                                           97.598342
+std                                           964.689291
+min                                           -19.000000
+25%                                             0.000000
+50%                                             6.000000
+75%                                            64.500000
+max                                         44196.000000
+
+       # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)_rolling_mean  \
+count                                       10799.000000
+mean                                           93.922848
+std                                           963.976815
+min                                           -19.000000
+25%                                             0.000000
+50%                                             5.666667
+75%                                            62.000000
+max                                         44196.000000
+
+       # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)_rolling_mean  \
+count                                       10799.000000
+mean                                           99.946631
+std                                           964.861014
+min                                           -19.000000
+25%                                             0.000000
+50%                                             6.333333
+75%                                            72.333333
+max                                         44196.000000
+
+       # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)_rolling_mean  \
+count                                       10799.000000
+mean                                          103.517795
+std                                           965.459316
+min                                           -19.000000
+25%                                             0.000000
+50%                                             7.000000
+75%                                            76.833333
+max                                         44196.000000
+
+       Updated_Score_rolling_mean  Country_encoded_rolling_mean  \
+count                10799.000000                  10799.000000
+mean                   114.255101                     69.904189
+std                    960.185587                     79.598456
+min                     -7.000000                      0.000000
+25%                      0.000000                      0.000000
+50%                     27.200000                     39.000000
+75%                    142.266667                    144.000000
+max                  44196.000000                    240.000000
+
+       Iso3_encoded_rolling_mean  Region_encoded_rolling_mean  \
+count               10799.000000                 10799.000000
+mean                   36.943452                     3.138686
+std                    41.368265                     5.061898
+min                     0.000000                     0.000000
+25%                     0.000000                     0.000000
+50%                    18.000000                     0.000000
+75%                    75.000000                     7.000000
+max                   125.000000                    18.000000
+
+       Crisis Id_encoded_rolling_mean  Crisis_encoded_rolling_mean
+count                    10799.000000                 10799.000000
+mean                        72.895824                    77.123298
+std                         83.878544                    91.956759
+min                          0.000000                     0.000000
+25%                          0.000000                     0.000000
+50%                         33.000000                    27.000000
+75%                        147.000000                   164.000000
+max                        249.000000                   272.000000
+
+[8 rows x 166 columns]
+
+Missing Values Summary:
+Buildings Damaged [Date]    5715
+Economic Losses [Date]      5567
+dtype: int64
+--------------------------------------------------

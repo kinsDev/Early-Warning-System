@@ -1,0 +1,171 @@
+cell3 code - Data Visualization and Analysis (For this cell I will provide the most important code and output since I performed a couple of experiments):
+def visualize_batch_data(train_df, test_df, config):
+    train_df = train_df.copy()
+    test_df = test_df.copy()
+
+    total_plots = sum(len(specs['columns']) * 2 for _, specs in config.targets.items()) + 1
+    rows = (total_plots + 2) // 3
+    cols = 3
+
+    plt.figure(figsize=(20, 5*rows))
+    subplot_idx = 1
+
+    for target, specs in config.targets.items():
+        for col in specs['columns']:
+            # Convert string numbers to float where applicable
+            if col in ['Inform Severity Index', 'Impact Of The Crisis']:
+                train_df.loc[:, col] = pd.to_numeric(train_df[col], errors='coerce')
+                test_df.loc[:, col] = pd.to_numeric(test_df[col], errors='coerce')
+
+            # Distribution plot
+            plt.subplot(rows, cols, subplot_idx)
+            if col in ['Trend (Last 3 Months)', 'Inform Severity Category']:
+                # Categorical plots
+                sns.countplot(data=train_df, x=col, order=train_df[col].value_counts().index)
+                plt.xticks(rotation=45)
+            else:
+                # Numerical plots
+                sns.histplot(train_df[col].dropna(), bins=30)
+            plt.title(f'{col} Distribution')
+            plt.xticks(rotation=45)
+            subplot_idx += 1
+
+            # Time series plot
+            plt.subplot(rows, cols, subplot_idx)
+            if col in ['Trend (Last 3 Months)', 'Inform Severity Category']:
+                # Skip time series for categorical data
+                plt.text(0.5, 0.5, 'Categorical data\nno time series plot',
+                        ha='center', va='center')
+                plt.axis('off')
+            else:
+                # Convert to numeric for time series plot
+                train_values = pd.to_numeric(train_df[col], errors='coerce')
+                test_values = pd.to_numeric(test_df[col], errors='coerce')
+                plt.plot(train_df['date'], train_values, label='Train', alpha=0.6)
+                plt.plot(test_df['date'], test_values, label='Test', alpha=0.6)
+                plt.title(f'{col} Time Series')
+                plt.legend()
+                plt.xticks(rotation=45)
+            subplot_idx += 1
+
+    # Data split proportions
+    plt.subplot(rows, cols, subplot_idx)
+    splits = [len(train_df), len(test_df)]
+    plt.pie(splits, labels=['Train', 'Test'], autopct='%1.1f%%')
+    plt.title('Data Split Proportions')
+
+    plt.tight_layout()
+    plt.show()
+
+    # Print statistics
+    print("\nData Distribution Statistics:")
+    print("-" * 50)
+    print(f"Total samples: {len(df)}")
+    print(f"Training samples: {len(train_df)} ({len(train_df)/len(df)*100:.1f}%)")
+    print(f"Testing samples: {len(test_df)} ({len(test_df)/len(df)*100:.1f}%)")
+
+    print("\nTarget Variable Statistics:")
+    print("-" * 50)
+    for target, specs in config.targets.items():
+        print(f"\nTarget: {target}")
+        for col in specs['columns']:
+            print(f"\nColumn: {col}")
+            print("Value counts:\n", train_df[col].value_counts().head())
+            print("Null values:", train_df[col].isnull().sum())
+
+# Call the function
+visualize_batch_data(train_df, test_df, config)
+
+
+
+Cell3 Output:
+Data Distribution Statistics:
+--------------------------------------------------
+Total samples: 13262
+Training samples: 10799 (81.4%)
+Testing samples: 2463 (18.6%)
+
+Target Variable Statistics:
+--------------------------------------------------
+
+Target: severity_level
+
+Column: Inform Severity Index
+Value counts:
+ Inform Severity Index
+3.5    250
+3.4    246
+2.3    219
+3.2    208
+3.7    200
+Name: count, dtype: int64
+Null values: 5902
+
+Column: Inform Severity Category
+Value counts:
+ Inform Severity Category
+4    1792
+3    1745
+5     739
+2     617
+x     483
+Name: count, dtype: int64
+Null values: 5419
+
+Target: crisis_probability
+
+Column: Concentration Of Conditions
+Value counts:
+ Concentration Of Conditions
+3    2345
+4    1282
+1     907
+2     628
+x     527
+Name: count, dtype: int64
+Null values: 4775
+
+Column: Complexity Of The Crisis
+Value counts:
+ Complexity Of The Crisis
+1.6    2236
+1.3    1278
+1.7    1176
+1.4     675
+1.9     317
+Name: count, dtype: int64
+Null values: 4703
+
+Column: Updated_Score
+Value counts:
+ Updated_Score
+18.3    22
+0.0     17
+43.3    17
+19.0    16
+13.6    16
+Name: count, dtype: int64
+Null values: 4775
+
+Target: escalation_risk
+
+Column: Trend (Last 3 Months)
+Value counts:
+ Trend (Last 3 Months)
+Stable        2148
+Increasing    1425
+Decreasing    1004
+-              803
+Name: count, dtype: int64
+Null values: 5419
+
+Column: Impact Of The Crisis
+Value counts:
+ Impact Of The Crisis
+2.0    1742
+2.2     889
+1.8     541
+2.7     431
+1.7     409
+Name: count, dtype: int64
+Null values: 4761

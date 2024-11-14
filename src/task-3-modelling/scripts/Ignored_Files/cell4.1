@@ -1,0 +1,613 @@
+Cell4 code - Feature Engineering and Selection
+             This section is divided into three parts:
+             1. Diadnostic code to check all feature & target groups
+             2. Analyzing column characteristics (I will provide the code and output for this part in this file)
+             3. Feature Engineering:
+
+column characteristics code:
+def analyze_column_characteristics(df, config):
+    print("\nColumn Characteristics Analysis:")
+    print("-" * 50)
+
+    for group_name, features in config.feature_groups.items():
+        print(f"\nFeature Group: {group_name}")
+        print("-" * 30)
+
+        for col in features:
+            print(f"\nColumn: {col}")
+            print("Current data type:", df[col].dtype)
+
+            # Check for NaN values
+            has_nan = df[col].isna().any()
+            print("Contains NaN values:", has_nan)
+            if has_nan:
+                print("Number of NaN values:", df[col].isna().sum())
+
+            # For numerical columns, show stats
+            if df[col].dtype in ['float64', 'int64']:
+                print("Statistical summary:")
+                print(df[col].describe())
+            else:
+                unique_values = df[col].unique()[:5]
+                print("Sample distinct values:", unique_values)
+
+                special_chars = df[col].astype(str).str.contains('[^a-zA-Z0-9\s]').any()
+                if special_chars:
+                    print("Contains special characters: Yes")
+
+            # Refined recommendations
+            if col == 'YYYY_MM':
+                print("Recommended: Convert to datetime for time series analysis")
+            elif col in ['Country', 'Iso3', 'Region', 'Crisis Id', 'Crisis']:
+                print("Recommended: Keep as categorical identifier")
+            elif 'Date' in col:
+                print("Recommended: Convert to datetime")
+            elif df[col].dtype in ['float64', 'int64']:
+                print("Recommended: Already numerical, handle missing values")
+            elif df[col].dtype == 'object' and df[col].str.contains('x').any():
+                print("Recommended: Replace 'x' with 0, convert to float")
+            else:
+                print("Recommended: Evaluate for categorical encoding")
+
+            print("-" * 20)
+
+# Run the analysis
+analyze_column_characteristics(train_df, config)
+
+
+
+column characteristics output:
+
+Column Characteristics Analysis:
+--------------------------------------------------
+
+Feature Group: temporal_context
+------------------------------
+
+Column: YYYY_MM
+Current data type: object
+Contains NaN values: False
+Sample distinct values: ['2020_09' '2020_10' '2020_11' '2020_12' '2021_01']
+Contains special characters: Yes
+Recommended: Convert to datetime for time series analysis
+--------------------
+
+Column: Country
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 116
+Sample distinct values: ['Afghanistan' 'Burundi' 'Burkina Faso' 'Bangladesh' 'Brazil']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Iso3
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['Afg' 'Bdi' 'Bfa' 'Bgd' 'Bra']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Region
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4766
+Sample distinct values: ['Asia' 'Africa' 'Americas' 'Europe' nan]
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Crisis Id
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4659
+Sample distinct values: ['AFG001' 'BDI001' 'BFA002' 'BFA003' 'BGD001']
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Crisis
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['Complex crisis in Afghanistan' 'Complex in Burundi'
+ 'Conflict in Burkina Faso' 'Floods in Burkina Faso'
+ 'Mutliple crises in Bangladesh']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Feature Group: geographical_context
+------------------------------
+
+Column: YYYY_MM
+Current data type: object
+Contains NaN values: False
+Sample distinct values: ['2020_09' '2020_10' '2020_11' '2020_12' '2021_01']
+Contains special characters: Yes
+Recommended: Convert to datetime for time series analysis
+--------------------
+
+Column: Country
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 116
+Sample distinct values: ['Afghanistan' 'Burundi' 'Burkina Faso' 'Bangladesh' 'Brazil']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Iso3
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['Afg' 'Bdi' 'Bfa' 'Bgd' 'Bra']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Region
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4766
+Sample distinct values: ['Asia' 'Africa' 'Americas' 'Europe' nan]
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Crisis Id
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4659
+Sample distinct values: ['AFG001' 'BDI001' 'BFA002' 'BFA003' 'BGD001']
+Recommended: Keep as categorical identifier
+--------------------
+
+Column: Crisis
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['Complex crisis in Afghanistan' 'Complex in Burundi'
+ 'Conflict in Burkina Faso' 'Floods in Burkina Faso'
+ 'Mutliple crises in Bangladesh']
+Contains special characters: Yes
+Recommended: Keep as categorical identifier
+--------------------
+
+Feature Group: socio_economic_indicators
+------------------------------
+
+Column: Empowerment
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3.6' '2.1' '1.1' '2.5' '0.7']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Bti - Democracy Status
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3.4' '3.2' '1.9' '2.8' '1.3']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Trust In Society
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3.5' '2.6500000000000004' '1.5' '2.65' '1']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Ethnic Fractionalisation
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        2.565339
+std         1.362243
+min         0.000000
+25%         1.500000
+50%         2.600000
+75%         3.800000
+max         4.700000
+Name: Ethnic Fractionalisation, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Gender Inequality
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3.8' '3.5' '4.1' '3.6' '2.6']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Income Gini Coefficient
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['x' '1.7' '1.3' '0.9' '3.6']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Corruption Perception
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['4.2' '4.1' '3' '3.7' '3.3']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Feature Group: governance_indicators
+------------------------------
+
+Column: Rule Of Law (Wgi)
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        3.228403
+std         0.633912
+min         1.200000
+25%         2.800000
+50%         3.200000
+75%         3.600000
+max         4.900000
+Name: Rule Of Law (Wgi), dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Rule Of Law (Bti)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3.5' '3.8' '2.9' '3.3' '1.3']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Rule Of Law
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        3.189392
+std         0.713050
+min         0.700000
+25%         2.800000
+50%         3.200000
+75%         3.700000
+max         4.700000
+Name: Rule Of Law, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Freedom In The World
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        2.996514
+std         1.106075
+min         0.300000
+25%         2.100000
+50%         3.100000
+75%         3.800000
+max         5.000000
+Name: Freedom In The World, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Feature Group: crisis_impact_metrics
+------------------------------
+
+Column: Conflict Intensity
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        3.949234
+std         2.300264
+min         0.000000
+25%         3.000000
+50%         4.000000
+75%         5.000000
+max        10.000000
+Name: Conflict Intensity, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Total Killed In All Crisis
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['5' '3.3' '4.5' '2.6' '0']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Safety And Security
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        3.587498
+std         1.654354
+min         0.000000
+25%         2.500000
+50%         3.700000
+75%         4.750000
+max         7.500000
+Name: Safety And Security, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: People In Need
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['5' '3.1' '3.9' '1.4' '3.7']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Buildings Damaged [Helper 8]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['AFG001Buildings damaged' 'BDI001Buildings damaged'
+ 'BFA002Buildings damaged' 'BFA003Buildings damaged'
+ 'BGD001Buildings damaged']
+Recommended: Evaluate for categorical encoding
+--------------------
+
+Column: Buildings Damaged [Figure]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 5320
+Sample distinct values: ['x' 'X' '3446' '0' nan]
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Buildings Damaged [Date]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 5320
+Sample distinct values: ['2019-01-30 00:00:00' '2019-02-27 00:00:00' '2019-02-15 00:00:00'
+ '2020-09-29 00:00:00' '2020-06-05 00:00:00']
+Contains special characters: Yes
+Recommended: Convert to datetime
+--------------------
+
+Column: Economic Losses [Helper 11]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['AFG001Economic Losses' 'BDI001Economic Losses' 'BFA002Economic Losses'
+ 'BFA003Economic Losses' 'BGD001Economic Losses']
+Recommended: Evaluate for categorical encoding
+--------------------
+
+Column: Economic Losses [Figure]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 5171
+Sample distinct values: ['13114' '444' 'X' 'x' '29000']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Economic Losses [Date]
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 5171
+Sample distinct values: ['2019-01-30 00:00:00' '2019-02-27 00:00:00' '2019-02-15 00:00:00'
+ '2020-09-29 00:00:00' '2020-06-05 00:00:00']
+Contains special characters: Yes
+Recommended: Convert to datetime
+--------------------
+
+Feature Group: humanitarian_conditions
+------------------------------
+
+Column: # Of People Facing Minimal Humanitarian Needs (Level 1)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' nan '0']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: # Of People Facing Stressed Humanitarian Conditions And Needs (Level 2)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' nan '0']
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: # Of People Facing Moderate Humanitarian Conditions And Needs (Level 3)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' nan '0']
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: # Of People Facing Severe Humanitarian Conditions And Needs (Level 4)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' nan '1']
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: # Of People Facing Extreme Humanitarian Conditions And Needs (Level 5)
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' '1' nan]
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: % Of People In None/Minimal Conditions - Level 1
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['0' '0.6527408424122845' '0.3959478021978022' '0.9966411202573564'
+ '0.801617299838878']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: % Of People In Stressed Conditions - Level 2
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['0.6078431372549019' '0.2824912070000858' '0.3556547619047619' '0'
+ '0.18065928275386844']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: % Of People In Moderate Conditions - Level 3
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['0.2926330532212885' '0.06116496525692717' '0.05608974358974359'
+ '0.0012300123001230013' '0.014673246658492345']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: % Of People Severe Conditions - Level 4
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['0.09952380952380953' '0.003602985330702582' '0.08745421245421245'
+ '0.0021761756079099253' '0.0020976257308756322']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: % Of People Extreme Conditions - Level 5
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['0' '0.10485347985347986' '0.005356245603456939' 'x' nan]
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: People Displaced
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['2' '3' 'x' '1' nan]
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: People Affected
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4703
+Sample distinct values: ['3' '2' 'x' '1' nan]
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Feature Group: access_constraints
+------------------------------
+
+Column: Humanitarian Access
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        2.462815
+std         1.359116
+min         0.000000
+25%         1.000000
+50%         2.000000
+75%         3.000000
+max         5.000000
+Name: Humanitarian Access, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Access Of Humanitarian Actors To Affected Populations
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        1.974436
+std         1.314302
+min         0.000000
+25%         1.000000
+50%         2.000000
+75%         3.000000
+max         5.000000
+Name: Access Of Humanitarian Actors To Affected Populations, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance
+Current data type: object
+Contains NaN values: True
+Number of NaN values: 4775
+Sample distinct values: ['3' '1' 'x' '0' '2']
+Contains special characters: Yes
+Recommended: Replace 'x' with 0, convert to float
+--------------------
+
+Column: Physical And Security Constraints
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        3.039675
+std         1.537160
+min         0.000000
+25%         2.000000
+50%         3.000000
+75%         4.000000
+max         5.000000
+Name: Physical And Security Constraints, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
+
+Column: Access Of People In Need To Aid
+Current data type: float64
+Contains NaN values: True
+Number of NaN values: 4775
+Statistical summary:
+count    6024.000000
+mean        2.325531
+std         1.747683
+min         0.000000
+25%         1.000000
+50%         2.000000
+75%         4.000000
+max         5.000000
+Name: Access Of People In Need To Aid, dtype: float64
+Recommended: Already numerical, handle missing values
+--------------------
