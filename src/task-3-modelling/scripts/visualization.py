@@ -12,7 +12,6 @@ class Visualizer:
         self.config = config
         self.output_path = Path(config.output_path) / 'visualizations'
         self.output_path.mkdir(parents=True, exist_ok=True)
-        plt.style.use('seaborn')
 
     def plot_results(self, dates: pd.Series,
                      predictions: Dict[str, Dict],

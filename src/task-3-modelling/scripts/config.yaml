@@ -93,7 +93,7 @@ model_params:
     recurrent_dropout: 0.1
     activation: "relu"
     optimizer: "adam"
-    epochs: 100
+    epochs: 120
     batch_size: 32
     
   catboost:
