@@ -1,9 +1,11 @@
 Cell6 - Model Evaluation & Visualization:
 # Cell 6 - Model Evaluation and Visualization
 
-# Import required packages and set style
 import matplotlib.pyplot as plt
-plt.style.use('default')  # Using default style instead of seaborn
+import seaborn as sns
+import numpy as np
+import pandas as pd
+import torch
 
 # Initialize evaluator and visualizer
 evaluator = ModelEvaluator(config)
@@ -42,28 +44,53 @@ for target, target_metrics in metrics.items():
         else:
             print(f"{metric_name.upper()}: {metric_value}")
 
-# Prepare visualization data
-dates = pd.date_range(end=pd.Timestamp.now(), periods=len(test_sequences), freq='D')
-visualization_data = {
-    'severity_level': {
-        'actual': test_targets.numpy(),
-        'predictions': test_predictions.numpy(),
-        'uncertainty': {
-            'std': np.std(test_predictions.numpy(), axis=1)
-        }
-    }
-}
+# Create visualization plots
+fig = plt.figure(figsize=(15, 10))
 
-# Generate visualizations
-print("\nGenerating visualization plots...")
-visualizer.plot_results(dates, visualization_data, metrics)
-visualizer.plot_training_history({'train_loss': history})
+# Plot 1: Actual vs Predicted Values
+ax1 = fig.add_subplot(221)
+ax1.scatter(y_true['severity_level'][:, 0], y_pred['severity_level'][:, 0], alpha=0.5)
+ax1.plot([0, 5], [0, 5], 'r--')
+ax1.set_xlabel('Actual Severity Index')
+ax1.set_ylabel('Predicted Severity Index')
+ax1.set_title('Actual vs Predicted Severity Index')
+
+# Plot 2: Training Loss History
+ax2 = fig.add_subplot(222)
+ax2.plot(history)
+ax2.set_xlabel('Epoch')
+ax2.set_ylabel('Loss')
+ax2.set_title('Training Loss Over Time')
+
+# Plot 3: Prediction Distribution
+ax3 = fig.add_subplot(223)
+prediction_df = pd.DataFrame({
+    'Actual': y_true['severity_level'][:, 0],
+    'Predicted': y_pred['severity_level'][:, 0]
+})
+for col in prediction_df.columns:
+    sns.kdeplot(data=prediction_df[col], ax=ax3, label=col)
+ax3.set_title('Distribution of Actual vs Predicted Values')
+ax3.legend()
+
+# Plot 4: Error Distribution
+ax4 = fig.add_subplot(224)
+errors = y_pred['severity_level'][:, 0] - y_true['severity_level'][:, 0]
+ax4.hist(errors, bins=30, density=True)
+ax4.set_title('Prediction Error Distribution')
+ax4.set_xlabel('Prediction Error')
+
+plt.tight_layout()
+plt.savefig(str(visualizer.output_path / 'evaluation_results.png'))
+plt.show()
 
 print("\nEvaluation and visualization completed successfully!")
 print(f"Visualization outputs saved to: {visualizer.output_path}")
 
 
+
 Error that I have:
+---------------------------------------------------------------------------
 FileNotFoundError                         Traceback (most recent call last)
 File /opt/conda/lib/python3.10/site-packages/matplotlib/style/core.py:137, in use(style)
     136 try:
@@ -90,7 +117,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'seaborn'
 The above exception was the direct cause of the following exception:
 
 OSError                                   Traceback (most recent call last)
-Cell In[15], line 9
+Cell In[19], line 9
       7 # Initialize evaluator and visualizer
       8 evaluator = ModelEvaluator(config)
 ----> 9 visualizer = Visualizer(config)
