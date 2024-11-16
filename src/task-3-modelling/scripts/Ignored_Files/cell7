@@ -1,0 +1,123 @@
+This is the code that I have used of model evaluation and visualization:
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import pandas as pd
+import torch
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+# Initialize both evaluator and visualizer
+evaluator = ModelEvaluator(config)
+visualizer = Visualizer(config)
+
+# Prepare test data and predictions
+print("Generating predictions for evaluation...")
+test_sequences = X_train[-1000:]  # Using last 1000 sequences
+test_targets = y_train[-1000:]
+
+# Get model predictions
+trained_model.eval()
+with torch.no_grad():
+    test_predictions = trained_model(test_sequences)
+
+# Prepare data for evaluation
+y_true = test_targets.numpy()
+y_pred = test_predictions.numpy()
+
+# Calculate metrics for each month ahead
+metrics = {}
+for month in range(3):
+    month_metrics = {
+        'mse': mean_squared_error(y_true[:, month, 0], y_pred[:, month, 0]),
+        'rmse': np.sqrt(mean_squared_error(y_true[:, month, 0], y_pred[:, month, 0])),
+        'mae': mean_absolute_error(y_true[:, month, 0], y_pred[:, month, 0]),
+        'r2': r2_score(y_true[:, month, 0], y_pred[:, month, 0])
+    }
+    metrics[f'month_{month+1}'] = month_metrics
+
+# Print metrics
+print("\nModel Performance Metrics:")
+print("-" * 50)
+for month, month_metrics in metrics.items():
+    print(f"\n{month.upper()}:")
+    for metric_name, metric_value in month_metrics.items():
+        print(f"{metric_name.upper()}: {metric_value:.4f}")
+
+# Create visualization plots
+fig = plt.figure(figsize=(20, 15))
+
+# Plot 1: Actual vs Predicted Values for each month
+for month in range(3):
+    ax = fig.add_subplot(3, 2, month*2 + 1)
+    ax.scatter(y_true[:, month, 0], y_pred[:, month, 0], alpha=0.5)
+    ax.plot([0, 5], [0, 5], 'r--')
+    ax.set_xlabel('Actual Severity Index')
+    ax.set_ylabel('Predicted Severity Index')
+    ax.set_title(f'Month {month+1}: Actual vs Predicted')
+
+# Plot 2: Training Loss History
+ax = fig.add_subplot(3, 2, 2)
+ax.plot(history)
+ax.set_xlabel('Epoch')
+ax.set_ylabel('Loss')
+ax.set_title('Training Loss Over Time')
+
+# Plot 3: Prediction Distribution for each month
+ax = fig.add_subplot(3, 2, 4)
+for month in range(3):
+    sns.kdeplot(data=y_true[:, month, 0], label=f'Actual Month {month+1}')
+    sns.kdeplot(data=y_pred[:, month, 0], label=f'Predicted Month {month+1}', linestyle='--')
+ax.set_title('Distribution of Values by Month')
+ax.legend()
+
+# Plot 4: Error Distribution for each month
+ax = fig.add_subplot(3, 2, 6)
+for month in range(3):
+    errors = y_pred[:, month, 0] - y_true[:, month, 0]
+    ax.hist(errors, bins=30, alpha=0.3, label=f'Month {month+1}')
+ax.set_title('Prediction Error Distribution by Month')
+ax.set_xlabel('Prediction Error')
+ax.legend()
+
+plt.tight_layout()
+plt.savefig(str(visualizer.output_path / '3months_crisisseverity_predictor_eval.png'))
+plt.show()
+
+print("\nEvaluation and visualization completed successfully!")
+print(f"Visualization outputs saved to: {visualizer.output_path}")
+
+
+And this is the output:
+Generating predictions for evaluation...
+
+Model Performance Metrics:
+--------------------------------------------------
+
+MONTH_1:
+MSE: 0.0414
+RMSE: 0.2035
+MAE: 0.0810
+R2: 0.9845
+
+MONTH_2:
+MSE: 0.0492
+RMSE: 0.2219
+MAE: 0.0838
+R2: 0.9816
+
+MONTH_3:
+MSE: 0.0681
+RMSE: 0.2610
+MAE: 0.1054
+R2: 0.9745
+
+Evaluation and visualization completed successfully!
+Visualization outputs saved to: /root/ACAPS/src/task-3-modelling/results/visualizations
+
+
+I would like to know, this 3 month prediction that we have predicted, what were the exact months?
+Can we create a command line interface with python that we can use to test and see how our well trained and evaluated LSTM model works?
+What would this command line interface contain?
+To give you more context, I would like to get weighted flags on any region or country, indicating the severity level of crisis in that region, that way, analysts in the ACAPS company can go in that region examine crisis, update the company so that it can be able to prepare 3 months in advance and make empowered humanitarian decisions to be able to offer humanitarian aid.
+I need something that we can use to test this model, a command line application in python is the best starter, because, looking at the evaluation results isn't enough for people to atleast interact with the saved model to see how it works.
+I would like command line application to also have the ability to enable a person to maybe key in a country, and then they can be able to see a list of crisis that normally happen in that country, then select, or in this case, write down a specific crisis in that country or region and view the probability of that crisis occuring on the next 3 months from that specific datetime when they were interacting with the application.

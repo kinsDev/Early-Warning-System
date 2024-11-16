@@ -1,17 +1,34 @@
-This was the output after running the evaluation and visualization code: Generating predictions for evaluation...
+Find below answers to critical questions that I was asked during our previous meeting (KINDLY COMMENT ON THE THREAD IF YOU HAVE MORE QUERIES):
 
-Model Performance Metrics:
---------------------------------------------------
-MSE: 0.0728
-RMSE: 0.2699
-MAE: 0.0737
-R2: 0.9763
+QUESTION 1. How Was the data split?
+ANSWER:
+The split was temporal.
 
-What does MSE mean? And does it represent?
-What does RMSE mean? And does it represent?
-What does MAE mean? And does it represent?
-What does R2 mean? And does it represent?
+Training Data:
+Starts: September 2020
+Ends: December 2023
+Contains approximately 270-330 records per month
 
-So, in a nutshell, based on the output, what is the accuracy of our LSTM model? 
-What was the target that our model was predicting?
-Based on the context of our Crisis predictor project, what target columns did we use as our target for the LSTM model?
+Testing Data:
+Starts: January 2024
+Ends: September 2024
+Contains approximately 266-298 records per month
+
+This split is ideal for our forecasting task because:
+We're using older data (2020-2023) to train the model
+Testing on the most recent data (2024)
+The monthly record distribution is relatively consistent
+We have 9 months of test data to validate our 3-month predictions
+
+QUESTION 2. Irene offered to update the code to use 365(1 year sequences). 
+Answer:
+I advised that, it would cause dimensionality issues since I had only trained the model on 166 features.
+The dimensionality issues can be easily solved too, so, anyone can free to experiment with any sequence size, that's why we are working as a team after all. 
+I have chosen a 30-day sequence as an easier start for implementation.
+
+QUESTION 3. Are evaluating data on the same 30-days sequence, or is the sequence going through all the months obviously in a 30-day sequence like batches in a way so that we can ensure that we are going through the entire training dataset?
+Answer:
+Currently, we're using rolling 30-day sequences
+The model processes sequences by sliding the 30-day window through all available months
+Each sequence overlaps with the previous one, moving forward one day at a time
+This ensures we capture patterns across the entire dataset
