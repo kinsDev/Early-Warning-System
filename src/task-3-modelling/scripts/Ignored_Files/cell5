@@ -9,19 +9,21 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 class LSTMPredictor(nn.Module):
-    def __init__(self, input_dim, hidden_dim, output_dim, n_layers=2, dropout=0.2):
+    def __init__(self, input_dim, hidden_dim, output_dim, forecast_horizon=3, n_layers=2, dropout=0.2):
         super().__init__()
         self.hidden_dim = hidden_dim
         self.n_layers = n_layers
+        self.forecast_horizon = forecast_horizon
 
         self.lstm = nn.LSTM(input_dim, hidden_dim, n_layers, batch_first=True, dropout=dropout)
-        self.fc = nn.Linear(hidden_dim, output_dim)
+        self.fc = nn.Linear(hidden_dim, output_dim * forecast_horizon)
 
     def forward(self, x):
         lstm_out, _ = self.lstm(x)
-        return self.fc(lstm_out[:, -1, :])
+        predictions = self.fc(lstm_out[:, -1, :])
+        return predictions.view(-1, self.forecast_horizon, predictions.shape[-1] // self.forecast_horizon)
 
-def prepare_training_data(processed_data, sequence_length=30):
+def prepare_training_data(processed_data, sequence_length=30, forecast_horizon=3):
     df = processed_data['final'].copy()
     null_values = ['x', 'X', 'Missing', 'missing', 'False', 'false', '-', 'NA', 'na', 'N/A', 'n/a']
 
@@ -33,42 +35,45 @@ def prepare_training_data(processed_data, sequence_length=30):
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
 
-    # Create sequences
-    sequences = []
-    for i in range(len(X) - sequence_length):
-        sequences.append(X[i:(i + sequence_length)])
-    X_sequences = np.array(sequences)
-
-    # Prepare target (let's start with severity_level)
+    # Prepare target columns
     target_cols = config.targets['severity_level']['columns']
     y = df[target_cols].copy()
     for col in target_cols:
         y[col] = pd.to_numeric(y[col].replace(null_values, '0'), errors='coerce')
-    y = y.values[sequence_length:]
+    y = y.values
 
-    return torch.FloatTensor(X_sequences), torch.FloatTensor(y), scaler
+    # Create sequences for input and 3-month targets
+    sequences = []
+    targets = []
+    for i in range(len(X) - sequence_length - forecast_horizon + 1):
+        sequences.append(X[i:(i + sequence_length)])
+        targets.append(y[i + sequence_length:i + sequence_length + forecast_horizon])
+
+    X_sequences = np.array(sequences, dtype=np.float32)
+    y_sequences = np.array(targets, dtype=np.float32)
+
+    return torch.FloatTensor(X_sequences), torch.FloatTensor(y_sequences), scaler
 
 def train_model(X_train, y_train, config):
-    # Model parameters
     input_dim = X_train.shape[2]
     hidden_dim = config.model_params['lstm']['units']
-    output_dim = y_train.shape[1]
+    output_dim = y_train.shape[2]
+    forecast_horizon = 3
 
-    # Initialize model
     model = LSTMPredictor(
         input_dim=input_dim,
         hidden_dim=hidden_dim,
         output_dim=output_dim,
+        forecast_horizon=forecast_horizon,
         dropout=config.model_params['lstm']['dropout']
     )
 
-    # Training parameters
     criterion = nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=config.model_params['learning_rate'])
     n_epochs = config.model_params['lstm']['epochs']
     batch_size = config.model_params['lstm']['batch_size']
+    grad_clip = 1.0  # Set default gradient clipping value
 
-    # Training loop
     train_losses = []
     for epoch in range(n_epochs):
         model.train()
@@ -87,6 +92,7 @@ def train_model(X_train, y_train, config):
             loss = criterion(outputs, batch_y)
 
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             optimizer.step()
 
             total_loss += loss.item()
@@ -122,23 +128,5 @@ plt.show()
 
 
 
+
 Cell5 output:
-Starting data preparation...
-
-Data shapes:
-Features shape: torch.Size([10769, 30, 166])
-Target shape: torch.Size([10769, 2])
-
-Starting model training...
-Epoch [10/100], Loss: 0.2829
-Epoch [20/100], Loss: 0.2103
-Epoch [30/100], Loss: 0.1742
-Epoch [40/100], Loss: 0.1577
-Epoch [50/100], Loss: 0.1378
-Epoch [60/100], Loss: 0.1425
-Epoch [70/100], Loss: 0.1186
-Epoch [80/100], Loss: 0.1123
-Epoch [90/100], Loss: 0.1059
-Epoch [100/100], Loss: 0.1011
-
-Training completed successfully!
