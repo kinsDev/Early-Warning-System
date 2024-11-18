@@ -1,6 +1,37 @@
 I would like to know, this 3 month prediction that we have predicted, what were the exact months?
 Can we create a command line interface with python that we can use to test and see how our well trained and evaluated LSTM model works?
 What would this command line interface contain?
-To give you more context, I would like to get weighted flags on any region or country, indicating the severity level of crisis in that region, that way, analysts in the ACAPS company can go in that region examine crisis, update the company so that it can be able to prepare 3 months in advance and make empowered humanitarian decisions to be able to offer humanitarian aid.
 I need something that we can use to test this model, a command line application in python is the best starter, because, looking at the evaluation results isn't enough for people to atleast interact with the saved model to see how it works.
-I would like command line application to also have the ability to enable a person to maybe key in a country, and then they can be able to see a list of crisis that normally happen in that country, then select, or in this case, write down a specific crisis in that country or region and view the probability of that crisis occuring on the next 3 months from that specific datetime when they were interacting with the application.
+
+
+- So far I can see that we are able to list a country based on this example: python crisis_predictor_cli.py list-crises --country "Afghanistan"
+- We can be able to make a prediction of a ceratin crisis after we enter country and crisis based on this example: python crisis_predictor_cli.py predict --country "Afghanistan" --crisis "Complex crisis"
+- Can we be able to pull a command where based on 3 months future prediction we get a list of crisis that might occur, their severity level and country associated with that particular crisis.
+- To give you more context, I would like to get weighted flags on any region or country, indicating the severity level of crisis in that region, that way, analysts in the ACAPS company can go in that region examine crisis, update the company so that it can be able to prepare 3 months in advance and make empowered humanitarian decisions to be able to offer humanitarian aid.
+- I would like command line application to also have the ability to enable a person to maybe key in a country, and then they can be able to see a list of crisis that normally happen in that country, then select, or in this case, write down a specific crisis in that country or region and view the probability of that crisis occuring on the next 3 months from that specific datetime when they were interacting with the application.
+
+
+
+
+I have saved the trained and evaluated model here:
+ACAPS\src\task-3-modelling\models\lstm_crisis_severity_predictor_20241116_092126.pt
+
+So, can you suggest a better way of modifying that code for the command line application?
+
+There's a part where I saw this:
+def _load_model(self):
+        """Load the LSTM model with saved architecture"""
+        arch = self.model_state['model_architecture']
+        model = LSTMPredictor(
+            input_dim=arch['input_dim'],
+            hidden_dim=arch['hidden_dim'],
+            output_dim=arch['output_dim'],
+            forecast_horizon=arch['forecast_horizon'],
+            n_layers=arch['n_layers'],
+            dropout=arch['dropout']
+        )
+        model.load_state_dict(self.model_state['model_state_dict'])
+        model.eval()
+        return model
+
+And kndly remember that we have our entire codebase still, so don't redo stuff please.

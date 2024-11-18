@@ -1,102 +1,95 @@
-Data Types in train_processed['final']:
-YYYY_MM                           datetime64[ns]
-Crisis Id                                 object
-Crisis                                    object
-Country                                   object
-Iso3                                      object
-                                       ...      
-Country_encoded_rolling_mean             float64
-Iso3_encoded_rolling_mean                float64
-Region_encoded_rolling_mean              float64
-Crisis Id_encoded_rolling_mean           float64
-Crisis_encoded_rolling_mean              float64
-Length: 493, dtype: object
+Before I use this command line application code, I need you to know that I would like to run on this file path:
+ACAPS\src\task-3-modelling\Command-Line-Apps\crisis_predictor_cli.py
 
-Sample Data (first 5 rows):
-     YYYY_MM Crisis Id                         Crisis       Country Iso3  \
-0 2020-09-01    AFG001  Complex crisis in Afghanistan   Afghanistan  Afg   
-1 2020-09-01    BDI001             Complex in Burundi       Burundi  Bdi   
-2 2020-09-01    BFA002       Conflict in Burkina Faso  Burkina Faso  Bfa   
-3 2020-09-01    BFA003         Floods in Burkina Faso  Burkina Faso  Bfa   
-4 2020-09-01    BGD001  Mutliple crises in Bangladesh    Bangladesh  Bgd   
+Instead of the path that you have provided:
+ACAPS\src\task-3-modelling\scripts\crisis_predictor_cli.py
 
-   Empowerment  Bti - Democracy Status  Trust In Society  \
-0          3.6                     3.4              3.50   
-1          2.1                     3.2              2.65   
-2          1.1                     1.9              1.50   
-3          1.1                     1.9              1.50   
-4          2.5                     2.8              2.65   
+So, is there any where that you need to adjust the code:
+import click
+import torch
+import pandas as pd
+from pathlib import Path
+from datetime import datetime
+import json
 
-   Ethnic Fractionalisation  Size Of Excluded Ethnic Groups  ...  \
-0                       3.7                             0.0  ...   
-1                       1.3                             0.0  ...   
-2                       2.8                             0.0  ...   
-3                       2.8                             0.0  ...   
-4                       0.9                             1.2  ...   
+class CrisisPredictorCLI:
+    def __init__(self, model_path):
+        self.model_state = torch.load(model_path)
+        self.model = self._load_model()
+        self.feature_names = self.model_state['feature_names']
+        self.scaler = self.model_state['scaler']
 
-   # Of People Affected Facing Stressed Humanitarian Needs (Level 2)_rolling_mean  \
-0                                              -15.0                                
-1                                               -5.0                                
-2                                              -15.0                                
-3                                              -15.0                                
-4                                               -2.0                                
+        # Load historical data for reference
+        self.historical_data = pd.read_csv('path_to_combined_data.csv')
 
-   # Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3)_rolling_mean  \
-0                                              -15.0                                               
-1                                               -5.0                                               
-2                                              -15.0                                               
-3                                              -15.0                                               
-4                                               -2.0                                               
+    def get_country_crises(self, country):
+        """Return list of historical crises for a country"""
+        country_data = self.historical_data[self.historical_data['Country'] == country]
+        return country_data['Crisis'].unique().tolist()
 
-  # Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4)_rolling_mean  \
-0                                              -15.0                                            
-1                                               -5.0                                            
-2                                              -15.0                                            
-3                                              -15.0                                            
-4                                               -2.0                                            
+    def predict_crisis_severity(self, country, crisis_type, date=None):
+        """Predict crisis severity for next 3 months"""
+        # Prepare input sequence
+        sequence = self._prepare_sequence(country, crisis_type, date)
 
-   # Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5)_rolling_mean  \
-0                                              -15.0                                              
-1                                               -5.0                                              
-2                                              -15.0                                              
-3                                              -15.0                                              
-4                                              117.0                                              
+        # Make prediction
+        with torch.no_grad():
+            prediction = self.model(sequence)
 
-   Updated_Score_rolling_mean  Country_encoded_rolling_mean  \
-0                        83.8                           0.0   
-1                        87.8                          35.0   
-2                        51.9                          34.0   
-3                        -7.0                          34.0   
-4                        30.9                          18.0   
+        # Format results
+        return self._format_prediction(prediction)
 
-   Iso3_encoded_rolling_mean  Region_encoded_rolling_mean  \
-0                        0.0                         10.0   
-1                        6.0                          0.0   
-2                        7.0                          0.0   
-3                        7.0                          0.0   
-4                        8.0                         10.0   
+    def _prepare_sequence(self, country, crisis_type, date):
+        """Prepare input sequence for prediction"""
+        # Implementation details here
+        pass
 
-   Crisis Id_encoded_rolling_mean  Crisis_encoded_rolling_mean  
-0                             1.0                         20.0  
-1                             7.0                         45.0  
-2                             8.0                         49.0  
-3                             9.0                        111.0  
-4                            11.0                        196.0  
+    def _format_prediction(self, prediction):
+        """Format prediction results"""
+        # Implementation details here
+        pass
 
-[5 rows x 493 columns]
+@click.group()
+def cli():
+    """ACAPS Crisis Severity Prediction Tool"""
+    pass
 
-Non-numeric columns: ['YYYY_MM', 'Crisis Id', 'Crisis', 'Country', 'Iso3', 'Inequality', '# Of Different Types Of Affected Population Groups', 'Diversity Of Groups Affected', 'Impediments To Entry Into Country (Bureaucratic And Administrative)', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions)', 'Interference Into Implementation Of Humanitarian Activities', 'Violence Against Personnel, Facilities And Assets', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance', 'Restriction And Obstruction Of Access To Services And Assistance', 'Presence Of Mines And Improvised Explosive Devices ', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.)', '# Of People In None/Minimal Conditions - Level 1', '# Of People In Stressed Conditions - Level 2', '# Of People In Moderate Conditions - Level 3', '# Of People Severe Conditions - Level 4', '# Of People Extreme Conditions - Level 5', 'Concentration Of Conditions', 'Conditions Of People Affected', 'Total Population [Helper 0]', 'Total Population [Source]', 'Total Population [Reliability]', 'Total Population [Reliability Score]', 'Total Population [Justification]', 'Total Population [Link]', 'Total Population [Date]', 'Landmass Affected [Helper 1]', 'Landmass Affected [Figure]', 'Landmass Affected [Source]', 'Landmass Affected [Reliability]', 'Landmass Affected [Reliability Score]', 'Landmass Affected [Justification]', 'Landmass Affected [Link]', 'Landmass Affected [Date]', 'People Exposed [Helper 2]', 'People Exposed [Figure]', 'People Exposed [Source]', 'People Exposed [Reliability]', 'People Exposed [Reliability Score]', 'People Exposed [Justification]', 'People Exposed [Link]', 'People Exposed [Date]', 'People Affected [Helper 3]', 'People Affected [Figure]', 'People Affected [Source]', 'People Affected [Reliability]', 'People Affected [Reliability Score]', 'People Affected [Justification]', 'People Affected [Link]', 'People Affected [Date]', 'People Displaced [Helper 4]', 'People Displaced [Figure]', 'People Displaced [Source]', 'People Displaced [Reliability]', 'People Displaced [Reliability Score]', 'People Displaced [Justification]', 'People Displaced [Link]', 'People Displaced [Date]', 'Injuries Reported [Helper 5]', 'Injuries Reported [Figure]', 'Injuries Reported [Source]', 'Injuries Reported [Reliability]', 'Injuries Reported [Reliability Score]', 'Injuries Reported [Justification]', 'Injuries Reported [Link]', 'Injuries Reported [Date]', 'Illness Cases Reported [Helper 6]', 'Illness Cases Reported [Figure]', 'Illness Cases Reported [Source]', 'Illness Cases Reported [Reliability]', 'Illness Cases Reported [Reliability Score]', 'Illness Cases Reported [Justification]', 'Illness Cases Reported [Link]', 'Illness Cases Reported [Date]', 'Fatalities Reported [Helper 7]', 'Fatalities Reported [Figure]', 'Fatalities Reported [Source]', 'Fatalities Reported [Reliability]', 'Fatalities Reported [Reliability Score]', 'Fatalities Reported [Justification]', 'Fatalities Reported [Link]', 'Fatalities Reported [Date]', 'Buildings Damaged [Helper 8]', 'Buildings Damaged [Source]', 'Buildings Damaged [Reliability]', 'Buildings Damaged [Reliability Score]', 'Buildings Damaged [Justification]', 'Buildings Damaged [Link]', 'Buildings Damaged [Date]', 'Buildings Destroyed [Helper 9]', 'Buildings Destroyed [Figure]', 'Buildings Destroyed [Source]', 'Buildings Destroyed [Reliability]', 'Buildings Destroyed [Reliability Score]', 'Buildings Destroyed [Justification]', 'Buildings Destroyed [Link]', 'Buildings Destroyed [Date]', 'Buildings In The Affected Area [Helper 10]', 'Economic Losses [Helper 11]', 'Economic Losses [Source]', 'Economic Losses [Reliability]', 'Economic Losses [Reliability Score]', 'Economic Losses [Justification]', 'Economic Losses [Link]', 'Economic Losses [Date]', 'People In Need [Helper 12]', 'People In Need [Figure]', 'People In Need [Source]', 'People In Need [Reliability]', 'People In Need [Reliability Score]', 'People In Need [Justification]', 'People In Need [Link]', 'People In Need [Date]', 'Minimal Humanitarian Conditions - Level 1 [Helper 13]', 'Minimal Humanitarian Conditions - Level 1 [Figure]', 'Minimal Humanitarian Conditions - Level 1 [Source]', 'Minimal Humanitarian Conditions - Level 1 [Reliability]', 'Minimal Humanitarian Conditions - Level 1 [Reliability Score]', 'Minimal Humanitarian Conditions - Level 1 [Justification]', 'Minimal Humanitarian Conditions - Level 1 [Link]', 'Minimal Humanitarian Conditions - Level 1 [Date]', 'Stressed Humanitarian Conditions - Level 2 [Helper 14]', 'Stressed Humanitarian Conditions - Level 2 [Figure]', 'Stressed Humanitarian Conditions - Level 2 [Source]', 'Stressed Humanitarian Conditions - Level 2 [Reliability]', 'Stressed Humanitarian Conditions - Level 2 [Reliability Score]', 'Stressed Humanitarian Conditions - Level 2 [Justification]', 'Stressed Humanitarian Conditions - Level 2 [Link]', 'Stressed Humanitarian Conditions - Level 2 [Date]', 'Moderate Humanitarian Conditions - Level 3 [Helper 15]', 'Moderate Humanitarian Conditions - Level 3 [Figure]', 'Moderate Humanitarian Conditions - Level 3 [Source]', 'Moderate Humanitarian Conditions - Level 3 [Reliability]', 'Moderate Humanitarian Conditions - Level 3 [Reliability Score]', 'Moderate Humanitarian Conditions - Level 3 [Justification]', 'Moderate Humanitarian Conditions - Level 3 [Link]', 'Moderate Humanitarian Conditions - Level 3 [Date]', 'Severe Humanitarian Conditions - Level 4 [Helper 16]', 'Severe Humanitarian Conditions - Level 4 [Figure]', 'Severe Humanitarian Conditions - Level 4 [Source]', 'Severe Humanitarian Conditions - Level 4 [Reliability]', 'Severe Humanitarian Conditions - Level 4 [Reliability Score]', 'Severe Humanitarian Conditions - Level 4 [Justification]', 'Severe Humanitarian Conditions - Level 4 [Link]', 'Severe Humanitarian Conditions - Level 4 [Date]', 'Extreme Humanitarian Conditions - Level 5 [Helper 17]', 'Extreme Humanitarian Conditions - Level 5 [Figure]', 'Extreme Humanitarian Conditions - Level 5 [Source]', 'Extreme Humanitarian Conditions - Level 5 [Reliability]', 'Extreme Humanitarian Conditions - Level 5 [Reliability Score]', 'Extreme Humanitarian Conditions - Level 5 [Justification]', 'Extreme Humanitarian Conditions - Level 5 [Link]', 'Extreme Humanitarian Conditions - Level 5 [Date]', 'Fatalities In All Crises [Helper 18]', 'Fatalities In All Crises [Figure]', 'Fatalities In All Crises [Source]', 'Fatalities In All Crises [Reliability]', 'Fatalities In All Crises [Reliability Score]', 'Fatalities In All Crises [Justification]', 'Fatalities In All Crises [Link]', 'Fatalities In All Crises [Date]', 'Crisis Affected Groups [Helper 19]', 'Crisis Affected Groups [Figure]', 'Crisis Affected Groups [Source]', 'Crisis Affected Groups [Reliability]', 'Crisis Affected Groups [Reliability Score]', 'Crisis Affected Groups [Justification]', 'Crisis Affected Groups [Link]', 'Crisis Affected Groups [Date]', 'People Facing Limited Access Constraints [Helper 20]', 'People Facing Limited Access Constraints [Figure]', 'People Facing Limited Access Constraints [Source]', 'People Facing Limited Access Constraints [Reliability]', 'People Facing Limited Access Constraints [Reliability Score]', 'People Facing Limited Access Constraints [Justification]', 'People Facing Limited Access Constraints [Link]', 'People Facing Limited Access Constraints [Date]', 'People Facing Restricted Access Constraints [Helper 21]', 'People Facing Restricted Access Constraints [Figure]', 'People Facing Restricted Access Constraints [Source]', 'People Facing Restricted Access Constraints [Reliability]', 'People Facing Restricted Access Constraints [Reliability Score]', 'People Facing Restricted Access Constraints [Justification]', 'People Facing Restricted Access Constraints [Link]', 'People Facing Restricted Access Constraints [Date]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Helper 22]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Figure]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Source]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Reliability]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Reliability Score]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Justification]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Link]', 'Impediments To Entry Into Country (Bureaucratic And Administrative) [Date]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Helper 23]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Figure]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Source]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Reliability]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Reliability Score]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Justification]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Link]', 'Restriction Of Movement (Impediments To Freedom Of Movement And/Or Administrative Restrictions) [Date]', 'Interference Into Implementation Of Humanitarian Activities [Helper 24]', 'Interference Into Implementation Of Humanitarian Activities [Figure]', 'Interference Into Implementation Of Humanitarian Activities [Source]', 'Interference Into Implementation Of Humanitarian Activities [Reliability]', 'Interference Into Implementation Of Humanitarian Activities [Reliability Score]', 'Interference Into Implementation Of Humanitarian Activities [Justification]', 'Interference Into Implementation Of Humanitarian Activities [Link]', 'Interference Into Implementation Of Humanitarian Activities [Date]', 'Violence Against Personnel, Facilities And Assets [Helper 25]', 'Violence Against Personnel, Facilities And Assets [Figure]', 'Violence Against Personnel, Facilities And Assets [Source]', 'Violence Against Personnel, Facilities And Assets [Reliability]', 'Violence Against Personnel, Facilities And Assets [Reliability Score]', 'Violence Against Personnel, Facilities And Assets [Justification]', 'Violence Against Personnel, Facilities And Assets [Link]', 'Violence Against Personnel, Facilities And Assets [Date]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Helper 26]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Figure]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Source]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Reliability]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Reliability Score]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Justification]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Link]', 'Denial Of Existence Of Humanitarian Needs Or Entitlements To Assistance [Date]', 'Restriction And Obstruction Of Access To Services And Assistance [Helper 27]', 'Restriction And Obstruction Of Access To Services And Assistance [Figure]', 'Restriction And Obstruction Of Access To Services And Assistance [Source]', 'Restriction And Obstruction Of Access To Services And Assistance [Reliability]', 'Restriction And Obstruction Of Access To Services And Assistance [Reliability Score]', 'Restriction And Obstruction Of Access To Services And Assistance [Justification]', 'Restriction And Obstruction Of Access To Services And Assistance [Link]', 'Restriction And Obstruction Of Access To Services And Assistance [Date]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Helper 28]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Figure]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Source]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Reliability]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Reliability Score]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Justification]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Link]', 'Ongoing Insecurity/Hostilities Affecting Humanitarian Assistance [Date]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Helper 30]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Figure]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Source]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Reliability]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Reliability Score]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Comment]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Link]', 'Physical Constraints In The Environment (Obstacles Related To Terrain, Climate, Lack Of Infrastructure, Etc.) [Date]', 'Ethnic Fractionalisation Index [2017] [Index]', 'Empowerment Rights Index [2011] [Index]', 'Bti - Democracy Status [2020] [Index]', 'Gender Inequality Index [2018] [Index]', 'People Killed In All Crises [2020] [Number]', 'Rule Of Law (Wgi) [2019] [Index]', 'Rule Of Law (Bti) [2020] [Index]', 'Freedom In The World Index [2020] [Index]', 'Cpi [2019] [Index]', 'Total Population [2020] [Number]', 'Land Area (Sq. Km) [Nan] [Sq. Km]', 'Landmass Affected By Disaster [Sq. Km]', 'People Living In The Affected Area [Number]', 'Total # Of People Affected By The Crisis [Number]', 'Total # Of Crisis Related Displaced People [Number]', 'Total # Of Crisis Related Injuries [Number]', 'Total # Of Illness Cases Reported', 'Total # Of Crisis Related Fatalities [Number]', 'Building Partially Damaged [Number]', 'Building Totally Damaged [Number]', 'Econimic Losses [Million Usd]', '# Of People Affected Facing Minimal Humanitarian Needs (Level 1) [Number]', '# Of People Affected Facing Stressed Humanitarian Needs (Level 2) [Number]', '# Of People Affected Facing Moderate Humanitarian Conditions And Needs (Level 3) [Number]', '# Of People Affected Facing Severe Humanitarian Conditions And Needs (Level 4) [Number]', '# Of People Affected Facing Extreme Humanitarian Conditions And Needs (Level 5) [Number]', '# Of Groups Affected By Crisis [Number]', 'People In Need Facing Limited Access Constraints [Number]', 'People In Need Facing Restricted Access Constraints [Number]', 'Glidenumber', 'Severityglidenumber', 'Region', 'Crisis Description', 'Website Name', 'Starting Date', 'Duration (Days)', 'Data Reliability', 'Impact Of The Crisis', 'Area Affected', 'People In The Affected Area', 'Geographical', 'Crisis Related Fatalities', 'People Affected By Categories', 'Area Affected - Absolute', '% Of Total Area Affected', 'Area Affected - Relative', 'People Living In The Affected Area - Absolute', '% Of Total Population Living In The Affected Area', 'People Living In The Affected Area - Relative', 'People Affected - Absolute', '% Of People Affected On The Total Population Exposed', 'People Affected - Relative', 'People Displaced - Absolute', 'People Displaced - Relative', 'Fatalities - Absolute', '% Of Fatalities On The Total Population Affected', 'Fatalities (Relative)', 'Inform Severity Index', 'Inform Severity Category', 'Trend (Last 3 Months)', 'Reliability', 'Regions', 'Last Updated', 'Country Level', 'Indicator', 'Type Of Entry', 'People Killed In All Crises [Index]', 'date', 'datetime', 'year_month']
+@cli.command()
+@click.option('--country', prompt='Enter country name')
+def list_crises(country):
+    """List historical crises for a country"""
+    predictor = CrisisPredictorCLI('path_to_saved_model.pt')
+    crises = predictor.get_country_crises(country)
+    click.echo(f"\nHistorical crises in {country}:")
+    for i, crisis in enumerate(crises, 1):
+        click.echo(f"{i}. {crisis}")
 
-Missing values count:
-YYYY_MM                           0
-Crisis Id                         0
-Crisis                            0
-Country                           0
-Iso3                              0
-                                 ..
-Country_encoded_rolling_mean      0
-Iso3_encoded_rolling_mean         0
-Region_encoded_rolling_mean       0
-Crisis Id_encoded_rolling_mean    0
-Crisis_encoded_rolling_mean       0
-Length: 493, dtype: int64
+@cli.command()
+@click.option('--country', prompt='Enter country name')
+@click.option('--crisis', prompt='Enter crisis type')
+@click.option('--date', default=None, help='Prediction start date (YYYY-MM-DD)')
+def predict(country, crisis, date):
+    """Predict crisis severity for next 3 months"""
+    predictor = CrisisPredictorCLI('path_to_saved_model.pt')
+    predictions = predictor.predict_crisis_severity(country, crisis, date)
+
+    click.echo("\nCrisis Severity Predictions:")
+    click.echo("-" * 50)
+    for month, severity in predictions.items():
+        click.echo(f"{month}: Severity Level {severity['index']:.2f}")
+        click.echo(f"Confidence: {severity['confidence']:.2%}")
+        click.echo(f"Risk Level: {severity['risk_level']}")
+        click.echo("-" * 30)
+
+if __name__ == '__main__':
+    cli()
+
+
+As you modify the code where necessary, I saw that you provided an example usage of the cli.
+I would like you to implement the remaining methods (_prepare_sequence and _format_prediction)
+Add more suggested functionality for the application
+- So far I can see that we are able to list a country based on this example: python crisis_predictor_cli.py list-crises --country "Afghanistan"
+- We can be able to make a prediction of a ceratin crisis after we enter country and crisis based on this example: python crisis_predictor_cli.py predict --country "Afghanistan" --crisis "Complex crisis"
+- Can we be able to pull a command where based on 3 months future prediction we get a list of crisis that might occur, their severity level and country associated with that particular crisis.
+- To give you more context, I would like to get weighted flags on any region or country, indicating the severity level of crisis in that region, that way, analysts in the ACAPS company can go in that region examine crisis, update the company so that it can be able to prepare 3 months in advance and make empowered humanitarian decisions to be able to offer humanitarian aid.
+- I would like command line application to also have the ability to enable a person to maybe key in a country, and then they can be able to see a list of crisis that normally happen in that country, then select, or in this case, write down a specific crisis in that country or region and view the probability of that crisis occuring on the next 3 months from that specific datetime when they were interacting with the application.

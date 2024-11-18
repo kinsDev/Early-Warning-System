@@ -1,0 +1,30 @@
+I would like you to create a README.md information, that has details on - create in a Readme.md file style e.g for titles use # name of title or section, ...etc:
+1. Indicate how to run the project. Let me give you a hint:
+ - Clone the project from the repository using the following command:...
+ - Ensure you have all the necessary scripts in the "scripts" folder, they have classes and functions that are used in the Notebook.
+ - Run the Jupyter Notebook called "lstm_crisis_prediction.ipynb", it has the model trained to make 3 months future crisis predictions.
+ - Ensure you have all the necessary libraries installed. All that info is on the Notebook for easier usage.
+
+2. Go through each of the scripts and state:
+ - What they are used for in the project.
+ - What classes and functions they have that are used in the notebook
+
+As you create the README.md file, ensure you have the following:
+ - A title that is bolded and centered.
+ - A table of contents that has links to the different sections of the README.md file.
+ - A section that has a brief description of the project (model information).
+ - A section that has the installation instructions.
+ - A section that has the usage instructions.
+ - A section that has the license information.
+ - A section that has the author information.
+ - A section that has the acknowledgements.
+
+Kindly be referencing file paths:
+ - Example, this is the path that contains the scripts: ACAPS/src/task-3-modelling/scripts/
+ - The path containing the dataset that I used for model development: ACAPS/src/task-3-modelling/scripts/Combined_Dataset_Experimentation/combined_data.csv
+ - Notebook accessed from: ACAPS/src/task-3-modelling/notebooks/lstm_crisis_prediction_model.ipynb
+ - Results are stored here: ACAPS/src/task-3-modelling/results/
+ - Trained, evaluated and saved model is stored here: ACAPS/src/task-3-modelling/models/
+
+I don't know where you will put this information, but make it super clear that people should save their models, and results, beginning with an initial of their names,
+so that we can easily know whose model or results we are looking at.
