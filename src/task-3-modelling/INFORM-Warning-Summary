@@ -1,0 +1,49 @@
+1. About INFORM
+INFORM is a global, collaborative platform that provides quantitative analysis to support decision-making in humanitarian crises. It includes organizations like UNDP and the European Commission and focuses on risk reduction, crisis prevention, and response.
+
+2. INFORM Products
+INFORM offers three key products:
+
+INFORM Risk: Assesses structural crisis risks.
+INFORM Severity: Measures crisis severity during emergencies.
+INFORM Warning: Provides early warning by tracking emerging risks over short-to-medium-term periods (1-12 months).
+3. Why We Need INFORM Warning
+Humanitarian decision-making requires timely and reliable early warnings. INFORM Warning aims to bridge gaps in existing systems by providing multi-hazard, real-time risk monitoring to forecast crises caused by seasonal, cyclical, and dynamic factors like droughts, conflicts, or economic shocks.
+
+4. Objectives and Scope of INFORM Warning
+INFORM Warning aggregates data from multiple sources to anticipate crises up to 12 months ahead. It focuses on high-risk countries and provides transparent, quantified insights for preparedness and anticipatory action.
+
+5. INFORM Warning Concept
+INFORM Warning aggregates data from early warning models and trusted sources to present risk forecasts. It does not replace existing models but complements them by offering curated, high-quality data inputs for decision-making. Outputs include warning levels and alerts to guide early interventions.
+
+6. The INFORM Warning System
+Risk Monitor:
+The Risk Monitor integrates dynamic indicators updated regularly to track evolving risks. Key components include:
+
+Crisis Severity and Vulnerability: Monitors socio-economic impacts like food insecurity and health.
+
+Infrastructure Capacity: Assesses infrastructure resilience under crisis conditions.
+
+Natural Hazards: Tracks droughts, storms, and seasonal variations.
+
+Conflict and Human Factors: Monitors conflict-driven risks and population displacement.
+
+Inputs: Real-time updates, seasonal forecasts, and outputs from early warning models.
+
+Outputs: Downloadable datasets and APIs for accessing organized risk indicators.
+
+Analysis:
+The analysis aggregates inputs from the Risk Monitor to produce actionable insights.
+
+Warning Levels: Countries are assigned general warning levels (Low, Medium, High, Very High) based on aggregated risk indicators.
+Alerts: Specific alerts provide details such as location, timing (e.g., 3-6 months), crisis drivers (e.g., drought, conflict), and potential impacts (e.g., food insecurity, displacement).
+Dynamic Risk Indicators Summary
+INFORM Warning integrates dynamic risk indicators to monitor how crises evolve. These indicators include:
+
+Crisis Severity: Tracks conditions such as food insecurity, displacement, and deaths.
+Vulnerability and Socio-Economic Factors: Measures vulnerability levels of affected populations.
+Natural Hazards: Monitors environmental risks, including droughts and storms.
+Conflict and Displacement: Evaluates conflict trends and population movements.
+Infrastructure Resilience: Assesses the capacity of infrastructure to withstand crises.
+
+These insights are crucial for defining features, targets, and integrating dynamic, multi-source data into your model for crisis prediction. Let me know if you'd like further elaboration on any section!
