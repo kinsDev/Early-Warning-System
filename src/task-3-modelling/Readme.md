@@ -3,10 +3,10 @@ LSTM-based Crisis Severity Prediction Model
 
 Please Note
 -------------------
-The latest model's Jupyter Notebook is this one here ```task-3-modelling/notebooks/lstm_crisis_prediction_model.ipynb```
-On the models folder, this is the most preferred model path: ```lstm_crisis_severity_predictor_20241116_092126.pt```
-You can simply find the scripts that power or suppport the Jupyter Notebook specified above on the scripts folder ```src/task-3-modelling/scripts```
-The command line apps directory on this part here:```src/task-3-modelling/Command-Line-Apps``` is still under development!
+1. The latest model's Jupyter Notebook is this one here ```task-3-modelling/notebooks/lstm_crisis_prediction_model.ipynb```
+2. On the models folder, this is the most preferred model path: ```lstm_crisis_severity_predictor_20241116_092126.pt```
+3. You can simply find the scripts that power or suppport the Jupyter Notebook specified above on the scripts folder ```src/task-3-modelling/scripts```
+4. The command line apps directory on this part here:```src/task-3-modelling/Command-Line-Apps``` is still under development!
 
 Table of Contents
 -----------------
